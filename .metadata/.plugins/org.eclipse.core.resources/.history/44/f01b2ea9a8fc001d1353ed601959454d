@@ -1,0 +1,36 @@
+package recursos;
+//TODO metodos dos funcionarios
+
+public class Funcionario {
+	protected String nomeFun;
+	protected String senhaFun;
+	protected String hierarquiaFun;
+	protected int idFun;
+	public String getNomeFun() {
+		return nomeFun;
+	}
+	public void setNomeFun(String nomeFun) {
+		this.nomeFun = nomeFun;
+	}
+	public String getSenhaFun() {
+		return senhaFun;
+	}
+	public void setSenhaFun(String senhaFun) {
+		this.senhaFun = senhaFun;
+	}
+	public String getHierarquiaFun() {
+		return hierarquiaFun;
+	}
+	public void setHierarquiaFun(String hierarquiaFun) {
+		this.hierarquiaFun = hierarquiaFun;
+	}
+	public int getIdFun() {
+		return idFun;
+	}
+	public void setIdFun(int idFun) {
+		this.idFun = idFun;
+	}
+	
+	
+	
+}

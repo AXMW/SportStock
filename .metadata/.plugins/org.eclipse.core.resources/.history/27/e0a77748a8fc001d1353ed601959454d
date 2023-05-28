@@ -1,0 +1,34 @@
+package recursos;
+
+public class Fornecedor {
+	protected String nomeFornec;
+	protected int telefoneFornec;
+	protected String emailFornec;
+	protected boolean confimacaoDeTroca;
+	
+	public String getNomeFornec() {
+		return nomeFornec;
+	}
+	public void setNomeFornec(String nomeFornec) {
+		this.nomeFornec = nomeFornec;
+	}
+	public int getTelefoneFornec() {
+		return telefoneFornec;
+	}
+	public void setTelefoneFornec(int telefoneFornec) {
+		this.telefoneFornec = telefoneFornec;
+	}
+	public String getEmailFornec() {
+		return emailFornec;
+	}
+	public void setEmailFornec(String emailFornec) {
+		this.emailFornec = emailFornec;
+	}
+	public boolean isConfimacaoDeTroca() {
+		return confimacaoDeTroca;
+	}
+	public void setConfimacaoDeTroca(boolean confimacaoDeTroca) {
+		this.confimacaoDeTroca = confimacaoDeTroca;
+	}
+
+}

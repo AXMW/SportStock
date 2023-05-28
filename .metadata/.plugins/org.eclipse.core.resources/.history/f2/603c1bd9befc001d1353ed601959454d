@@ -1,0 +1,7 @@
+package main;
+import main.Main;
+public class Teste {
+	public static void main(String[] args) {
+		new Main.Executa();
+	}
+}
