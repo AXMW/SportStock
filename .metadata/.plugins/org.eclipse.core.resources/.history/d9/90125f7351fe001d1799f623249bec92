@@ -223,7 +223,7 @@ public class Main {
 				vendas.add(v1);
 			}
 		}
-		catch (Exception Excecao) {
+		catch (Exception Execao) {
 			JOptionPane.showMessageDialog(null, "SQLException: " + Excecao.getMessage(),"Erro: Selecao de registro", JOptionPane.INFORMATION_MESSAGE);
 		}
 	}

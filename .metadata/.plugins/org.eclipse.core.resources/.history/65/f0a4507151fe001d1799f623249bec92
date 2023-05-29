@@ -30,15 +30,22 @@ public class Main {
 	private static ArrayList<Produto> produtos = new ArrayList<Produto>();
 	private static ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
 	private static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+<<<<<<< Updated upstream
 	private static ArrayList<Venda> vendas = new ArrayList<Venda>();
+=======
 	private static ArrayList<Fornecedor> fornecedores = new ArrayList<Fornecedor>();
+>>>>>>> Stashed changes
 	
 	//Metodo para fazer a conexao com o SQL
 	private void conecta() {
 		try {
 			Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
 			
+<<<<<<< Updated upstream
 			String filename = "F://SportStock/SportStockBD.accdb";
+=======
+			String filename = "C:/Users/Mikhael/Desktop/FATEC/Html/SportStock/SportStockBD.accdb";
+>>>>>>> Stashed changes
 			File arquivo = new File(filename);
 			if(!arquivo.exists()) {
 				JOptionPane.showMessageDialog(null, "Arquivo não existe");
@@ -209,7 +216,7 @@ public class Main {
 		}
 	}
 	
-
+<<<<<<< Updated upstream
 	//Metodo pra ler Vendas
 	private void consultaVenda() {
 		try {
@@ -221,13 +228,7 @@ public class Main {
 				v1.setDataVenda(rsRegistro.getString("dataVenda"));
 				v1.setDescricaoVenda(rsRegistro.getString("descricaoVenda"));
 				vendas.add(v1);
-			}
-		}
-		catch (Exception Excecao) {
-			JOptionPane.showMessageDialog(null, "SQLException: " + Excecao.getMessage(),"Erro: Selecao de registro", JOptionPane.INFORMATION_MESSAGE);
-		}
-	}
-
+=======
 	//Metodo para ler fornecedor
 	private void consultaFornec() {
 		try {
@@ -238,13 +239,14 @@ public class Main {
 				f1.setTelefoneFornec(rsRegistro.getInt("telefoneFornec"));
 				f1.setEmailFornec(rsRegistro.getString("emailFornec"));
 				fornecedores.add(f1);
+>>>>>>> Stashed changes
 			}
 		}
 		catch (Exception Excecao) {
 			JOptionPane.showMessageDialog(null, "SQLException: " + Excecao.getMessage(),"Erro: Selecao de registro", JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
-
+<<<<<<< Updated upstream
 	
 	//Metodo pra fazer uma nova venda
 	private void criarVenda() {
@@ -295,7 +297,12 @@ public class Main {
 			JOptionPane.showMessageDialog(null, Excecao);
 		}
 	}
+	
+	//Metodo pra adicionar novos produtos
+=======
+
 	//Metodo para adicionar novos produtos
+>>>>>>> Stashed changes
 	private void adicionarProd() {
 		
 		Produto p2 = new Produto();
