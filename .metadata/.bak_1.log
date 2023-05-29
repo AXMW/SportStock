@@ -1,4 +1,4 @@
-!SESSION 2023-05-28 12:42:10.176 -----------------------------------------------
+!SESSION 2023-05-29 15:18:19.015 -----------------------------------------------
 eclipse.buildId=4.27.0.20230309-1200
 java.version=18.0.2.1
 java.vendor=Oracle Corporation
@@ -6,16 +6,16 @@ BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
 Framework arguments:  -product org.eclipse.epp.package.java.product
 Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
 
-This is a continuation of log file F:\Eclipse_Workspace\.metadata\.bak_0.log
-Created Time: 2023-05-28 12:42:24.027
+This is a continuation of log file F:\SportStock\.metadata\.bak_0.log
+Created Time: 2023-05-29 15:18:44.122
 
-!ENTRY ch.qos.logback.classic 1 0 2023-05-28 12:42:24.028
-!MESSAGE Logback config file: F:\Eclipse_Workspace\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.1.100.20230106-1511.xml
+!ENTRY ch.qos.logback.classic 1 0 2023-05-29 15:18:44.122
+!MESSAGE Logback config file: F:\SportStock\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.1.100.20230106-1511.xml
 
-!ENTRY com.genuitec.eclipse.code.ui 1 0 2023-05-28 12:42:31.037
+!ENTRY com.genuitec.eclipse.code.ui 1 0 2023-05-29 15:18:48.630
 !MESSAGE CodeMix Engine will be started momentarily to support development activities
 
-!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-28 12:42:31.135
+!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-29 15:18:48.687
 !MESSAGE mapIDtoEditor
 !STACK 0
 java.lang.NoSuchFieldException: mapIDtoEditor
@@ -164,7 +164,7 @@ java.lang.NoSuchFieldException: mapIDtoEditor
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-28 12:42:31.194
+!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-29 15:18:48.737
 !MESSAGE Unable to register language [css]
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.newInstance(Object[])" because "this._editorDescriptorConstructor" is null
@@ -308,7 +308,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.new
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.197
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.739
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -451,7 +451,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-28 12:42:31.198
+!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-29 15:18:48.739
 !MESSAGE Unable to register language [javascriptreact]
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.newInstance(Object[])" because "this._editorDescriptorConstructor" is null
@@ -595,7 +595,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.new
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.199
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.740
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -738,7 +738,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.200
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.741
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -881,7 +881,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-28 12:42:31.201
+!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-29 15:18:48.742
 !MESSAGE Unable to register language [csharp]
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.newInstance(Object[])" because "this._editorDescriptorConstructor" is null
@@ -1025,7 +1025,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.new
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.202
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.743
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -1168,7 +1168,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-28 12:42:31.203
+!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-29 15:18:48.744
 !MESSAGE Unable to register language [bat]
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.newInstance(Object[])" because "this._editorDescriptorConstructor" is null
@@ -1312,7 +1312,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.new
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.204
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.745
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -1455,7 +1455,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.206
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.746
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -1598,7 +1598,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.206
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.746
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -1741,7 +1741,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-28 12:42:31.207
+!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-29 15:18:48.747
 !MESSAGE Unable to register language [powershell]
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.newInstance(Object[])" because "this._editorDescriptorConstructor" is null
@@ -1885,7 +1885,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.new
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.209
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.748
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -2028,7 +2028,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-28 12:42:31.210
+!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-29 15:18:48.749
 !MESSAGE Unable to register language [html]
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.newInstance(Object[])" because "this._editorDescriptorConstructor" is null
@@ -2172,7 +2172,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.new
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.210
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.750
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -2315,7 +2315,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-28 12:42:31.211
+!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-29 15:18:48.751
 !MESSAGE Unable to register language [swift]
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.newInstance(Object[])" because "this._editorDescriptorConstructor" is null
@@ -2459,7 +2459,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.new
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.212
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.751
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -2602,7 +2602,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.213
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.752
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -2745,7 +2745,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-28 12:42:31.213
+!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-29 15:18:48.753
 !MESSAGE Unable to register language [cpp]
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.newInstance(Object[])" because "this._editorDescriptorConstructor" is null
@@ -2889,7 +2889,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.new
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.214
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.754
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -3032,7 +3032,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.227
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.754
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -3175,7 +3175,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.228
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.755
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -3318,7 +3318,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.230
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.756
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -3461,7 +3461,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-28 12:42:31.231
+!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-29 15:18:48.756
 !MESSAGE Unable to register language [vb]
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.newInstance(Object[])" because "this._editorDescriptorConstructor" is null
@@ -3605,7 +3605,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.new
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.233
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.757
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -3748,7 +3748,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-28 12:42:31.234
+!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-29 15:18:48.758
 !MESSAGE Unable to register language [javascript]
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.newInstance(Object[])" because "this._editorDescriptorConstructor" is null
@@ -3892,7 +3892,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.new
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.235
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.758
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -4035,7 +4035,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.237
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.759
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -4178,7 +4178,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.239
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.760
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -4321,7 +4321,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.240
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.760
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -4464,7 +4464,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.241
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.761
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -4607,7 +4607,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.243
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.762
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -4750,7 +4750,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.244
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.763
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -4893,7 +4893,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.247
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.764
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -5036,7 +5036,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.248
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.764
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -5179,7 +5179,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-28 12:42:31.250
+!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-29 15:18:48.765
 !MESSAGE Unable to register language [fsharp]
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.newInstance(Object[])" because "this._editorDescriptorConstructor" is null
@@ -5323,7 +5323,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.new
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.252
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.767
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -5466,7 +5466,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.254
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.767
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -5609,7 +5609,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-28 12:42:31.256
+!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-29 15:18:48.768
 !MESSAGE Unable to register language [typescriptreact]
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.newInstance(Object[])" because "this._editorDescriptorConstructor" is null
@@ -5753,7 +5753,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.new
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.258
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.769
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -5896,7 +5896,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.260
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.770
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -6039,7 +6039,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-28 12:42:31.262
+!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-29 15:18:48.771
 !MESSAGE Unable to register language [typescript]
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.newInstance(Object[])" because "this._editorDescriptorConstructor" is null
@@ -6183,7 +6183,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.new
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.263
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.772
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -6326,7 +6326,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-28 12:42:31.265
+!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-29 15:18:48.773
 !MESSAGE Unable to register language [coffeescript]
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.newInstance(Object[])" because "this._editorDescriptorConstructor" is null
@@ -6470,7 +6470,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.new
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.266
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.774
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -6613,7 +6613,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-28 12:42:31.268
+!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-29 15:18:48.775
 !MESSAGE Unable to register language [c]
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.newInstance(Object[])" because "this._editorDescriptorConstructor" is null
@@ -6757,7 +6757,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.new
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.269
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.776
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -6900,7 +6900,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.271
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.777
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -7043,7 +7043,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.273
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.778
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -7186,7 +7186,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.274
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.779
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -7329,7 +7329,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.276
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.780
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -7472,7 +7472,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.278
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.780
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -7615,7 +7615,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.279
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.781
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -7758,7 +7758,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.280
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.783
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -7901,7 +7901,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.282
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.784
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -8044,7 +8044,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.284
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.784
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -8187,7 +8187,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.286
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.786
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -8330,7 +8330,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-28 12:42:31.287
+!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-29 15:18:48.787
 !MESSAGE Unable to register language [php]
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.newInstance(Object[])" because "this._editorDescriptorConstructor" is null
@@ -8474,7 +8474,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.new
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.288
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.788
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -8617,7 +8617,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:42:31.290
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:18:48.789
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -8760,7 +8760,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-28 12:42:31.299
+!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-29 15:18:48.790
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._editorReferenceActionCache" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._editorReferenceActionCache" is null
@@ -8903,74 +8903,74 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
 
-!ENTRY com.perforce.team.core 2 0 2023-05-28 12:42:34.228
-!MESSAGE unable to get manifest version attribute: Not running from jar file: bundleresource://500.fwk930212993:4/com/perforce/p4java/Metadata.class
+!ENTRY com.perforce.team.core 2 0 2023-05-29 15:18:51.365
+!MESSAGE unable to get manifest version attribute: Not running from jar file: bundleresource://500.fwk724024883:4/com/perforce/p4java/Metadata.class
 
-!ENTRY com.perforce.team.core 2 0 2023-05-28 12:42:34.229
-!MESSAGE unable to get manifest date attribute: Not running from jar file: bundleresource://500.fwk930212993:4/com/perforce/p4java/Metadata.class
+!ENTRY com.perforce.team.core 2 0 2023-05-29 15:18:51.365
+!MESSAGE unable to get manifest date attribute: Not running from jar file: bundleresource://500.fwk724024883:4/com/perforce/p4java/Metadata.class
 
-!ENTRY com.perforce.team.core 1 0 2023-05-28 12:42:34.230
+!ENTRY com.perforce.team.core 1 0 2023-05-29 15:18:51.366
 !MESSAGE P4Java server factory loaded; version: Internal 2010.1 Perforce Development; date: unknown
 
-!ENTRY com.perforce.team.core 1 0 2023-05-28 12:42:34.231
+!ENTRY com.perforce.team.core 1 0 2023-05-29 15:18:51.366
 !MESSAGE Using default charset: UTF-8; JVM charset: UTF-8
 
-!ENTRY com.perforce.team.core 1 0 2023-05-28 12:42:34.241
+!ENTRY com.perforce.team.core 1 0 2023-05-29 15:18:51.374
 !MESSAGE Using default RPC system file command helper: com.perforce.p4java.impl.mapbased.rpc.sys.helper.WindowsRpcSystemFileCommandsHelper
 
-!ENTRY com.perforce.team.core 1 0 2023-05-28 12:42:34.252
+!ENTRY com.perforce.team.core 1 0 2023-05-29 15:18:51.382
 !MESSAGE setting RPC system file helper to class com.perforce.p4java.impl.mapbased.rpc.sys.helper.WindowsRpcSystemFileCommandsHelper
 
-!ENTRY org.eclipse.egit.ui 2 0 2023-05-28 12:42:38.214
+!ENTRY org.eclipse.egit.ui 2 0 2023-05-29 15:18:54.832
 !MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
 user global configuration and to define the default location to store repositories: 'C:\Users\Max'. If this is
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
 
-!ENTRY org.eclipse.ui 2 2 2023-05-28 12:42:38.465
+!ENTRY org.eclipse.ui 2 2 2023-05-29 15:18:55.099
 !MESSAGE Invalid preference category path: org.eclipse.papyrus.infra.core.sasheditor.preferences.generalcategory (bundle: org.eclipse.papyrus.infra.core.sasheditor, page: org.eclipse.papyrus.sasheditor.preferences.tabtooltip)
 
-!ENTRY org.eclipse.ui 2 2 2023-05-28 12:42:38.466
+!ENTRY org.eclipse.ui 2 2 2023-05-29 15:18:55.100
 !MESSAGE Invalid preference category path: org.eclipse.papyrus.infra.core.sasheditor.preferences.generalcategory (bundle: org.eclipse.papyrus.infra.ui, page: org.eclipse.papyrus.infra.core.editorPrefs)
 
-!ENTRY org.eclipse.ui 2 2 2023-05-28 12:42:38.467
+!ENTRY org.eclipse.ui 2 2 2023-05-29 15:18:55.101
 !MESSAGE Invalid preference category path: org.eclipse.papyrus.infra.core.sasheditor.preferences.generalcategory (bundle: org.eclipse.papyrus.infra.ui, page: org.eclipse.papyrus.infra.ui.RichtextPreferencePage)
 
-!ENTRY org.eclipse.ui 2 2 2023-05-28 12:42:38.467
+!ENTRY org.eclipse.ui 2 2 2023-05-29 15:18:55.101
 !MESSAGE Invalid preference category path: org.eclipse.papyrus.infra.core.sasheditor.preferences.generalcategory (bundle: org.eclipse.papyrus.uml.tools.utils, page: org.eclipse.papyrus.uml.tools.utils.NamedElementNamingStrategyPreferencePage)
 
-!ENTRY org.eclipse.ui 2 2 2023-05-28 12:42:38.468
+!ENTRY org.eclipse.ui 2 2 2023-05-29 15:18:55.102
 !MESSAGE Invalid preference category path: org.eclipse.papyrus.infra.core.sasheditor.preferences.generalcategory (bundle: org.eclipse.papyrus.infra.services.validation, page: org.eclipse.papyrus.infra.services.validation.preferences)
 
-!ENTRY org.eclipse.ui 2 2 2023-05-28 12:42:38.468
+!ENTRY org.eclipse.ui 2 2 2023-05-29 15:18:55.102
 !MESSAGE Invalid preference category path: org.eclipse.papyrus.infra.core.sasheditor.preferences.generalcategory (bundle: org.eclipse.papyrus.infra.editor.welcome, page: org.eclipse.papyrus.infra.editor.welcome.content)
 
-!ENTRY org.eclipse.ui 2 2 2023-05-28 12:42:38.469
+!ENTRY org.eclipse.ui 2 2 2023-05-29 15:18:55.103
 !MESSAGE Invalid preference category path: org.eclipse.papyrus.infra.core.sasheditor.preferences.generalcategory (bundle: org.eclipse.papyrus.infra.hyperlink, page: org.eclipse.papyrus.infra.hyperlink.preferences)
 
-!ENTRY org.eclipse.ui 2 2 2023-05-28 12:42:38.469
+!ENTRY org.eclipse.ui 2 2 2023-05-29 15:18:55.103
 !MESSAGE Invalid preference category path: org.eclipse.papyrus.infra.core.sasheditor.preferences.generalcategory (bundle: org.eclipse.papyrus.infra.newchild.ui, page: org.eclipse.papyrus.infra.newchild.preferences)
 
-!ENTRY org.eclipse.ui 2 2 2023-05-28 12:42:38.470
+!ENTRY org.eclipse.ui 2 2 2023-05-29 15:18:55.104
 !MESSAGE Invalid preference category path: org.eclipse.papyrus.infra.core.sasheditor.preferences.generalcategory (bundle: org.eclipse.papyrus.infra.services.navigation, page: org.eclipse.papyrus.infra.services.navigation.preferences)
 
-!ENTRY org.eclipse.ui 2 2 2023-05-28 12:42:38.471
+!ENTRY org.eclipse.ui 2 2 2023-05-29 15:18:55.104
 !MESSAGE Invalid preference category path: org.eclipse.papyrus.infra.core.sasheditor.preferences.generalcategory (bundle: org.eclipse.papyrus.infra.services.resourceloading.ui, page: org.eclipse.papyrus.infra.services.resourceloading.ui.ModelLoadingPreferencePage)
 
-!ENTRY org.eclipse.ui 2 2 2023-05-28 12:42:38.472
+!ENTRY org.eclipse.ui 2 2 2023-05-29 15:18:55.105
 !MESSAGE Invalid preference category path: org.eclipse.papyrus.infra.core.sasheditor.preferences.generalcategory (bundle: org.eclipse.papyrus.views.properties, page: org.eclipse.papyrus.views.properties.propertyview)
 
-!ENTRY org.eclipse.ui 2 2 2023-05-28 12:42:38.472
+!ENTRY org.eclipse.ui 2 2 2023-05-29 15:18:55.105
 !MESSAGE Invalid preference category path: org.eclipse.papyrus.infra.core.sasheditor.preferences.generalcategory (bundle: org.eclipse.papyrus.infra.gmfdiag.extensionpoints.editors, page: org.eclipse.papyrus.embeddededitors)
 
-!ENTRY org.eclipse.ui 2 2 2023-05-28 12:42:38.473
+!ENTRY org.eclipse.ui 2 2 2023-05-29 15:18:55.106
 !MESSAGE Invalid preference category path: org.eclipse.papyrus.infra.core.sasheditor.preferences.generalcategory (bundle: org.eclipse.papyrus.infra.nattable, page: org.eclipse.papyrus.infra.nattable.preferences.nattable)
 
-!ENTRY org.eclipse.ui 2 2 2023-05-28 12:42:38.473
+!ENTRY org.eclipse.ui 2 2 2023-05-29 15:18:55.106
 !MESSAGE Invalid preference category path: org.eclipse.papyrus.infra.core.sasheditor.preferences.generalcategory (bundle: org.eclipse.papyrus.uml.tools, page: org.eclipse.papyrus.uml.tools.profileApplicationDelegate)
 
-!ENTRY com.genuitec.eclipse.code.livechat.core 4 0 2023-05-28 12:42:40.130
+!ENTRY com.genuitec.eclipse.code.livechat.core 4 0 2023-05-29 15:18:56.977
 !MESSAGE Received status code [404] trying to synchronize thread
 !STACK 0
 java.io.IOException: Received status code [404] trying to synchronize thread
@@ -8981,22 +8981,100 @@ java.io.IOException: Received status code [404] trying to synchronize thread
 	at com.genuitec.eclipse.code.ui.welcome.CodeWelcomeStartup$8.run(CodeWelcomeStartup.java:677)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
 
-!ENTRY com.genuitec.eclipse.code.core 1 0 2023-05-28 12:42:55.194
+!ENTRY com.genuitec.eclipse.code.core 1 0 2023-05-29 15:19:11.502
 !MESSAGE Verifying CodeMix Engine runtime integrity...
 
-!ENTRY com.genuitec.eclipse.code.core 1 0 2023-05-28 12:42:55.198
+!ENTRY com.genuitec.eclipse.code.core 1 0 2023-05-29 15:19:11.507
 !MESSAGE IntegrityCheck: Artifacts located at: [C:\Users\Max\.p2\pool\artifacts.xml]
 
-!ENTRY com.genuitec.eclipse.code.core 1 0 2023-05-28 12:42:55.280
+!ENTRY com.genuitec.eclipse.code.core 1 0 2023-05-29 15:19:11.589
 !MESSAGE Integrity check PASSED
 
-!ENTRY com.genuitec.eclipse.code.core 1 0 2023-05-28 12:42:57.582
+!ENTRY com.genuitec.eclipse.code.core 1 0 2023-05-29 15:19:12.169
 !MESSAGE CodeMix Engine engine has been started
 
-!ENTRY org.eclipse.ui 2 2 2023-05-28 12:43:04.252
+!ENTRY org.eclipse.ui 2 2 2023-05-29 15:19:18.174
 !MESSAGE Invalid property category path: org.eclipse.papyrus.infra.gmfdiag.preferences.properties.generalcategory (bundle: org.eclipse.papyrus.infra.services.resourceloading.ui, propertyPage: org.eclipse.papyrus.infra.services.resourceloading.properties.ModelLoadingPreferencePage2)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.294
+!ENTRY org.eclipse.ui.ide 4 4 2023-05-29 15:19:18.204
+!MESSAGE Not properly disposed SWT resource
+!STACK 0
+java.lang.Error: SWT Resource was not properly disposed
+	at org.eclipse.swt.graphics.Resource.initNonDisposeTracking(Resource.java:172)
+	at org.eclipse.swt.graphics.Resource.<init>(Resource.java:120)
+	at org.eclipse.swt.graphics.Image.<init>(Image.java:713)
+	at com.genuitec.eclipse.code.webicons.IconImageDescriptor.createImage(IconImageDescriptor.java:34)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:290)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:268)
+	at com.genuitec.eclipse.code.ui.notice.CodeMixNoticeStatusBarControl$CodeMixNoticeControl.refresh(CodeMixNoticeStatusBarControl.java:107)
+	at com.genuitec.eclipse.code.ui.notice.NoticeService$1.runInUIThread(NoticeService.java:69)
+	at org.eclipse.ui.progress.UIJob.lambda$0(UIJob.java:148)
+	at org.eclipse.swt.widgets.RunnableLock._run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:50)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4029)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3645)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:643)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:550)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:171)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
+
+!ENTRY org.eclipse.ui.ide 4 4 2023-05-29 15:19:18.215
+!MESSAGE Not properly disposed SWT resource
+!STACK 0
+java.lang.Error: SWT Resource was not properly disposed
+	at org.eclipse.swt.graphics.Resource.initNonDisposeTracking(Resource.java:172)
+	at org.eclipse.swt.graphics.Resource.<init>(Resource.java:120)
+	at org.eclipse.swt.graphics.Image.<init>(Image.java:713)
+	at com.genuitec.eclipse.code.webicons.IconImageDescriptor.createImage(IconImageDescriptor.java:34)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:290)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:268)
+	at com.genuitec.eclipse.code.ui.notice.CodeMixNoticeStatusBarControl$CodeMixNoticeControl.refresh(CodeMixNoticeStatusBarControl.java:107)
+	at com.genuitec.eclipse.code.ui.notice.NoticeService$1.runInUIThread(NoticeService.java:69)
+	at org.eclipse.ui.progress.UIJob.lambda$0(UIJob.java:148)
+	at org.eclipse.swt.widgets.RunnableLock._run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:50)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4029)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3645)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:643)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:550)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:171)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
+
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.217
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -9040,7 +9118,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.294
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.220
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -9084,7 +9162,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.295
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.221
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -9128,7 +9206,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.296
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.223
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -9172,7 +9250,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-28 12:43:04.296
+!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-29 15:19:18.225
 !MESSAGE Unable to register language [bat]
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.newInstance(Object[])" because "this._editorDescriptorConstructor" is null
@@ -9217,7 +9295,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.new
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.297
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.226
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -9261,7 +9339,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.298
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.227
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -9305,7 +9383,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-28 12:43:04.298
+!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-29 15:19:18.229
 !MESSAGE Unable to register language [coffeescript]
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.newInstance(Object[])" because "this._editorDescriptorConstructor" is null
@@ -9350,7 +9428,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.new
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.299
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.230
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -9394,7 +9472,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.300
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.232
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -9438,7 +9516,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-28 12:43:04.300
+!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-29 15:19:18.232
 !MESSAGE Unable to register language [c]
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.newInstance(Object[])" because "this._editorDescriptorConstructor" is null
@@ -9483,7 +9561,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.new
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.301
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.233
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -9527,7 +9605,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-28 12:43:04.301
+!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-29 15:19:18.234
 !MESSAGE Unable to register language [cpp]
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.newInstance(Object[])" because "this._editorDescriptorConstructor" is null
@@ -9572,7 +9650,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.new
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.302
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.236
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -9616,7 +9694,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-28 12:43:04.303
+!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-29 15:19:18.237
 !MESSAGE Unable to register language [csharp]
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.newInstance(Object[])" because "this._editorDescriptorConstructor" is null
@@ -9661,7 +9739,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.new
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-28 12:43:04.303
+!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-29 15:19:18.239
 !MESSAGE Unable to register language [css]
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.newInstance(Object[])" because "this._editorDescriptorConstructor" is null
@@ -9706,7 +9784,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.new
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.304
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.240
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -9750,7 +9828,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-28 12:43:04.304
+!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-29 15:19:18.241
 !MESSAGE Unable to register language [fsharp]
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.newInstance(Object[])" because "this._editorDescriptorConstructor" is null
@@ -9795,7 +9873,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.new
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.305
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.242
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -9839,7 +9917,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.306
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.243
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -9883,7 +9961,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.307
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.244
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -9927,7 +10005,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-28 12:43:04.307
+!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-29 15:19:18.244
 !MESSAGE Unable to register language [html]
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.newInstance(Object[])" because "this._editorDescriptorConstructor" is null
@@ -9972,7 +10050,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.new
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.308
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.245
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -10016,7 +10094,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.309
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.246
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -10060,7 +10138,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.310
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.247
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -10104,7 +10182,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-28 12:43:04.311
+!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-29 15:19:18.248
 !MESSAGE Unable to register language [javascriptreact]
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.newInstance(Object[])" because "this._editorDescriptorConstructor" is null
@@ -10149,7 +10227,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.new
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.312
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.251
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -10193,7 +10271,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-28 12:43:04.313
+!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-29 15:19:18.252
 !MESSAGE Unable to register language [javascript]
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.newInstance(Object[])" because "this._editorDescriptorConstructor" is null
@@ -10238,7 +10316,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.new
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.313
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.253
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -10282,7 +10360,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.314
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.254
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -10326,7 +10404,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.315
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.256
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -10370,7 +10448,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.316
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.257
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -10414,7 +10492,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.317
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.258
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -10458,7 +10536,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.318
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.259
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -10502,7 +10580,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.319
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.260
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -10546,7 +10624,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.320
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.261
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -10590,7 +10668,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-28 12:43:04.321
+!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-29 15:19:18.262
 !MESSAGE Unable to register language [php]
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.newInstance(Object[])" because "this._editorDescriptorConstructor" is null
@@ -10635,7 +10713,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.new
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.322
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.264
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -10679,7 +10757,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-28 12:43:04.323
+!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-29 15:19:18.265
 !MESSAGE Unable to register language [powershell]
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.newInstance(Object[])" because "this._editorDescriptorConstructor" is null
@@ -10724,7 +10802,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.new
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.324
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.267
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -10768,7 +10846,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.325
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.269
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -10812,7 +10890,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.326
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.270
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -10856,7 +10934,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.327
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.272
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -10900,7 +10978,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.328
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.273
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -10944,7 +11022,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-28 12:43:04.329
+!ENTRY com.genuitec.eclipse.code.ui 4 0 2023-05-29 15:19:18.274
 !MESSAGE Unable to register language [sass]
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.newInstance(Object[])" because "this._editorDescriptorConstructor" is null
@@ -10989,7 +11067,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Constructor.new
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.329
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.276
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -11033,7 +11111,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.330
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.277
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
@@ -11077,51 +11155,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Objec
 	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.331
-!MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
-!STACK 0
-java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
-	at com.genuitec.eclipse.code.ui.languages.LanguagesService.register(LanguagesService.java:677)
-	at com.genuitec.eclipse.code.ui.languages.LanguagesService.registerLanguages(LanguagesService.java:304)
-	at com.genuitec.eclipse.code.ui.CodeService.supportedLanguagesAdded(CodeService.java:909)
-	at com.genuitec.eclipse.code.core.engine.EclipseAPI.supportedLanguagesAdded(EclipseAPI.java:439)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
-	at com.genuitec.eclipse.code.core.engine.SessionHandler$RPCObjectType$1.process(SessionHandler.java:1024)
-	at com.genuitec.eclipse.code.core.engine.SessionHandler.handleRequest(SessionHandler.java:824)
-	at com.genuitec.eclipse.code.core.engine.EngineService.handleMessage(EngineService.java:976)
-	at com.genuitec.eclipse.code.core.engine.EngineServerEndpoint.onMessage(EngineServerEndpoint.java:46)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
-	at org.glassfish.tyrus.core.AnnotatedEndpoint.callMethod(AnnotatedEndpoint.java:534)
-	at org.glassfish.tyrus.core.AnnotatedEndpoint.access$100(AnnotatedEndpoint.java:87)
-	at org.glassfish.tyrus.core.AnnotatedEndpoint$WholeHandler$1.onMessage(AnnotatedEndpoint.java:633)
-	at org.glassfish.tyrus.core.TyrusSession.notifyMessageHandlers(TyrusSession.java:576)
-	at org.glassfish.tyrus.core.TyrusEndpointWrapper.onPartialMessage(TyrusEndpointWrapper.java:977)
-	at org.glassfish.tyrus.core.TyrusWebSocket.onFragment(TyrusWebSocket.java:190)
-	at org.glassfish.tyrus.core.frame.TextFrame.respond(TextFrame.java:136)
-	at org.glassfish.tyrus.core.ProtocolHandler.process(ProtocolHandler.java:807)
-	at org.glassfish.tyrus.core.TyrusWebSocketEngine$TyrusReadHandler.handle(TyrusWebSocketEngine.java:562)
-	at org.glassfish.tyrus.container.grizzly.server.GrizzlyServerFilter$ProcessTask.execute(GrizzlyServerFilter.java:379)
-	at org.glassfish.tyrus.container.grizzly.client.TaskProcessor.processTask(TaskProcessor.java:114)
-	at org.glassfish.tyrus.container.grizzly.client.TaskProcessor.processTask(TaskProcessor.java:91)
-	at org.glassfish.tyrus.container.grizzly.server.GrizzlyServerFilter.handleRead(GrizzlyServerFilter.java:215)
-	at org.glassfish.grizzly.filterchain.ExecutorResolver$9.execute(ExecutorResolver.java:119)
-	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeFilter(DefaultFilterChain.java:284)
-	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeChainPart(DefaultFilterChain.java:201)
-	at org.glassfish.grizzly.filterchain.DefaultFilterChain.execute(DefaultFilterChain.java:133)
-	at org.glassfish.grizzly.filterchain.DefaultFilterChain.process(DefaultFilterChain.java:112)
-	at org.glassfish.grizzly.ProcessorExecutor.execute(ProcessorExecutor.java:77)
-	at org.glassfish.grizzly.nio.transport.TCPNIOTransport.fireIOEvent(TCPNIOTransport.java:526)
-	at org.glassfish.grizzly.strategies.AbstractIOStrategy.fireIOEvent(AbstractIOStrategy.java:112)
-	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.run0(WorkerThreadIOStrategy.java:117)
-	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.access$100(WorkerThreadIOStrategy.java:56)
-	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy$WorkerThreadRunnable.run(WorkerThreadIOStrategy.java:137)
-	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:591)
-	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:571)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-
-!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-28 12:43:04.332
+!ENTRY com.genuitec.eclipse.code.core 4 0 2023-05-29 15:19:18.278
 !MESSAGE Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "java.lang.reflect.Field.get(Object)" because "this._contentTypeEditorMappingsField" is null
