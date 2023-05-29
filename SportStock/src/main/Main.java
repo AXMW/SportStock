@@ -30,14 +30,22 @@ public class Main {
 	private static ArrayList<Produto> produtos = new ArrayList<Produto>();
 	private static ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
 	private static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+<<<<<<< Updated upstream
 	private static ArrayList<Venda> vendas = new ArrayList<Venda>();
+=======
+	private static ArrayList<Fornecedor> fornecedores = new ArrayList<Fornecedor>();
+>>>>>>> Stashed changes
 	
-	//Metodo pra fazer a conexao com o SQL
+	//Metodo para fazer a conexao com o SQL
 	private void conecta() {
 		try {
 			Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
 			
+<<<<<<< Updated upstream
 			String filename = "F://SportStock/SportStockBD.accdb";
+=======
+			String filename = "C:/Users/Mikhael/Desktop/FATEC/Html/SportStock/SportStockBD.accdb";
+>>>>>>> Stashed changes
 			File arquivo = new File(filename);
 			if(!arquivo.exists()) {
 				JOptionPane.showMessageDialog(null, "Arquivo não existe");
@@ -53,7 +61,105 @@ public class Main {
 		}
 	}
 	
-	//Metodo pra ler os dados dos produtos e adicionar em um arraylist
+	//Metodo para receber dados do prouto     <-----------
+	private static Produto lerDadosProd(){
+		
+		
+		String nome = JOptionPane.showInputDialog("Insira o nome do produto: ");
+
+
+
+		while (!validarNome(nome)){
+			JOptionPane.showMessageDialog(null, "O nome não pode ter números ou caracteres especiais e tem que ter pelo menos 3 letras");
+			nome = JOptionPane.showInputDialog("Insira o nome do produto: ");
+		}
+
+		String tipo = JOptionPane.showInputDialog("Insira o tipo do produto: ");
+		float preco = 0;
+
+		while (true) {
+			try {
+				preco = Float.parseFloat(JOptionPane.showInputDialog("Insira o preco do produto: "));
+				if (preco > 0 ){
+					break;
+				} else {
+					JOptionPane.showMessageDialog(null, "Digite valores maiores que 0.");
+				}
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null, "Digite apenas números e utilize . para a separação da casa decimal.");
+			}
+		}
+
+		String descricao = JOptionPane.showInputDialog("Insira a descricao do produto: ");
+		int qtd = 0;
+
+		while (true) {
+			try {
+				qtd = Integer.parseInt(JOptionPane.showInputDialog("Insira a quantidade de produtos: "));
+				if (qtd > 0 ){
+					break;
+				} else {
+					JOptionPane.showMessageDialog(null, "Digite valores maiores que 0.");
+				}} 
+				catch (Exception e) {
+				JOptionPane.showMessageDialog(null, "Digite apenas números inteiros.");
+			}
+		}
+
+		Produto p2 = new Produto();
+		p2.setNomeProd(nome);
+		p2.setTipoProd(tipo);
+		p2.setPrecoProd(preco);
+		p2.setDescricaoProd(descricao);
+		p2.setQtdProd(qtd);
+
+		return p2;
+	}
+
+	//Metodo para receber dados do funcionário		<-----------
+	private static Funcionario lerDadosFun(){
+		
+		String nome = JOptionPane.showInputDialog("Insira o nome do funcionario: ");
+		String senha = JOptionPane.showInputDialog("Insira a senha de login do funcionario: ");
+		String hierarquia = JOptionPane.showInputDialog("Insira a hierarquia do funcionario: ");
+		Funcionario f2 = new Funcionario();
+		f2.setNomeFun(nome);
+		f2.setSenhaFun(senha);
+		f2.setHierarquiaFun(hierarquia);
+	
+		return f2;
+	}
+	
+	//Metodo para receber dados do cliente		<----------
+	private static Cliente lerDadosCli(){
+
+		String nome = JOptionPane.showInputDialog("Insira o nome do cliente");
+		int cpf = Integer.parseInt(JOptionPane.showInputDialog("Insira o CPF do cliente"));
+		int telefone = Integer.parseInt(JOptionPane.showInputDialog("Insira o telefone do cliente"));
+		String email = JOptionPane.showInputDialog("Insira o email do cliente");
+		Cliente c2 = new Cliente();
+		c2.setNomeCli(nome);
+		c2.setCpfCli(cpf);
+		c2.setTelefoneCli(telefone);
+		c2.setEmailCli(email);
+
+		return c2;
+	}
+
+	private static Fornecedor lerDadosFornec(){
+
+		String nome = JOptionPane.showInputDialog("Insira o nome do fornecedor");
+		int telefone = Integer.parseInt(JOptionPane.showInputDialog("Insira o telefone do fornecedor"));
+		String email = JOptionPane.showInputDialog("Insira o email do fornecedor");
+		Fornecedor f2 = new Fornecedor();
+		f2.setNomeFornec(nome);
+		f2.setTelefoneFornec(telefone);
+		f2.setEmailFornec(email);
+
+		return f2;
+	}
+
+	//Metodo para ler os dados dos produtos e adicionar em um arraylist
 	private void consultaProd() {
 		try {
 			rsRegistro = Conexao.createStatement().executeQuery("SELECT * FROM Produto");
@@ -74,7 +180,7 @@ public class Main {
 		}
 	}
 	
-	//Metodo pra ler os dados dos funcionarios e adicionar em um arraylist
+	//Metodo para ler os dados dos funcionarios e adicionar em um arraylist
 	private void consultaFun() {
 		try {
 			rsRegistro = Conexao.createStatement().executeQuery("SELECT * FROM Funcionario");
@@ -92,7 +198,7 @@ public class Main {
 		}
 	}
 	
-	//Metodo pra ler clientes
+	//Metodo para ler clientes
 	private void consultaCli() {
 		try {
 			rsRegistro = Conexao.createStatement().executeQuery("SELECT * FROM Cliente");
@@ -110,6 +216,7 @@ public class Main {
 		}
 	}
 	
+<<<<<<< Updated upstream
 	//Metodo pra ler Vendas
 	private void consultaVenda() {
 		try {
@@ -121,12 +228,25 @@ public class Main {
 				v1.setDataVenda(rsRegistro.getString("dataVenda"));
 				v1.setDescricaoVenda(rsRegistro.getString("descricaoVenda"));
 				vendas.add(v1);
+=======
+	//Metodo para ler fornecedor
+	private void consultaFornec() {
+		try {
+			rsRegistro = Conexao.createStatement().executeQuery("SELECT * FROM Fornecedor");
+			while(rsRegistro.next()) {
+				Fornecedor f1 = new Fornecedor();
+				f1.setNomeFornec(rsRegistro.getString("nomeFornec"));
+				f1.setTelefoneFornec(rsRegistro.getInt("telefoneFornec"));
+				f1.setEmailFornec(rsRegistro.getString("emailFornec"));
+				fornecedores.add(f1);
+>>>>>>> Stashed changes
 			}
 		}
 		catch (Exception Excecao) {
 			JOptionPane.showMessageDialog(null, "SQLException: " + Excecao.getMessage(),"Erro: Selecao de registro", JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
+<<<<<<< Updated upstream
 	
 	//Metodo pra fazer uma nova venda
 	private void criarVenda() {
@@ -179,26 +299,22 @@ public class Main {
 	}
 	
 	//Metodo pra adicionar novos produtos
+=======
+
+	//Metodo para adicionar novos produtos
+>>>>>>> Stashed changes
 	private void adicionarProd() {
 		
-		String nome = JOptionPane.showInputDialog("Insira o nome do produto: ");
-		String tipo = JOptionPane.showInputDialog("Insira o tipo do produto: ");
-		float preco = Float.parseFloat(JOptionPane.showInputDialog("Insira o preco do produto: "));
-		String descricao = JOptionPane.showInputDialog("Insira a descricao do produto: ");
-		int qtd = Integer.parseInt(JOptionPane.showInputDialog("Insira a quantidade de produtos: "));
 		Produto p2 = new Produto();
-		p2.setNomeProd(nome);
-		p2.setTipoProd(tipo);
-		p2.setPrecoProd(preco);
-		p2.setDescricaoProd(descricao);
-		p2.setQtdProd(qtd);
+		p2 = lerDadosProd();
+
 		try {
 			PreparedStatement strComandoSQL = Conexao.prepareStatement("INSERT INTO Produto (nomeProd, tipoProd, descricaoProd, qtdProd, precoProd)" + " VALUES (?,?,?,?,?)");
-			strComandoSQL.setString(1, nome);
-			strComandoSQL.setString(2, tipo);
-			strComandoSQL.setString(3, descricao);
-			strComandoSQL.setInt(4, qtd);
-			strComandoSQL.setFloat(5, preco);
+			strComandoSQL.setString(1, p2.getNomeProd());
+			strComandoSQL.setString(2, p2.getTipoProd());
+			strComandoSQL.setString(3, p2.getDescricaoProd());
+			strComandoSQL.setInt(4, p2.getQtdProd());
+			strComandoSQL.setFloat(5, p2.getPrecoProd());
 			int intRegistro = strComandoSQL.executeUpdate();
 			if(intRegistro != 0) {
 				rsRegistro = Conexao.createStatement().executeQuery("SELECT idProd FROM Produto");
@@ -214,26 +330,22 @@ public class Main {
 			}
 		}
 		catch (Exception Excecao) {
-			JOptionPane.showMessageDialog(null,"SQLException: " + Excecao.getMessage(),"Erro: Selecaoo de registro",JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null,"SQLException: " + Excecao.getMessage(),"Erro: Selecao de registro",JOptionPane.INFORMATION_MESSAGE);
 		}
 		
 	}
 	
-	//Metodo pra adicionar novos funcionarios
+	//Metodo para adicionar novos funcionarios
 	private void adicionarFun() {
 		
-		String nome = JOptionPane.showInputDialog("Insira o nome do funcionario: ");
-		String senha = JOptionPane.showInputDialog("Insira a senha de login do funcionario: ");
-		String hierarquia = JOptionPane.showInputDialog("Insira a hierarquia do funcionario: ");
 		Funcionario f2 = new Funcionario();
-		f2.setNomeFun(nome);
-		f2.setSenhaFun(senha);
-		f2.setHierarquiaFun(hierarquia);
+		f2 = lerDadosFun();
+
 		try {
 			PreparedStatement strComandoSQL = Conexao.prepareStatement("INSERT INTO Funcionario (nomeFun, senhaFun, hierarquiaFun)" + " VALUES (?,?,?)");
-			strComandoSQL.setString(1, nome);
-			strComandoSQL.setString(2, senha);
-			strComandoSQL.setString(3, hierarquia);
+			strComandoSQL.setString(1, f2.getNomeFun());
+			strComandoSQL.setString(2, f2.getSenhaFun());
+			strComandoSQL.setString(3, f2.getHierarquiaFun());
 			int intRegistro = strComandoSQL.executeUpdate();
 			if(intRegistro != 0) {
 				rsRegistro = Conexao.createStatement().executeQuery("SELECT idFun FROM Funcionario");
@@ -249,28 +361,23 @@ public class Main {
 			}
 		}
 		catch (Exception Excecao) {
-			JOptionPane.showMessageDialog(null,"SQLException: " + Excecao.getMessage(),"Erro: Selecaoo de registro",JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null,"SQLException: " + Excecao.getMessage(),"Erro: Selecao de registro",JOptionPane.INFORMATION_MESSAGE);
 		}
 		
 	}
 	
-	//Metodo pra adicionar clientes
+	//Metodo para adicionar clientes
 	private void adicionarCli() {
-		String nome = JOptionPane.showInputDialog("Insira o nome do cliente");
-		int cpf = Integer.parseInt(JOptionPane.showInputDialog("Insira o CPF do cliente"));
-		int telefone = Integer.parseInt(JOptionPane.showInputDialog("Insira o telefone do cliente"));
-		String email = JOptionPane.showInputDialog("Insira o email do cliente");
+
 		Cliente c2 = new Cliente();
-		c2.setNomeCli(nome);
-		c2.setCpfCli(cpf);
-		c2.setTelefoneCli(telefone);
-		c2.setEmailCli(email);
+		c2 = lerDadosCli();
+
 		try {
 			PreparedStatement strComandoSQL = Conexao.prepareStatement("INSERT INTO Cliente (cpfCli, nomeCli, telefoneCli, emailCli)" + " VALUES (?,?,?,?)");
-			strComandoSQL.setInt(1, cpf);
-			strComandoSQL.setString(2, nome);
-			strComandoSQL.setInt(3, telefone);
-			strComandoSQL.setString(4, email);
+			strComandoSQL.setInt(1, c2.getCpfCli());
+			strComandoSQL.setString(2, c2.getNomeCli());
+			strComandoSQL.setInt(3, c2.getTelefoneCli());
+			strComandoSQL.setString(4, c2.getEmailCli());
 			int intRegistro = strComandoSQL.executeUpdate();
 			if(intRegistro != 0) {
 				JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
@@ -278,11 +385,33 @@ public class Main {
 			}
 		}
 		catch (Exception Excecao) {
-			JOptionPane.showMessageDialog(null,"SQLException: " + Excecao.getMessage(),"Erro: Selecaoo de registro",JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null,"SQLException: " + Excecao.getMessage(),"Erro: Selecao de registro",JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 	
-	//Metodo pra excluir produtos
+	//Metodo para adicionar fornecedor
+	private void adicionaFornec() {
+
+		Fornecedor f2 = new Fornecedor();
+		f2 = lerDadosFornec();
+
+		try {
+			PreparedStatement strComandoSQL = Conexao.prepareStatement("INSERT INTO Fornecedor (nomeFornec, telefoneFornec, emailFornec)" + " VALUES (?,?,?)");
+			strComandoSQL.setString(1, f2.getNomeFornec());
+			strComandoSQL.setInt(2, f2.getTelefoneFornec());
+			strComandoSQL.setString(3, f2.getEmailFornec());
+			int intRegistro = strComandoSQL.executeUpdate();
+			if(intRegistro != 0) {
+				JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
+				fornecedores.add(f2);
+			}
+		}
+		catch (Exception Excecao) {
+			JOptionPane.showMessageDialog(null,"SQLException: " + Excecao.getMessage(),"Erro: Selecao de registro",JOptionPane.INFORMATION_MESSAGE);
+		}
+	}
+
+	//Metodo para excluir produtos
 	private void excluirProd() {
 		for(int i = 0; i < produtos.size(); ++i) {
 			String str = "ID: " + produtos.get(i).getIdProd() + "\nNome: " + produtos.get(i).getNomeProd() + "\nTipo: " + produtos.get(i).getTipoProd() + "\nPreco: " + produtos.get(i).getPrecoProd() + "\nDescricao: " + produtos.get(i).getDescricaoProd() + "\nQuantidade disponivel: " + produtos.get(i).getQtdProd();
@@ -308,12 +437,12 @@ public class Main {
 				}
 			}
 			catch (Exception Excecao) {
-				JOptionPane.showMessageDialog(null,"SQLException: " + Excecao.getMessage(),"Erro: Selecaoo de registro",JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null,"SQLException: " + Excecao.getMessage(),"Erro: Selecao de registro",JOptionPane.INFORMATION_MESSAGE);
 			}
 		}
 	}
 	
-	//Metodo pra excluir funcionario
+	//Metodo para excluir funcionario
 	private void excluirFun() {
 		for(int i = 0; i < funcionarios.size(); ++i) {
 			String str = "ID: " + funcionarios.get(i).getIdFun() +"\nNome: " + funcionarios.get(i).getNomeFun() + "\nSenha: " + funcionarios.get(i).getSenhaFun() + "\nHierarquia: " + funcionarios.get(i).getHierarquiaFun();
@@ -339,12 +468,12 @@ public class Main {
 				}
 			}
 			catch (Exception Excecao) {
-				JOptionPane.showMessageDialog(null,"SQLException: " + Excecao.getMessage(),"Erro: Selecaoo de registro",JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null,"SQLException: " + Excecao.getMessage(),"Erro: Selecao de registro",JOptionPane.INFORMATION_MESSAGE);
 			}
 		}
 	}
 	
-	//Metodo pra excluir clientes
+	//Metodo para excluir clientes
 	private void excluirCli() {
 		for(int i = 0; i < clientes.size(); ++i) {
 			JOptionPane.showMessageDialog(null, "CPF: " + clientes.get(i).getCpfCli() + "\nNome: " + clientes.get(i).getNomeCli() + "\nTelefone: " + clientes.get(i).getTelefoneCli() + "\nEmail: " +  clientes.get(i).getEmailCli());
@@ -357,7 +486,7 @@ public class Main {
 				break;
 			}
 		}
-		int num = JOptionPane.showConfirmDialog(null, "Confirma a exclusão?\nCPF: " + clientes.get(j).getCpfCli() + "\nNome: " + clientes.get(j).getNomeCli() + "\nTelefone: " + clientes.get(j).getTelefoneCli() + "\nEmail: " +  clientes.get(j).getEmailCli());
+		int num = JOptionPane.showConfirmDialog(null, "Confirma a exclusão?\nCPF: " + clientes.get(j).getCpfCli() + "\nNome: " + clientes.get(j).getNomeCli() + "\nTelefone: " + clientes.get(j).getTelefoneCli() + "\nEmail: " +  clientes.get(j).getEmailCli(), "Exclusão", JOptionPane.YES_NO_OPTION);
 		if(num == 0) {
 			try {
 				PreparedStatement strComandoSQL = Conexao.prepareStatement("DELETE from Cliente WHERE" + " cpfCli= ?");
@@ -369,12 +498,42 @@ public class Main {
 				}
 			}
 			catch (Exception Excecao) {
-				JOptionPane.showMessageDialog(null,"SQLException: " + Excecao.getMessage(),"Erro: Selecaoo de registro",JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null,"SQLException: " + Excecao.getMessage(),"Erro: Selecao de registro",JOptionPane.INFORMATION_MESSAGE);
 			}
 		}
 	}
 
-	//Metodo pra editar produtos
+	//Metodo para excluir fornecedor
+	private void excluiFornec() {
+		for(int i = 0; i < fornecedores.size(); ++i) {
+			JOptionPane.showMessageDialog(null, "Nome: " + fornecedores.get(i).getNomeFornec() + "\nTelefone: " + fornecedores.get(i).getTelefoneFornec() + "\nEmail: " + fornecedores.get(i).getEmailFornec());
+		}
+		String n = (JOptionPane.showInputDialog("Insira o nome do fornecedor que deseja excluir"));
+		int j = 0;
+		for(int i = 0; i < fornecedores.size(); ++i) {
+			if(fornecedores.get(i).getNomeFornec() == n) {
+				j = i;
+				break;
+			}
+		}
+		int num = JOptionPane.showConfirmDialog(null, "Confirma a exclusão?\nNome: " + fornecedores.get(j).getNomeFornec() + "\nTelefone: " + fornecedores.get(j).getTelefoneFornec() + "\nEmail: " + fornecedores.get(j).getEmailFornec(), "Exclusão", JOptionPane.YES_NO_OPTION);
+		if(num == 0) {
+			try {
+				PreparedStatement strComandoSQL = Conexao.prepareStatement("DELETE from Fornecedor WHERE" + " nomeFornec= ?");
+				strComandoSQL.setString(1, n);
+				int intRegistro = strComandoSQL.executeUpdate();
+				if(intRegistro != 0) {
+					JOptionPane.showMessageDialog(null, "Exclusão realizada com sucesso");
+					fornecedores.remove(j);
+				}
+			}
+			catch (Exception Excecao) {
+				JOptionPane.showMessageDialog(null,"SQLException: " + Excecao.getMessage(),"Erro: Selecao de registro",JOptionPane.INFORMATION_MESSAGE);
+			}
+		}
+	}
+
+	//Metodo para editar produtos
 	private void editarProd() {
 		for(int i = 0; i < produtos.size(); ++i) {
 			String str = "ID: " + produtos.get(i).getIdProd() + "\nNome: " + produtos.get(i).getNomeProd() + "\nTipo: " + produtos.get(i).getTipoProd() + "\nPreco: " + produtos.get(i).getPrecoProd() + "\nDescricao: " + produtos.get(i).getDescricaoProd() + "\nQuantidade disponivel: " + produtos.get(i).getQtdProd();
@@ -388,26 +547,19 @@ public class Main {
 				break;
 			}
 		}
-		int num = JOptionPane.showConfirmDialog(null, "Confirma a edição?\nID: " + produtos.get(j).getIdProd() + "\nNome: " + produtos.get(j).getNomeProd() + "\nTipo: " + produtos.get(j).getTipoProd() + "\nPreco: " + produtos.get(j).getPrecoProd() + "\nDescricao: " + produtos.get(j).getDescricaoProd() + "\nQuantidade disponivel: " + produtos.get(j).getQtdProd(), "Exclusão", JOptionPane.YES_NO_OPTION);
+		int num = JOptionPane.showConfirmDialog(null, "Confirma a edição?\nID: " + produtos.get(j).getIdProd() + "\nNome: " + produtos.get(j).getNomeProd() + "\nTipo: " + produtos.get(j).getTipoProd() + "\nPreco: " + produtos.get(j).getPrecoProd() + "\nDescricao: " + produtos.get(j).getDescricaoProd() + "\nQuantidade disponivel: " + produtos.get(j).getQtdProd(), "Edição", JOptionPane.YES_NO_OPTION);
 		if(num == 0) {
-			String nome = JOptionPane.showInputDialog("Insira o nome do produto: ");
-			String tipo = JOptionPane.showInputDialog("Insira o tipo do produto: ");
-			float preco = Float.parseFloat(JOptionPane.showInputDialog("Insira o preco do produto: "));
-			String descricao = JOptionPane.showInputDialog("Insira a descricao do produto: ");
-			int qtd = Integer.parseInt(JOptionPane.showInputDialog("Insira a quantidade de produtos: "));
 			Produto p2 = new Produto();
-			p2.setNomeProd(nome);
-			p2.setTipoProd(tipo);
-			p2.setPrecoProd(preco);
-			p2.setDescricaoProd(descricao);
-			p2.setQtdProd(qtd);
+
+			p2 = lerDadosProd();
+
 			try {
 				PreparedStatement strComandoSQL = Conexao.prepareStatement("UPDATE Produto SET (nomeProd, tipoProd, descricaoProd, qtdProd, precoProd)" + " = (?,?,?,?,?) WHERE idProd = ?");
-				strComandoSQL.setString(1, nome);
-				strComandoSQL.setString(2, tipo);
-				strComandoSQL.setString(3, descricao);
-				strComandoSQL.setInt(4, qtd);
-				strComandoSQL.setFloat(5, preco);
+				strComandoSQL.setString(1, p2.getNomeProd());
+				strComandoSQL.setString(2, p2.getTipoProd());
+				strComandoSQL.setString(3, p2.getDescricaoProd());
+				strComandoSQL.setInt(4, p2.getQtdProd());
+				strComandoSQL.setFloat(5, p2.getPrecoProd());
 				strComandoSQL.setInt(6, n);
 				int intRegistro = strComandoSQL.executeUpdate();
 				if(intRegistro != 0) {
@@ -416,12 +568,12 @@ public class Main {
 				}
 			}
 			catch (Exception Excecao) {
-				JOptionPane.showMessageDialog(null,"SQLException: " + Excecao.getMessage(),"Erro: Selecaoo de registro",JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null,"SQLException: " + Excecao.getMessage(),"Erro: Selecao de registro",JOptionPane.INFORMATION_MESSAGE);
 			}
 		}
 	}
 	
-	//Metodo pra editar funcionario
+	//Metodo para editar funcionario
 	private void editarFun() {
 		for(int i = 0; i < funcionarios.size(); ++i) {
 			String str = "ID: " + funcionarios.get(i).getIdFun() +"\nNome: " + funcionarios.get(i).getNomeFun() + "\nSenha: " + funcionarios.get(i).getSenhaFun() + "\nHierarquia: " + funcionarios.get(i).getHierarquiaFun();
@@ -435,20 +587,17 @@ public class Main {
 				break;
 			}
 		}
-		int num = JOptionPane.showConfirmDialog(null, "Confirma a edição?\nID: " + funcionarios.get(j).getIdFun() + "\nNome: " + funcionarios.get(j).getNomeFun() + "\nSenha: " + funcionarios.get(j).getSenhaFun() + "\nHierarquia: " + funcionarios.get(j).getHierarquiaFun(), "Exclusão", JOptionPane.YES_NO_OPTION);
+		int num = JOptionPane.showConfirmDialog(null, "Confirma a edição?\nID: " + funcionarios.get(j).getIdFun() + "\nNome: " + funcionarios.get(j).getNomeFun() + "\nSenha: " + funcionarios.get(j).getSenhaFun() + "\nHierarquia: " + funcionarios.get(j).getHierarquiaFun(), "Edição", JOptionPane.YES_NO_OPTION);
 		if(num == 0) {
-			String nome = JOptionPane.showInputDialog("Insira o nome do funcionario: ");
-			String senha = JOptionPane.showInputDialog("Insira a senha de login do funcionario: ");
-			String hierarquia = JOptionPane.showInputDialog("Insira a hierarquia do funcionario: ");
+		
 			Funcionario f2 = new Funcionario();
-			f2.setNomeFun(nome);
-			f2.setSenhaFun(senha);
-			f2.setHierarquiaFun(hierarquia);
+			f2 = lerDadosFun();
+	
 			try {
 				PreparedStatement strComandoSQL = Conexao.prepareStatement("UPDATE Funcionario SET (nomeFun, senhaFun, hierarquiaFun)" + " = (?,?,?) WHERE idFun= ?");
-				strComandoSQL.setString(1, nome);
-				strComandoSQL.setString(2, senha);
-				strComandoSQL.setString(3, hierarquia);
+				strComandoSQL.setString(1, f2.getNomeFun());
+				strComandoSQL.setString(2, f2.getSenhaFun());
+				strComandoSQL.setString(3, f2.getSenhaFun());
 				strComandoSQL.setInt(4, n);
 				int intRegistro = strComandoSQL.executeUpdate();
 				if(intRegistro != 0) {
@@ -457,12 +606,12 @@ public class Main {
 				}
 			}
 			catch (Exception Excecao) {
-				JOptionPane.showMessageDialog(null,"SQLException: " + Excecao.getMessage(),"Erro: Selecaoo de registro",JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null,"SQLException: " + Excecao.getMessage(),"Erro: Selecao de registro",JOptionPane.INFORMATION_MESSAGE);
 			}
 		}
 	}
 	
-	//Metodo pra editar cliente
+	//Metodo para editar cliente
 	private void editarCli() {
 		for(int i = 0; i < clientes.size(); ++i) {
 			JOptionPane.showMessageDialog(null, "CPF: " + clientes.get(i).getCpfCli() + "\nNome: " + clientes.get(i).getNomeCli() + "\nTelefone: " + clientes.get(i).getTelefoneCli() + "\nEmail: " +  clientes.get(i).getEmailCli());
@@ -475,23 +624,18 @@ public class Main {
 				break;
 			}
 		}
-		int num = JOptionPane.showConfirmDialog(null, "Confirma a edição?\nCPF: " + clientes.get(j).getCpfCli() + "\nNome: " + clientes.get(j).getNomeCli() + "\nTelefone: " + clientes.get(j).getTelefoneCli() + "\nEmail: " +  clientes.get(j).getEmailCli());
+		int num = JOptionPane.showConfirmDialog(null, "Confirma a edição?\nCPF: " + clientes.get(j).getCpfCli() + "\nNome: " + clientes.get(j).getNomeCli() + "\nTelefone: " + clientes.get(j).getTelefoneCli() + "\nEmail: " +  clientes.get(j).getEmailCli(), "Edição", JOptionPane.YES_NO_OPTION);
 		if(num == 0) {
-			String nome = JOptionPane.showInputDialog("Insira o nome do cliente");
-			int cpf = Integer.parseInt(JOptionPane.showInputDialog("Insira o CPF do cliente"));
-			int telefone = Integer.parseInt(JOptionPane.showInputDialog("Insira o telefone do cliente"));
-			String email = JOptionPane.showInputDialog("Insira o email do cliente");
+
 			Cliente c2 = new Cliente();
-			c2.setNomeCli(nome);
-			c2.setCpfCli(cpf);
-			c2.setTelefoneCli(telefone);
-			c2.setEmailCli(email);
+			c2 = lerDadosCli();
+
 			try {
 				PreparedStatement strComandoSQL = Conexao.prepareStatement("UPDATE Cliente SET (cpfCli, nomeCli, telefoneCli, emailCli)" + " = (?,?,?,?) WHERE cpfCli= ?");
-				strComandoSQL.setInt(1, cpf);
-				strComandoSQL.setString(2, nome);
-				strComandoSQL.setInt(3, telefone);
-				strComandoSQL.setString(4, email);
+				strComandoSQL.setInt(1, c2.getCpfCli());
+				strComandoSQL.setString(2, c2.getNomeCli());
+				strComandoSQL.setInt(3, c2.getTelefoneCli());
+				strComandoSQL.setString(4, c2.getEmailCli());
 				strComandoSQL.setInt(5, n);
 				int intRegistro = strComandoSQL.executeUpdate();
 				if(intRegistro != 0) {
@@ -500,12 +644,49 @@ public class Main {
 				}
 			}
 			catch (Exception Excecao) {
-				JOptionPane.showMessageDialog(null,"SQLException: " + Excecao.getMessage(),"Erro: Selecaoo de registro",JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null,"SQLException: " + Excecao.getMessage(),"Erro: Selecao de registro",JOptionPane.INFORMATION_MESSAGE);
 			}
 			
 		}
 	}
 	
+	//Metodo para editar fornecedor
+	private void editaFornec() {
+		for(int i = 0; i < fornecedores.size(); ++i) {
+			JOptionPane.showMessageDialog(null, "Nome: " + fornecedores.get(i).getNomeFornec() + "\nTelefone: " + fornecedores.get(i).getTelefoneFornec() + "\nEmail: " + fornecedores.get(i).getEmailFornec());
+		}
+		String n = (JOptionPane.showInputDialog("Insira o nome do fornecedor que deseja editar"));
+		int j = 0;
+		for(int i = 0; i < fornecedores.size(); ++i) {
+			if(fornecedores.get(i).getNomeFornec() == n) {
+				j = i;
+				break;
+			}
+		}
+		int num = JOptionPane.showConfirmDialog(null, "Confirma a edição?\nNome: " + fornecedores.get(j).getNomeFornec() + "\nTelefone: " + fornecedores.get(j).getTelefoneFornec() + "\nEmail: " + fornecedores.get(j).getEmailFornec(), "Edição", JOptionPane.YES_NO_OPTION);
+		if(num == 0) {
+
+			Fornecedor f2 = new Fornecedor();
+			f2 = lerDadosFornec();
+
+			try {
+				PreparedStatement strComandoSQL = Conexao.prepareStatement("UPDATE Fornecedor SET (nomeFornec, telefoneFornec, emailFornec)" + " VALUES (?,?,?)");
+				strComandoSQL.setString(1, f2.getNomeFornec());
+				strComandoSQL.setInt(2, f2.getTelefoneFornec());
+				strComandoSQL.setString(3, f2.getEmailFornec());
+				int intRegistro = strComandoSQL.executeUpdate();
+				if(intRegistro != 0) {
+					JOptionPane.showMessageDialog(null, "Edição realizada com sucesso");
+					fornecedores.set(j, f2);
+				}
+			}
+			catch (Exception Excecao) {
+				JOptionPane.showMessageDialog(null,"SQLException: " + Excecao.getMessage(),"Erro: Selecao de registro",JOptionPane.INFORMATION_MESSAGE);
+			}
+			
+		}
+	}
+
 	private void executa() {
 		conecta();
 		consultaProd();
@@ -523,19 +704,37 @@ public class Main {
 		//imprimirProd();
 	}
 	
+
 	private static void imprimirProd() {
 		for(int i = 0; i < produtos.size(); ++i) {
 			System.out.println(produtos.get(i).getNomeProd());
 		}
 	}
+
+
 	private static void imprimirFun() {
 		for(int i = 0; i < funcionarios.size(); ++i) {
 			System.out.println(funcionarios.get(i).getNomeFun());
 		}
 	}
 	
+	//Metodo para validar o nome de acordo com 
+	private static boolean validarNome(String nome){
+
+		if (!nome.matches("[A-Za-z]*")){
+			return false;
+		}
+		if (nome.replaceAll(" ", "").length() < 3){
+			return false;
+		}
+		
+		return true;
+	}
+
+	
 	public static void main(String[] args) {
 		new Main().executa();
 	}
 
 }
+
