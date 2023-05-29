@@ -30,13 +30,14 @@ public class Main {
 	private static ArrayList<Produto> produtos = new ArrayList<Produto>();
 	private static ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
 	private static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+	private static ArrayList<Venda> vendas = new ArrayList<Venda>();
 	
 	//Metodo pra fazer a conexao com o SQL
 	private void conecta() {
 		try {
 			Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
 			
-			String filename = "F://Eclipse_Workspace/SportStockBD.accdb";
+			String filename = "F://SportStock/SportStockBD.accdb";
 			File arquivo = new File(filename);
 			if(!arquivo.exists()) {
 				JOptionPane.showMessageDialog(null, "Arquivo não existe");
@@ -109,6 +110,74 @@ public class Main {
 		}
 	}
 	
+	//Metodo pra ler Vendas
+	private void consultaVenda() {
+		try {
+			rsRegistro = Conexao.createStatement().executeQuery("SELECT * FROM Venda");
+			while(rsRegistro.next()) {
+				Venda v1 = new Venda();
+				v1.setCodVenda(rsRegistro.getInt("codVenda"));
+				v1.setPrecoVenda(rsRegistro.getFloat("precoVenda"));
+				v1.setDataVenda(rsRegistro.getString("dataVenda"));
+				v1.setDescricaoVenda(rsRegistro.getString("descricaoVenda"));
+				vendas.add(v1);
+			}
+		}
+		catch (Exception Excecao) {
+			JOptionPane.showMessageDialog(null, "SQLException: " + Excecao.getMessage(),"Erro: Selecao de registro", JOptionPane.INFORMATION_MESSAGE);
+		}
+	}
+	
+	//Metodo pra fazer uma nova venda
+	private void criarVenda() {
+		for(int i = 0; i < produtos.size(); ++i) {
+			String str = "ID: " + produtos.get(i).getIdProd() + "\nNome: " + produtos.get(i).getNomeProd() + "\nTipo: " + produtos.get(i).getTipoProd() + "\nPreco: " + produtos.get(i).getPrecoProd() + "\nDescricao: " + produtos.get(i).getDescricaoProd() + "\nQuantidade disponivel: " + produtos.get(i).getQtdProd();
+			JOptionPane.showMessageDialog(null, str);
+		}
+		int id = Integer.parseInt(JOptionPane.showInputDialog("Insira o ID do produto que deseja vender"));
+		int qtd = Integer.parseInt(JOptionPane.showInputDialog("Insira a quantidade de produtos que deseja vender"));
+		int index = 0;
+		float preco = 0;
+		for(int i = 0; i < produtos.size(); ++i) {
+			if(id == produtos.get(i).getIdProd()) {
+				index = i;
+				preco = qtd * produtos.get(i).getPrecoProd();
+				break;
+			}
+		}
+		String descricao = produtos.get(index).getNomeProd() + " x " + qtd + " = " + (qtd * produtos.get(index).getPrecoProd());
+		Venda v1 = new Venda();
+		v1.setPrecoVenda(preco);
+		v1.setDescricaoVenda(descricao);
+		try {
+			PreparedStatement strComandoSQL = Conexao.prepareStatement("INSERT INTO Venda (precoVenda, dataVenda, descricaoVenda)" + " VALUES (?,?,?)");
+			strComandoSQL.setFloat(1, preco);
+			strComandoSQL.setString(2, v1.getDataVenda());
+			strComandoSQL.setString(3, descricao);
+			try {
+				int intRegistro = strComandoSQL.executeUpdate();
+				if(intRegistro != 0) {
+					rsRegistro = Conexao.createStatement().executeQuery("SELECT codVenda FROM Venda");
+					int codigo = 0;
+					while(rsRegistro.next()) {
+						if(codigo < rsRegistro.getInt("codVenda")) {
+							codigo = rsRegistro.getInt("codVenda");
+						}
+					}
+					v1.setCodVenda(codigo);
+					vendas.add(v1);
+					JOptionPane.showMessageDialog(null, "Venda realizada com sucesso");
+				}
+			}
+			catch (Exception Excecao) {
+				JOptionPane.showMessageDialog(null,"SQLException: " + Excecao.getMessage(),"Erro: Selecaoo de registro",JOptionPane.INFORMATION_MESSAGE);
+			}
+		}
+		catch (Exception Excecao) {
+			JOptionPane.showMessageDialog(null, Excecao);
+		}
+	}
+	
 	//Metodo pra adicionar novos produtos
 	private void adicionarProd() {
 		
@@ -132,6 +201,14 @@ public class Main {
 			strComandoSQL.setFloat(5, preco);
 			int intRegistro = strComandoSQL.executeUpdate();
 			if(intRegistro != 0) {
+				rsRegistro = Conexao.createStatement().executeQuery("SELECT idProd FROM Produto");
+				int codigo = 0;
+				while(rsRegistro.next()) {
+					if(codigo < rsRegistro.getInt("idProd")) {
+						codigo = rsRegistro.getInt("idProd");
+					}
+				}
+				p2.setIdProd(codigo);
 				JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
 				produtos.add(p2);
 			}
@@ -159,6 +236,14 @@ public class Main {
 			strComandoSQL.setString(3, hierarquia);
 			int intRegistro = strComandoSQL.executeUpdate();
 			if(intRegistro != 0) {
+				rsRegistro = Conexao.createStatement().executeQuery("SELECT idFun FROM Funcionario");
+				int codigo = 0;
+				while(rsRegistro.next()) {
+					if(codigo < rsRegistro.getInt("idFun")) {
+						codigo = rsRegistro.getInt("idFun");
+					}
+				}
+				f2.setIdFun(codigo);
 				JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
 				funcionarios.add(f2);
 			}
@@ -368,7 +453,7 @@ public class Main {
 				int intRegistro = strComandoSQL.executeUpdate();
 				if(intRegistro != 0) {
 					JOptionPane.showMessageDialog(null, "Edição realizada com sucesso");
-					funcionarios.add(f2);
+					funcionarios.set(j, f2);
 				}
 			}
 			catch (Exception Excecao) {
@@ -411,7 +496,7 @@ public class Main {
 				int intRegistro = strComandoSQL.executeUpdate();
 				if(intRegistro != 0) {
 					JOptionPane.showMessageDialog(null, "Edição realizada com sucesso");
-					clientes.add(c2);
+					clientes.set(j, c2);
 				}
 			}
 			catch (Exception Excecao) {
@@ -426,6 +511,7 @@ public class Main {
 		consultaProd();
 		consultaFun();
 		consultaCli();
+		consultaVenda();
 		imprimirProd();
 		imprimirFun();
 		//excluirProd();

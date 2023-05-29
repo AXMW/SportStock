@@ -15,6 +15,10 @@ public class Venda {
 		this.dataVenda = formatter.format(date);
 	}
 	
+	public void setDataVenda(String dataVenda) {
+		this.dataVenda = dataVenda;
+	}
+
 	public String getDataVenda() {
 		return dataVenda;
 	}
