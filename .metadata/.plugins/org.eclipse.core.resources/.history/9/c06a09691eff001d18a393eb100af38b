@@ -1,0 +1,8 @@
+package recursos;
+
+public class Cupom {
+	private int idCupom;
+	private String codCupom;
+	private float porcentagemCupom;
+	private int qtdUsosCupom;
+}

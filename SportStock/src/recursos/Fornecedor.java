@@ -2,7 +2,7 @@ package recursos;
 
 public class Fornecedor {
 	private String nomeFornec;
-	private int telefoneFornec;
+	private long telefoneFornec;
 	private String emailFornec;
 	private boolean confimacaoDeTroca;
 	
@@ -16,10 +16,10 @@ public class Fornecedor {
 	public void setNomeFornec(String nomeFornec) {
 		this.nomeFornec = nomeFornec;
 	}
-	public int getTelefoneFornec() {
+	public long getTelefoneFornec() {
 		return telefoneFornec;
 	}
-	public void setTelefoneFornec(int telefoneFornec) {
+	public void setTelefoneFornec(Long telefoneFornec) {
 		this.telefoneFornec = telefoneFornec;
 	}
 	public String getEmailFornec() {
