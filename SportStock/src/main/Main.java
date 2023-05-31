@@ -17,6 +17,9 @@ package main;
 import recursos.*;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.sql.DatabaseMetaData;
 import java.sql.PreparedStatement;
 import java.sql.DriverManager;
@@ -54,22 +57,18 @@ public class Main {
 		}
 	}
 	
-	//Metodo para receber dados do prouto     <-----------
+	//Metodo para receber dados do produto
 	private static Produto lerDadosProd(){
 		
-		
 		String nome = JOptionPane.showInputDialog("Insira o nome do produto: ");
-
-
-
 		while (!validarNome(nome)){
 			JOptionPane.showMessageDialog(null, "O nome não pode ter números ou caracteres especiais e tem que ter pelo menos 3 letras");
 			nome = JOptionPane.showInputDialog("Insira o nome do produto: ");
 		}
 
 		String tipo = JOptionPane.showInputDialog("Insira o tipo do produto: ");
-		float preco = 0;
 
+		float preco = 0;
 		while (true) {
 			try {
 				preco = Float.parseFloat(JOptionPane.showInputDialog("Insira o preco do produto: "));
@@ -84,8 +83,8 @@ public class Main {
 		}
 
 		String descricao = JOptionPane.showInputDialog("Insira a descricao do produto: ");
-		int qtd = 0;
 
+		int qtd = 0;
 		while (true) {
 			try {
 				qtd = Integer.parseInt(JOptionPane.showInputDialog("Insira a quantidade de produtos: "));
@@ -109,12 +108,24 @@ public class Main {
 		return p2;
 	}
 
-	//Metodo para receber dados do funcionário		<-----------
+	//Metodo para receber dados do funcionário
 	private static Funcionario lerDadosFun(){
 		
 		String nome = JOptionPane.showInputDialog("Insira o nome do funcionario: ");
+		while (!validarNome(nome)){
+			JOptionPane.showMessageDialog(null, "O nome não pode ter números ou caracteres especiais e tem que ter pelo menos 3 letras");
+			nome = JOptionPane.showInputDialog("Insira o nome do funcionario: ");
+		}
+
 		String senha = JOptionPane.showInputDialog("Insira a senha de login do funcionario: ");
+		while (!validarSenha(senha)){
+			JOptionPane.showMessageDialog(null, "A senha deve ter:\n-No minimo 7 caracteres\n-Pelo menos 1 letra maiuscula\n-Pelo menos 1 letra minuscula\n-Pelo menos 1 numero");
+			senha = JOptionPane.showInputDialog("Insira a senha de login do funcionario: ");
+		}
+
 		String hierarquia = JOptionPane.showInputDialog("Insira a hierarquia do funcionario: ");
+
+
 		Funcionario f2 = new Funcionario();
 		f2.setNomeFun(nome);
 		f2.setSenhaFun(senha);
@@ -123,13 +134,62 @@ public class Main {
 		return f2;
 	}
 	
-	//Metodo para receber dados do cliente		<----------
+	//Metodo para receber dados do cliente
 	private static Cliente lerDadosCli(){
 
-		String nome = JOptionPane.showInputDialog("Insira o nome do cliente");
-		int cpf = Integer.parseInt(JOptionPane.showInputDialog("Insira o CPF do cliente"));
-		int telefone = Integer.parseInt(JOptionPane.showInputDialog("Insira o telefone do cliente"));
-		String email = JOptionPane.showInputDialog("Insira o email do cliente");
+		String nome = JOptionPane.showInputDialog("Insira o nome do cliente: ");
+		while (!validarNome(nome)){
+			JOptionPane.showMessageDialog(null, "O nome não pode ter números ou caracteres especiais e tem que ter pelo menos 3 letras");
+			nome = JOptionPane.showInputDialog("Insira o nome do cliente: ");
+		}
+
+		long cpf = 0;
+		while (true) {
+            try {
+                cpf = Long.parseLong(JOptionPane.showInputDialog("Insira o CPF do cliente: "));
+				if (validarCPF(cpf)) {
+					break;
+				}else {
+					JOptionPane.showMessageDialog(null, "Digite um CPF Válido.");
+				}
+                } 
+                catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Digite apenas números inteiros.");
+            }
+        }
+		
+		
+		long telefone = 0;
+		while (true) {
+            try {
+                telefone = Long.parseLong(JOptionPane.showInputDialog("Insira o telefone do cliente: "));
+				if (validarTelefone(telefone)) {
+					break;
+				}else {
+					JOptionPane.showMessageDialog(null, "Digite um telefone Válido.");
+				}
+                } 
+                catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Digite apenas números inteiros.");
+            }
+        }
+
+		String email = "";
+        while (true) {
+            try {
+                email = JOptionPane.showInputDialog("Insira o email do cliente: ");
+                email = email.strip();
+                if (validarEmail(email)){
+                    break;
+                } else {
+                    JOptionPane.showMessageDialog(null, "Digite um email válido");
+                }
+            } 
+            catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Digite um email válido.");
+            }
+        }
+
 		Cliente c2 = new Cliente();
 		c2.setNomeCli(nome);
 		c2.setCpfCli(cpf);
@@ -141,9 +201,43 @@ public class Main {
 
 	private static Fornecedor lerDadosFornec(){
 
-		String nome = JOptionPane.showInputDialog("Insira o nome do fornecedor");
-		int telefone = Integer.parseInt(JOptionPane.showInputDialog("Insira o telefone do fornecedor"));
-		String email = JOptionPane.showInputDialog("Insira o email do fornecedor");
+		String nome = JOptionPane.showInputDialog("Insira o nome do fornecedor: ");
+		while (!validarNome(nome)){
+			JOptionPane.showMessageDialog(null, "O nome não pode ter números ou caracteres especiais e tem que ter pelo menos 3 letras");
+			nome = JOptionPane.showInputDialog("Insira o nome do fornecedor: ");
+		}
+
+		long telefone = 0;
+		while (true) {
+            try {
+                telefone = Long.parseLong(JOptionPane.showInputDialog("Insira o telefone do fornecedor: "));
+				if (validarTelefone(telefone)) {
+					break;
+				}else {
+					JOptionPane.showMessageDialog(null, "Digite um telefone Válido.");
+				}
+                } 
+                catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Digite apenas números inteiros.");
+            }
+        }
+
+		String email = "";
+        while (true) {
+            try {
+                email = JOptionPane.showInputDialog("Insira o email do fornecedor: ");
+                email = email.strip();
+                if (validarEmail(email)){
+                    break;
+                } else {
+                    JOptionPane.showMessageDialog(null, "Digite um email válido");
+                }
+            } 
+            catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Digite um email válido.");
+            }
+        }
+
 		Fornecedor f2 = new Fornecedor();
 		f2.setNomeFornec(nome);
 		f2.setTelefoneFornec(telefone);
@@ -711,16 +805,164 @@ public class Main {
 		}
 	}
 	
-	//Metodo para validar o nome de acordo com 
+	//Metodo para validar o nome de acordo com o padrão
 	private static boolean validarNome(String nome){
 
-		if (!nome.matches("[A-Za-z]*")){
+		if (!nome.replaceAll(" ", "").matches("[A-Za-z]*")){
 			return false;
 		}
 		if (nome.replaceAll(" ", "").length() < 3){
 			return false;
 		}
 		
+		return true;
+	}
+
+	//Metodo para validar a senha de acordo com o padrão
+	private static boolean validarSenha(String senha){
+		
+		if (senha.length() < 7){
+			return false;
+		}
+
+		boolean num= false, mai = false, min = false;
+
+		for (int i = 0; i < senha.length(); i++) {
+			if (Character.isDigit(senha.charAt(i))) {
+				num = true;
+			}
+			if (Character.isUpperCase(senha.charAt(i))) {
+				mai = true;
+			}
+			if (Character.isLowerCase(senha.charAt(i))) {
+				min = true;
+			}
+		}
+
+		if (num == false || mai == false || min == false){
+			return false;
+		}
+		
+		return true;
+	}
+
+	//Metodo para validar o CPF de acordo com o padrão
+	private static boolean validarCPF(long cpf){
+		String cpfStr = Long.toString(cpf);
+		int valida = 0;
+		//Verificar se a quantidade de numeros e a mesma de um CPF
+		if (cpfStr.length() != 11) {
+			return false;
+		}
+		//Verificador 1
+		cpf = Long.parseLong(cpfStr.substring(0, 9));
+
+		for(int i = 2; cpf != 0; i++) {
+			valida += (cpf % 10)*i;
+			cpf /= 10;
+		}
+
+		if ((valida % 11) < 2){
+			valida = 0;
+		} else {
+			valida = 11 - (valida % 11);
+		}
+		if (!(valida == (cpfStr.charAt(9) - '0'))){
+			return false;
+		}
+
+		//Verificador 2
+        valida = 0;
+		cpf = Long.parseLong(cpfStr.substring(0, 10));
+		for(int i = 2; cpf != 0; i++) {
+			valida += (cpf % 10)*i;
+			cpf /= 10;
+		}
+
+		if ((valida % 11) < 2){
+			valida = 0;
+		} else {
+			valida = 11 - (valida % 11);
+		}
+		if (!(valida == (cpfStr.charAt(10) - '0'))){
+			return false;
+		}
+		
+		return true;
+	}
+
+	//Metodo para validar o telefone de acordo com o padrão
+	private static boolean validarTelefone(long telefone){
+		String telefoneStr = Long.toString(telefone);
+		
+		if (telefoneStr.length() < 10 || telefoneStr.length() > 11) {
+			return false;
+		}
+		if (telefoneStr.length() == 11 && telefoneStr.substring(1, 2).equals("9")) {
+			return false;
+		}
+
+		Integer[] codigosDDD = {
+			11, 12, 13, 14, 15, 16, 17, 18, 19,
+			21, 22, 24, 27, 28, 31, 32, 33, 34,
+			35, 37, 38, 41, 42, 43, 44, 45, 46,
+			47, 48, 49, 51, 53, 54, 55, 61, 62,
+			64, 63, 65, 66, 67, 68, 69, 71, 73,
+			74, 75, 77, 79, 81, 82, 83, 84, 85,
+			86, 87, 88, 89, 91, 92, 93, 94, 95,
+			96, 97, 98, 99};
+
+		if ( telefoneStr.length() == 11 && Arrays.asList(codigosDDD).indexOf(Integer.parseInt(telefoneStr.substring(0, 2))) == -1) { 
+			return false;
+		}
+		Integer[] ddd = {2, 3, 4, 5, 7};
+
+		if ( telefoneStr.length() == 10 && Arrays.asList(ddd).indexOf(Integer.parseInt(telefoneStr.substring(0, 1))) == -1) {
+			return false;
+		}
+
+		return true;
+	}
+
+	//Metodo para validar o email de acordo com o padrão
+	private static boolean validarEmail(String email) throws Exception {
+		
+		//possuir algum caracter apos o .
+        //não ter espacos
+		if (email.contains(" ")) {
+			return false;
+		}
+
+        //não ter carcteres especiais, menos [@._]
+		if (!(email.matches("[A-Za-z0-9_.@]*"))) {
+			return false;
+		}
+
+        //ter apenas alfanumerico no caracter previo ao @
+		if (!email.substring((email.indexOf("@")-1), (email.indexOf("@"))).matches("[A-Za-z0-9]*")) {
+			return false;
+		}
+
+        //ter letras minusculas no caracter logo apos ao @
+		if (!String.valueOf(email.charAt((email.indexOf("@")+1))).matches("[a-z]*")) {            
+			return false;
+		}
+
+        //ter . depois do @
+		if (!email.substring((email.indexOf("@")+2)).contains(".")) {
+			return false;
+		}
+
+        //ter apenas letras minusculas e . depois do @
+		if (!email.substring((email.indexOf("@"))+1).matches("[a-z.]*")) {
+			return false;
+		}
+
+        //ter letras minusculas depois do ultimo .
+		if (!email.substring((email.lastIndexOf(".")+1)).matches("[a-z]*")) {
+			return false;
+		}
+
 		return true;
 	}
 
