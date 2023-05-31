@@ -833,7 +833,7 @@ public class Main {
 			f2 = lerDadosFornec();
 
 			try {
-				PreparedStatement strComandoSQL = Conexao.prepareStatement("UPDATE Fornecedor SET (nomeFornec, telefoneFornec, emailFornec)" + " VALUES (?,?,?) WHERE nomeFornec= ?");
+				PreparedStatement strComandoSQL = Conexao.prepareStatement("UPDATE Fornecedor SET (nomeFornec, telefoneFornec, emailFornec)" + " = (?,?,?) WHERE nomeFornec= ?");
 				strComandoSQL.setString(1, f2.getNomeFornec());
 				strComandoSQL.setLong(2, f2.getTelefoneFornec());
 				strComandoSQL.setString(3, f2.getEmailFornec());
@@ -870,7 +870,7 @@ public class Main {
 			c2 = lerDadosCupom();
 				
 			try {
-				PreparedStatement strComandoSQL = Conexao.prepareStatement("UPDATE Cupom SET(codCupom, porcentagemCupom, qtdUsosCupom" + " VALUES (?,?,?) WHERE idCupom= ?");
+				PreparedStatement strComandoSQL = Conexao.prepareStatement("UPDATE Cupom SET(codCupom, porcentagemCupom, qtdUsosCupom)" + " = (?,?,?) WHERE idCupom= ?");
 				strComandoSQL.setString(1, c2.getCodCupom());
 				strComandoSQL.setFloat(2, c2.getPorcentagemCupom());
 				strComandoSQL.setInt(3, c2.getQtdUsosCupom());
@@ -887,6 +887,49 @@ public class Main {
 				
 		}
 			
+	}
+	
+	//Metodo para alterar o estoque
+	private void alterarEstoque() {
+		for(int i = 0; i < produtos.size(); ++i) {
+			String str = "ID: " + produtos.get(i).getIdProd() + "\nNome: " + produtos.get(i).getNomeProd() + "\nTipo: " + produtos.get(i).getTipoProd() + "\nPreco: " + produtos.get(i).getPrecoProd() + "\nDescricao: " + produtos.get(i).getDescricaoProd() + "\nQuantidade disponivel: " + produtos.get(i).getQtdProd();
+			JOptionPane.showMessageDialog(null, str);
+		}
+		int n = Integer.parseInt(JOptionPane.showInputDialog("Insira o ID do produto que deseja editar"));
+		int j = 0;
+		for(int i = 0; i < produtos.size(); ++i) {
+			if(produtos.get(i).getIdProd() == n) {
+				j = i;
+				break;
+			}
+		}
+		int num = JOptionPane.showConfirmDialog(null, "Confirma a edição?\nID: " + produtos.get(j).getIdProd() + "\nNome: " + produtos.get(j).getNomeProd() + "\nTipo: " + produtos.get(j).getTipoProd() + "\nPreco: " + produtos.get(j).getPrecoProd() + "\nDescricao: " + produtos.get(j).getDescricaoProd() + "\nQuantidade disponivel: " + produtos.get(j).getQtdProd(), "Edição", JOptionPane.YES_NO_OPTION);
+		if(num == 0) {
+			int qtd = 0;
+			while(true) {
+				try {
+					qtd = Integer.parseInt(JOptionPane.showInputDialog("Insira a nova quantidade de itens no estoque, a quantidade atual é " + produtos.get(j).getQtdProd()));
+					break;
+				}
+				catch(Exception Excecao) {
+					JOptionPane.showMessageDialog(null, "Insira apenas numeros inteiros maiores ou igual a zero");
+				}
+			}
+			try {
+				PreparedStatement strComandoSQL = Conexao.prepareStatement("UPDATE Produto SET qtdProd = ? WHERE idProd= ?");
+				strComandoSQL.setInt(1, qtd);
+				strComandoSQL.setInt(2, n);
+				int intRegistro = strComandoSQL.executeUpdate();
+				produtos.get(j).setQtdProd(qtd);
+				if(intRegistro != 0) {
+					JOptionPane.showMessageDialog(null, "Alteração feita com sucesso");
+				}
+			}
+			catch(Exception Excecao) {
+				JOptionPane.showMessageDialog(null,"SQLException: " + Excecao.getMessage(),"Erro: Selecao de registro",JOptionPane.INFORMATION_MESSAGE);
+			}
+			
+		}
 	}
 
 	private void executa() {
