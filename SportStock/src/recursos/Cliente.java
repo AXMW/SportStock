@@ -2,8 +2,8 @@ package recursos;
 
 public class Cliente {
 	private String nomeCli;
-	private int cpfCli;
-	private int telefoneCli;
+	private long cpfCli;
+	private long telefoneCli;
 	private String emailCli;
 	
 	public Cliente() {
@@ -16,16 +16,16 @@ public class Cliente {
 	public void setNomeCli(String nomeCli) {
 		this.nomeCli = nomeCli;
 	}
-	public int getCpfCli() {
+	public long getCpfCli() {
 		return cpfCli;
 	}
-	public void setCpfCli(int cpfCli) {
+	public void setCpfCli(long cpfCli) {
 		this.cpfCli = cpfCli;
 	}
-	public int getTelefoneCli() {
+	public long getTelefoneCli() {
 		return telefoneCli;
 	}
-	public void setTelefoneCli(int telefoneCli) {
+	public void setTelefoneCli(long telefoneCli) {
 		this.telefoneCli = telefoneCli;
 	}
 	public String getEmailCli() {

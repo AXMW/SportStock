@@ -35,6 +35,7 @@ public class Main {
 	private static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 	private static ArrayList<Venda> vendas = new ArrayList<Venda>();
 	private static ArrayList<Fornecedor> fornecedores = new ArrayList<Fornecedor>();
+	private static ArrayList<Cupom> cupons = new ArrayList<Cupom>();
 	
 	//Metodo para fazer a conexao com o SQL
 	private void conecta() {
@@ -47,10 +48,10 @@ public class Main {
 				JOptionPane.showMessageDialog(null, "Arquivo não existe");
 			}
 			String database = "jdbc:ucanaccess://" + filename.trim();
-			System.out.println(database);
+			//System.out.println(database);
 			Conexao = DriverManager.getConnection(database);
-			DatabaseMetaData d = Conexao.getMetaData();
-			rsRegistro = d.getTables(null, null, "%", null);
+			//DatabaseMetaData d = Conexao.getMetaData();
+			//rsRegistro = d.getTables(null, null, "%", null);
 		}
 		catch (Exception Excecao) {
 			Excecao.printStackTrace();
@@ -137,6 +138,7 @@ public class Main {
 	//Metodo para receber dados do cliente
 	private static Cliente lerDadosCli(){
 
+
 		String nome = JOptionPane.showInputDialog("Insira o nome do cliente: ");
 		while (!validarNome(nome)){
 			JOptionPane.showMessageDialog(null, "O nome não pode ter números ou caracteres especiais e tem que ter pelo menos 3 letras");
@@ -190,6 +192,7 @@ public class Main {
             }
         }
 
+
 		Cliente c2 = new Cliente();
 		c2.setNomeCli(nome);
 		c2.setCpfCli(cpf);
@@ -200,6 +203,7 @@ public class Main {
 	}
 
 	private static Fornecedor lerDadosFornec(){
+
 
 		String nome = JOptionPane.showInputDialog("Insira o nome do fornecedor: ");
 		while (!validarNome(nome)){
@@ -238,12 +242,48 @@ public class Main {
             }
         }
 
+
 		Fornecedor f2 = new Fornecedor();
 		f2.setNomeFornec(nome);
 		f2.setTelefoneFornec(telefone);
 		f2.setEmailFornec(email);
 
 		return f2;
+	}
+	
+	//Metodo para receber os dados do Cupom
+	private static Cupom lerDadosCupom() {
+		String codigo = JOptionPane.showInputDialog("Insira o codigo do cupom");
+		float porcentagem = 0;
+		while(true) {
+			try {
+				porcentagem = Float.parseFloat(JOptionPane.showInputDialog("Insira a porcentagem de desconto do cupom"));
+				if(porcentagem < 20 && porcentagem > 0) {
+					break;
+				}
+			}
+			catch(Exception Excecao) {
+				JOptionPane.showMessageDialog(null, "Insira apenas valores numericos até 20 para o desconto");
+			}
+		}
+		int qtdUsos = 0;
+		while(true) {
+			try {
+				qtdUsos = Integer.parseInt(JOptionPane.showInputDialog("Insira a quantidade de usos do cupom"));
+				if(qtdUsos > 0) {
+					break;
+				}
+			}
+			catch(Exception Excecao) {
+				JOptionPane.showMessageDialog(null, "Insira apenas numeros inteiros e positivos para a quantidade");
+			}
+		}
+		Cupom c1 = new Cupom();
+		c1.setCodCupom(codigo);
+		c1.setPorcentagemCupom(porcentagem);
+		c1.setQtdUsosCupom(qtdUsos);
+		
+		return c1;
 	}
 
 	//Metodo para ler os dados dos produtos e adicionar em um arraylist
@@ -292,8 +332,8 @@ public class Main {
 			while(rsRegistro.next()) {
 				Cliente c1 = new Cliente();
 				c1.setNomeCli(rsRegistro.getString("nomeCli"));
-				c1.setCpfCli(rsRegistro.getInt("cpfCli"));
-				c1.setTelefoneCli(rsRegistro.getInt("telefoneCli"));
+				c1.setCpfCli(rsRegistro.getLong("cpfCli"));
+				c1.setTelefoneCli(rsRegistro.getLong("telefoneCli"));
 				c1.setEmailCli(rsRegistro.getString("emailCli"));
 				clientes.add(c1);
 			}
@@ -303,7 +343,6 @@ public class Main {
 		}
 	}
 	
-
 	//Metodo pra ler Vendas
 	private void consultaVenda() {
 		try {
@@ -329,7 +368,7 @@ public class Main {
 			while(rsRegistro.next()) {
 				Fornecedor f1 = new Fornecedor();
 				f1.setNomeFornec(rsRegistro.getString("nomeFornec"));
-				f1.setTelefoneFornec(rsRegistro.getInt("telefoneFornec"));
+				f1.setTelefoneFornec(rsRegistro.getLong("telefoneFornec"));
 				f1.setEmailFornec(rsRegistro.getString("emailFornec"));
 				fornecedores.add(f1);
 			}
@@ -339,6 +378,23 @@ public class Main {
 		}
 	}
 
+	//Metoto para ler Cupons
+	private void consultaCupom() {
+		try {
+			rsRegistro = Conexao.createStatement().executeQuery("SELECT * FROM Cupom");
+			while(rsRegistro.next()) {
+				Cupom c1 = new Cupom();
+				c1.setIdCupom(rsRegistro.getInt("idCupom"));
+				c1.setCodCupom(rsRegistro.getString("codCupom"));
+				c1.setPorcentagemCupom(rsRegistro.getFloat("porcentagemCupom"));
+				c1.setQtdUsosCupom(rsRegistro.getInt("qtdUsosCupom"));
+				cupons.add(c1);
+			}
+		}
+		catch (Exception Excecao) {
+			JOptionPane.showMessageDialog(null, "SQLException: " + Excecao.getMessage(),"Erro: Selecao de registro", JOptionPane.INFORMATION_MESSAGE);
+		}
+	}
 	
 	//Metodo pra fazer uma nova venda
 	private void criarVenda() {
@@ -346,49 +402,107 @@ public class Main {
 			String str = "ID: " + produtos.get(i).getIdProd() + "\nNome: " + produtos.get(i).getNomeProd() + "\nTipo: " + produtos.get(i).getTipoProd() + "\nPreco: " + produtos.get(i).getPrecoProd() + "\nDescricao: " + produtos.get(i).getDescricaoProd() + "\nQuantidade disponivel: " + produtos.get(i).getQtdProd();
 			JOptionPane.showMessageDialog(null, str);
 		}
-		int id = Integer.parseInt(JOptionPane.showInputDialog("Insira o ID do produto que deseja vender"));
-		int qtd = Integer.parseInt(JOptionPane.showInputDialog("Insira a quantidade de produtos que deseja vender"));
-		int index = 0;
-		float preco = 0;
-		for(int i = 0; i < produtos.size(); ++i) {
-			if(id == produtos.get(i).getIdProd()) {
-				index = i;
-				preco = qtd * produtos.get(i).getPrecoProd();
+		
+		ArrayList<Venda> venda = new ArrayList<Venda>();
+		while(true) {
+			int id = Integer.parseInt(JOptionPane.showInputDialog("Insira o ID do produto que deseja vender"));
+			int qtd = Integer.parseInt(JOptionPane.showInputDialog("Insira a quantidade de produtos que deseja vender"));
+			int index = 0;
+			float preco = 0;
+			for(int i = 0; i < produtos.size(); ++i) {
+				if(id == produtos.get(i).getIdProd()) {
+					index = i;
+					preco = qtd * produtos.get(i).getPrecoProd();
+					break;
+				}
+			}
+			
+			String descricao = produtos.get(index).getNomeProd() + " x " + qtd + " = " + (qtd * produtos.get(index).getPrecoProd());
+			Venda v1 = new Venda();
+			v1.setPrecoVenda(preco);
+			v1.setDescricaoVenda(descricao);
+			v1.setIdProd(id);
+			v1.setIndexProd(index);
+			v1.setQtdProd(qtd);
+			venda.add(v1);
+			int confirmacao = JOptionPane.showConfirmDialog(null, "Mais algum produto?", "Venda", JOptionPane.YES_NO_OPTION);
+			if(confirmacao != 0) {
 				break;
 			}
 		}
-		String descricao = produtos.get(index).getNomeProd() + " x " + qtd + " = " + (qtd * produtos.get(index).getPrecoProd());
-		Venda v1 = new Venda();
-		v1.setPrecoVenda(preco);
-		v1.setDescricaoVenda(descricao);
-		try {
-			PreparedStatement strComandoSQL = Conexao.prepareStatement("INSERT INTO Venda (precoVenda, dataVenda, descricaoVenda)" + " VALUES (?,?,?)");
-			strComandoSQL.setFloat(1, preco);
-			strComandoSQL.setString(2, v1.getDataVenda());
-			strComandoSQL.setString(3, descricao);
-			try {
-				int intRegistro = strComandoSQL.executeUpdate();
-				if(intRegistro != 0) {
-					rsRegistro = Conexao.createStatement().executeQuery("SELECT codVenda FROM Venda");
-					int codigo = 0;
-					while(rsRegistro.next()) {
-						if(codigo < rsRegistro.getInt("codVenda")) {
-							codigo = rsRegistro.getInt("codVenda");
+		
+		int desconto = JOptionPane.showConfirmDialog(null, "Inserir cupom de desconto?", "Desconto", JOptionPane.YES_NO_OPTION);
+		if(desconto == 0) {
+			float valorDesc = 0;
+			int idCupom = 0;
+			while(true) {
+				try {
+					idCupom = Integer.parseInt(JOptionPane.showInputDialog("Insira o ID do cupom"));
+					boolean verify = false;
+					for(int i = 0; i < cupons.size(); ++i) {
+						if(idCupom == cupons.get(i).getIdCupom()) {
+							valorDesc = cupons.get(i).getPorcentagemCupom() / 100;
+							verify = true;
+							break;
 						}
 					}
-					v1.setCodVenda(codigo);
-					vendas.add(v1);
-					JOptionPane.showMessageDialog(null, "Venda realizada com sucesso");
+					if(verify == true) {
+						break;
+					}
+				}
+				catch(Exception Excecao) {
+					JOptionPane.showMessageDialog(null, "Insira apenas numeros inteiros e validos de cupom");
+				}
+			}
+			for(int i = 0; i < venda.size(); ++i) {
+				venda.get(i).setPrecoVenda((venda.get(i).getPrecoVenda() - (venda.get(i).getPrecoVenda() * valorDesc)));
+				venda.get(i).setIdCupomDesconto(idCupom);
+			}
+		}
+		
+		for(int i = 0; i < venda.size(); ++i) {
+			try {
+				PreparedStatement strComandoSQL = Conexao.prepareStatement("INSERT INTO Venda (precoVenda, dataVenda, descricaoVenda)" + " VALUES (?,?,?)");
+				strComandoSQL.setFloat(1, venda.get(i).getPrecoVenda());
+				strComandoSQL.setString(2, venda.get(i).getDataVenda());
+				strComandoSQL.setString(3, venda.get(i).getDescricaoVenda());
+				try {
+					int intRegistro = strComandoSQL.executeUpdate();
+					if(intRegistro != 0) {
+						rsRegistro = Conexao.createStatement().executeQuery("SELECT codVenda FROM Venda");
+						int codigo = 0;
+						while(rsRegistro.next()) {
+							if(codigo < rsRegistro.getInt("codVenda")) {
+								codigo = rsRegistro.getInt("codVenda");
+							}
+						}
+						venda.get(i).setCodVenda(codigo);
+						
+						int quantidadeProd = produtos.get(venda.get(i).getIndexProd()).getQtdProd();
+						quantidadeProd -= venda.get(i).getQtdProd();
+						produtos.get(venda.get(i).getIndexProd()).setQtdProd(quantidadeProd);
+						strComandoSQL = Conexao.prepareStatement("UPDATE Produto SET qtdProd VALUE ? WHERE idProd= ?");
+						strComandoSQL.setInt(1, quantidadeProd);
+						strComandoSQL.setInt(2, venda.get(i).getIdProd());
+						try {
+							strComandoSQL.executeUpdate();
+						}
+						catch (Exception Excecao) {
+							JOptionPane.showMessageDialog(null,"SQLException: " + Excecao.getMessage(),"Erro: Selecaoo de registro",JOptionPane.INFORMATION_MESSAGE);
+						}
+					}
+				}
+				catch (Exception Excecao) {
+					JOptionPane.showMessageDialog(null,"SQLException: " + Excecao.getMessage(),"Erro: Selecaoo de registro",JOptionPane.INFORMATION_MESSAGE);
 				}
 			}
 			catch (Exception Excecao) {
 				JOptionPane.showMessageDialog(null,"SQLException: " + Excecao.getMessage(),"Erro: Selecaoo de registro",JOptionPane.INFORMATION_MESSAGE);
 			}
 		}
-		catch (Exception Excecao) {
-			JOptionPane.showMessageDialog(null, Excecao);
-		}
+		vendas.addAll(venda);
 	}
+	
 	//Metodo para adicionar novos produtos
 	private void adicionarProd() {
 		
@@ -461,9 +575,9 @@ public class Main {
 
 		try {
 			PreparedStatement strComandoSQL = Conexao.prepareStatement("INSERT INTO Cliente (cpfCli, nomeCli, telefoneCli, emailCli)" + " VALUES (?,?,?,?)");
-			strComandoSQL.setInt(1, c2.getCpfCli());
+			strComandoSQL.setLong(1, c2.getCpfCli());
 			strComandoSQL.setString(2, c2.getNomeCli());
-			strComandoSQL.setInt(3, c2.getTelefoneCli());
+			strComandoSQL.setLong(3, c2.getTelefoneCli());
 			strComandoSQL.setString(4, c2.getEmailCli());
 			int intRegistro = strComandoSQL.executeUpdate();
 			if(intRegistro != 0) {
@@ -485,12 +599,42 @@ public class Main {
 		try {
 			PreparedStatement strComandoSQL = Conexao.prepareStatement("INSERT INTO Fornecedor (nomeFornec, telefoneFornec, emailFornec)" + " VALUES (?,?,?)");
 			strComandoSQL.setString(1, f2.getNomeFornec());
-			strComandoSQL.setInt(2, f2.getTelefoneFornec());
+			strComandoSQL.setLong(2, f2.getTelefoneFornec());
 			strComandoSQL.setString(3, f2.getEmailFornec());
 			int intRegistro = strComandoSQL.executeUpdate();
 			if(intRegistro != 0) {
 				JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
 				fornecedores.add(f2);
+			}
+		}
+		catch (Exception Excecao) {
+			JOptionPane.showMessageDialog(null,"SQLException: " + Excecao.getMessage(),"Erro: Selecao de registro",JOptionPane.INFORMATION_MESSAGE);
+		}
+	}
+	
+	//Metodo para adicionar cupom
+	private void adicionarCupom() {
+		
+		Cupom c2 = new Cupom();
+		c2 = lerDadosCupom();
+		
+		try {
+			PreparedStatement strComandoSQL = Conexao.prepareStatement("INSERT INTO Cupom (codCupom, porcentagemCupom, qtdUsosCupom" + " VALUES (?,?,?)");
+			strComandoSQL.setString(1, c2.getCodCupom());
+			strComandoSQL.setFloat(2, c2.getPorcentagemCupom());
+			strComandoSQL.setInt(3, c2.getQtdUsosCupom());
+			int intRegistro = strComandoSQL.executeUpdate();
+			if(intRegistro != 0) {
+				rsRegistro = Conexao.createStatement().executeQuery("SELECT idCupom FROM Cupom");
+				int codigo = 0;
+				while(rsRegistro.next()) {
+					if(codigo < rsRegistro.getInt("idCupom")) {
+						codigo = rsRegistro.getInt("idCupom");
+					}
+				}
+				c2.setIdCupom(codigo);
+				JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
+				cupons.add(c2);
 			}
 		}
 		catch (Exception Excecao) {
@@ -619,6 +763,36 @@ public class Main {
 			}
 		}
 	}
+	
+	//Metodo para excluir cupom
+	private void excluirCupom() {
+		for(int i = 0; i < cupons.size(); ++i) {
+			JOptionPane.showMessageDialog(null, "ID: " + cupons.get(i).getIdCupom() + "\nCodigo: " + cupons.get(i).getCodCupom() + "\nPorcentagem: " + cupons.get(i).getPorcentagemCupom() + "\nQuantidade de usos: " + cupons.get(i).getQtdUsosCupom());
+		}
+		int n = Integer.parseInt(JOptionPane.showInputDialog("Insira o ID do cupom que deseja excluir"));
+		int j = 0;
+		for(int i = 0; i < cupons.size(); ++i) {
+			if(cupons.get(i).getIdCupom() == n) {
+				j = i;
+				break;
+			}
+		}
+		int num = JOptionPane.showConfirmDialog(null, "Confirma a exclusão?\nID: " + cupons.get(j).getIdCupom() + "\nCodigo: " + cupons.get(j).getCodCupom() + "\nPorcentagem: " + cupons.get(j).getPorcentagemCupom() + "\nQuantidade de usos: " + cupons.get(j).getQtdUsosCupom(), "Exclusão", JOptionPane.YES_NO_OPTION);
+		if(num == 0) {
+			try {
+				PreparedStatement strComandoSQL = Conexao.prepareStatement("DELETE from Cupom WHERE" + " idCupom= ?");
+				strComandoSQL.setInt(1, n);
+				int intRegistro = strComandoSQL.executeUpdate();
+				if(intRegistro != 0) {
+					JOptionPane.showMessageDialog(null, "Exclusão realizada com sucesso");
+					cupons.remove(j);
+				}
+			}
+			catch (Exception Excecao) {
+				JOptionPane.showMessageDialog(null,"SQLException: " + Excecao.getMessage(),"Erro: Selecao de registro",JOptionPane.INFORMATION_MESSAGE);
+			}
+		}
+	}
 
 	//Metodo para editar produtos
 	private void editarProd() {
@@ -719,9 +893,9 @@ public class Main {
 
 			try {
 				PreparedStatement strComandoSQL = Conexao.prepareStatement("UPDATE Cliente SET (cpfCli, nomeCli, telefoneCli, emailCli)" + " = (?,?,?,?) WHERE cpfCli= ?");
-				strComandoSQL.setInt(1, c2.getCpfCli());
+				strComandoSQL.setLong(1, c2.getCpfCli());
 				strComandoSQL.setString(2, c2.getNomeCli());
-				strComandoSQL.setInt(3, c2.getTelefoneCli());
+				strComandoSQL.setLong(3, c2.getTelefoneCli());
 				strComandoSQL.setString(4, c2.getEmailCli());
 				strComandoSQL.setInt(5, n);
 				int intRegistro = strComandoSQL.executeUpdate();
@@ -757,10 +931,11 @@ public class Main {
 			f2 = lerDadosFornec();
 
 			try {
-				PreparedStatement strComandoSQL = Conexao.prepareStatement("UPDATE Fornecedor SET (nomeFornec, telefoneFornec, emailFornec)" + " VALUES (?,?,?)");
+				PreparedStatement strComandoSQL = Conexao.prepareStatement("UPDATE Fornecedor SET (nomeFornec, telefoneFornec, emailFornec)" + " = (?,?,?) WHERE nomeFornec= ?");
 				strComandoSQL.setString(1, f2.getNomeFornec());
-				strComandoSQL.setInt(2, f2.getTelefoneFornec());
+				strComandoSQL.setLong(2, f2.getTelefoneFornec());
 				strComandoSQL.setString(3, f2.getEmailFornec());
+				strComandoSQL.setString(4, n);
 				int intRegistro = strComandoSQL.executeUpdate();
 				if(intRegistro != 0) {
 					JOptionPane.showMessageDialog(null, "Edição realizada com sucesso");
@@ -773,6 +948,87 @@ public class Main {
 			
 		}
 	}
+	
+	//Metodo para editar cupom
+	private void editarCupom() {
+		for(int i = 0; i < cupons.size(); ++i) {
+			JOptionPane.showMessageDialog(null, "ID: " + cupons.get(i).getIdCupom() + "\nCodigo: " + cupons.get(i).getCodCupom() + "\nPorcentagem: " + cupons.get(i).getPorcentagemCupom() + "\nQuantidade de usos: " + cupons.get(i).getQtdUsosCupom());
+		}
+		int n = Integer.parseInt(JOptionPane.showInputDialog("Insira o ID do cupom que deseja editar"));
+		int j = 0;
+		for(int i = 0; i < cupons.size(); ++i) {
+			if(cupons.get(i).getIdCupom() == n) {
+				j = i;
+				break;
+			}
+		}
+		int num = JOptionPane.showConfirmDialog(null, "Confirma a edição?\nID: " + cupons.get(j).getIdCupom() + "\nCodigo: " + cupons.get(j).getCodCupom() + "\nPorcentagem: " + cupons.get(j).getPorcentagemCupom() + "\nQuantidade de usos: " + cupons.get(j).getQtdUsosCupom(), "Exclusão", JOptionPane.YES_NO_OPTION);
+		if(num == 0) {
+			Cupom c2 = new Cupom();
+			c2 = lerDadosCupom();
+				
+			try {
+				PreparedStatement strComandoSQL = Conexao.prepareStatement("UPDATE Cupom SET(codCupom, porcentagemCupom, qtdUsosCupom)" + " = (?,?,?) WHERE idCupom= ?");
+				strComandoSQL.setString(1, c2.getCodCupom());
+				strComandoSQL.setFloat(2, c2.getPorcentagemCupom());
+				strComandoSQL.setInt(3, c2.getQtdUsosCupom());
+				strComandoSQL.setInt(4, n);
+				int intRegistro = strComandoSQL.executeUpdate();
+				if(intRegistro != 0) {
+					JOptionPane.showMessageDialog(null, "Edição realizada com sucesso");
+					cupons.set(j, c2);
+				}
+			}
+			catch (Exception Excecao) {
+				JOptionPane.showMessageDialog(null,"SQLException: " + Excecao.getMessage(),"Erro: Selecao de registro",JOptionPane.INFORMATION_MESSAGE);
+			}
+				
+		}
+			
+	}
+	
+	//Metodo para alterar o estoque
+	private void alterarEstoque() {
+		for(int i = 0; i < produtos.size(); ++i) {
+			String str = "ID: " + produtos.get(i).getIdProd() + "\nNome: " + produtos.get(i).getNomeProd() + "\nTipo: " + produtos.get(i).getTipoProd() + "\nPreco: " + produtos.get(i).getPrecoProd() + "\nDescricao: " + produtos.get(i).getDescricaoProd() + "\nQuantidade disponivel: " + produtos.get(i).getQtdProd();
+			JOptionPane.showMessageDialog(null, str);
+		}
+		int n = Integer.parseInt(JOptionPane.showInputDialog("Insira o ID do produto que deseja editar"));
+		int j = 0;
+		for(int i = 0; i < produtos.size(); ++i) {
+			if(produtos.get(i).getIdProd() == n) {
+				j = i;
+				break;
+			}
+		}
+		int num = JOptionPane.showConfirmDialog(null, "Confirma a edição?\nID: " + produtos.get(j).getIdProd() + "\nNome: " + produtos.get(j).getNomeProd() + "\nTipo: " + produtos.get(j).getTipoProd() + "\nPreco: " + produtos.get(j).getPrecoProd() + "\nDescricao: " + produtos.get(j).getDescricaoProd() + "\nQuantidade disponivel: " + produtos.get(j).getQtdProd(), "Edição", JOptionPane.YES_NO_OPTION);
+		if(num == 0) {
+			int qtd = 0;
+			while(true) {
+				try {
+					qtd = Integer.parseInt(JOptionPane.showInputDialog("Insira a nova quantidade de itens no estoque, a quantidade atual é " + produtos.get(j).getQtdProd()));
+					break;
+				}
+				catch(Exception Excecao) {
+					JOptionPane.showMessageDialog(null, "Insira apenas numeros inteiros maiores ou igual a zero");
+				}
+			}
+			try {
+				PreparedStatement strComandoSQL = Conexao.prepareStatement("UPDATE Produto SET qtdProd = ? WHERE idProd= ?");
+				strComandoSQL.setInt(1, qtd);
+				strComandoSQL.setInt(2, n);
+				int intRegistro = strComandoSQL.executeUpdate();
+				produtos.get(j).setQtdProd(qtd);
+				if(intRegistro != 0) {
+					JOptionPane.showMessageDialog(null, "Alteração feita com sucesso");
+				}
+			}
+			catch(Exception Excecao) {
+				JOptionPane.showMessageDialog(null,"SQLException: " + Excecao.getMessage(),"Erro: Selecao de registro",JOptionPane.INFORMATION_MESSAGE);
+			}
+			
+		}
+	}
 
 	private void executa() {
 		conecta();
@@ -780,6 +1036,8 @@ public class Main {
 		consultaFun();
 		consultaCli();
 		consultaVenda();
+		consultaFornec();
+		consultaCupom();
 		imprimirProd();
 		imprimirFun();
 		//excluirProd();
