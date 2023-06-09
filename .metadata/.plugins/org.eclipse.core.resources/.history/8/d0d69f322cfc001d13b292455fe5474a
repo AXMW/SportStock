@@ -1,9 +1,0 @@
-package recursos;
-
-public class Fornecedor {
-	protected String nomeFornec;
-	protected int telefoneFornec;
-	protected String emailFornec;
-	protected boolean confimacaoDeTroca;
-
-}
