@@ -9,7 +9,6 @@ import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.Toolkit;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 
 import java.awt.Color;
 import javax.swing.SwingConstants;
@@ -288,7 +287,7 @@ public class TelaGerente {
 		
 		codigoProdutoAlt = new JTextField();
 		codigoProdutoAlt.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
-		codigoProdutoAlt.setBounds(230, 126, 184, 36);
+		codigoProdutoAlt.setBounds(230, 126, 169, 36);
 		frmGerenciar.getContentPane().add(codigoProdutoAlt);
 		codigoProdutoAlt.setColumns(10);
 		
@@ -300,19 +299,19 @@ public class TelaGerente {
 		qtdProdutoAlt = new JTextField();
 		qtdProdutoAlt.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		qtdProdutoAlt.setText("1");
-		qtdProdutoAlt.setBounds(659, 126, 94, 36);
+		qtdProdutoAlt.setBounds(628, 126, 94, 36);
 		frmGerenciar.getContentPane().add(qtdProdutoAlt);
 		qtdProdutoAlt.setColumns(10);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("Insira a quantidade de produtos");
 		lblNewLabel_2_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
-		lblNewLabel_2_1.setBounds(424, 126, 225, 36);
+		lblNewLabel_2_1.setBounds(408, 126, 225, 36);
 		frmGerenciar.getContentPane().add(lblNewLabel_2_1);
 		
 		JLabel Erro = new JLabel("");
 		Erro.setBackground(new Color(255, 0, 0));
-		Erro.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 13));
-		Erro.setBounds(876, 126, 158, 36);
+		Erro.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 11));
+		Erro.setBounds(846, 126, 188, 36);
 		frmGerenciar.getContentPane().add(Erro);
 		
 		JButton AdicionarProd = new JButton("Adicionar");
@@ -334,6 +333,8 @@ public class TelaGerente {
 					}
 					if(index == -1) {
 						Erro.setText("Produto não encontrado");
+					} else {
+						
 					}
 				} catch (Exception exce) {
 					Erro.setText("Insira apenas numeros");
@@ -341,7 +342,7 @@ public class TelaGerente {
 			}
 		});
 		AdicionarProd.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
-		AdicionarProd.setBounds(763, 126, 103, 36);
+		AdicionarProd.setBounds(733, 126, 103, 36);
 		frmGerenciar.getContentPane().add(AdicionarProd);
 		
 		

@@ -1028,13 +1028,13 @@ public class Main {
 	}
 
 	private void executa() {
-		conecta();
+		/*conecta();
 		consultaProd();
 		consultaFun();
 		consultaCli();
 		consultaVenda();
 		consultaFornec();
-		consultaCupom();
+		consultaCupom();*/
 		//o que eu queria fazer n funcionou, acho q deveria ter feito medicina na usp era mais facil q isso
 		Login.telaLogin();
 		
