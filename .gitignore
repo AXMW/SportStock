@@ -1,2 +1,4 @@
 #ignore metadata directory
 .metadata
+#ignore vscode directory
+.vscode

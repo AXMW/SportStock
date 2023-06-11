@@ -44,7 +44,7 @@ public class Main {
 		try {
 			Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
 			
-			File arquivo = new File("../SportStockBD.accdb");
+			File arquivo = new File("./../SportStockBD.accdb");
 			if(!arquivo.exists()) {
 				JOptionPane.showMessageDialog(null, "Arquivo não existe");
 			}
