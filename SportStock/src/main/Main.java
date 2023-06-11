@@ -13,14 +13,16 @@
  * editar clientes
  * excluir clientes--
  */
+
+/*
+ * Eu sei q o sistema n ta seguro mas ta funcionando e isso q importa :)
+ */
 package main;
 import recursos.*;
+import telas.*;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.sql.DatabaseMetaData;
 import java.sql.PreparedStatement;
 import java.sql.DriverManager;
 import javax.swing.JOptionPane;
@@ -42,16 +44,12 @@ public class Main {
 		try {
 			Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
 			
-			String filename = "F://SportStock/SportStockBD.accdb";
-			File arquivo = new File(filename);
+			File arquivo = new File("../SportStockBD.accdb");
 			if(!arquivo.exists()) {
 				JOptionPane.showMessageDialog(null, "Arquivo não existe");
 			}
-			String database = "jdbc:ucanaccess://" + filename.trim();
-			//System.out.println(database);
+			String database = "jdbc:ucanaccess://" + arquivo.getAbsolutePath().trim();
 			Conexao = DriverManager.getConnection(database);
-			//DatabaseMetaData d = Conexao.getMetaData();
-			//rsRegistro = d.getTables(null, null, "%", null);
 		}
 		catch (Exception Excecao) {
 			Excecao.printStackTrace();
@@ -323,6 +321,7 @@ public class Main {
 		catch (Exception Excecao) {
 			JOptionPane.showMessageDialog(null, "SQLException: " + Excecao.getMessage(),"Erro: Selecao de registro", JOptionPane.INFORMATION_MESSAGE);
 		}
+		
 	}
 	
 	//Metodo para ler clientes
@@ -537,11 +536,8 @@ public class Main {
 	}
 	
 	//Metodo para adicionar novos funcionarios
-	private void adicionarFun() {
-		
-		Funcionario f2 = new Funcionario();
-		f2 = lerDadosFun();
-
+	public boolean adicionarFun(Funcionario f2) {
+		conecta();
 		try {
 			PreparedStatement strComandoSQL = Conexao.prepareStatement("INSERT INTO Funcionario (nomeFun, senhaFun, hierarquiaFun)" + " VALUES (?,?,?)");
 			strComandoSQL.setString(1, f2.getNomeFun());
@@ -557,14 +553,15 @@ public class Main {
 					}
 				}
 				f2.setIdFun(codigo);
-				JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
+				JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso o seu ID é " + codigo);
 				funcionarios.add(f2);
+				return true;
 			}
 		}
 		catch (Exception Excecao) {
 			JOptionPane.showMessageDialog(null,"SQLException: " + Excecao.getMessage(),"Erro: Selecao de registro",JOptionPane.INFORMATION_MESSAGE);
 		}
-		
+		return false;
 	}
 	
 	//Metodo para adicionar clientes
@@ -1038,15 +1035,40 @@ public class Main {
 		consultaVenda();
 		consultaFornec();
 		consultaCupom();
-		imprimirProd();
-		imprimirFun();
-		//excluirProd();
-		//excluirFun();
-		//adicionarProd();
-		//editarProd();
-		//editarFun();
-		//imprimirFun();
-		//imprimirProd();
+		//o que eu queria fazer n funcionou, acho q deveria ter feito medicina na usp era mais facil q isso
+		Login.telaLogin();
+		
+	}
+	
+	public ArrayList<Funcionario> getListaFun() {
+		conecta();
+		consultaFun();
+		return funcionarios;
+	}
+	public ArrayList<Cliente> getListaCli() {
+		conecta();
+		consultaCli();
+		return clientes;
+	}
+	public ArrayList<Produto> getListaProd() {
+		conecta();
+		consultaProd();
+		return produtos;
+	}
+	public ArrayList<Venda> getListaVenda() {
+		conecta();
+		consultaProd();
+		return vendas;
+	}
+	public ArrayList<Fornecedor> getListaFornec() {
+		conecta();
+		consultaFornec();
+		return fornecedores;
+	}
+	public ArrayList<Cupom> getListaCupom() {
+		conecta();
+		consultaCupom();
+		return cupons;
 	}
 	
 
@@ -1226,6 +1248,7 @@ public class Main {
 
 	
 	public static void main(String[] args) {
+		
 		new Main().executa();
 	}
 
