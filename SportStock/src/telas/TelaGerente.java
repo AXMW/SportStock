@@ -104,7 +104,7 @@ public class TelaGerente {
 		JButton btnFornecedores = new JButton("Fornecedores");
 		btnFornecedores.setBackground(new Color(255, 255, 255));
 		btnFornecedores.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
-		btnFornecedores.setBounds(682, 32, 121, 36);
+		btnFornecedores.setBounds(682, 32, 127, 36);
 		frmGerenciar.getContentPane().add(btnFornecedores);
 		
 		JLabel tipoNomeFuncionario = new JLabel("");
