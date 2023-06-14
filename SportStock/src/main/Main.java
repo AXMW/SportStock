@@ -47,6 +47,7 @@ public class Main {
 			File arquivo = new File("./../SportStockBD.accdb");
 			if(!arquivo.exists()) {
 				JOptionPane.showMessageDialog(null, "Arquivo não existe");
+				System.exit(1);
 			}
 			String database = "jdbc:ucanaccess://" + arquivo.getAbsolutePath().trim();
 			Conexao = DriverManager.getConnection(database);
@@ -1039,31 +1040,37 @@ public class Main {
 	
 	public ArrayList<Funcionario> getListaFun() {
 		conecta();
+		funcionarios.clear();
 		consultaFun();
 		return funcionarios;
 	}
 	public ArrayList<Cliente> getListaCli() {
 		conecta();
+		clientes.clear();
 		consultaCli();
 		return clientes;
 	}
 	public ArrayList<Produto> getListaProd() {
 		conecta();
+		produtos.clear();
 		consultaProd();
 		return produtos;
 	}
 	public ArrayList<Venda> getListaVenda() {
 		conecta();
+		vendas.clear();
 		consultaProd();
 		return vendas;
 	}
 	public ArrayList<Fornecedor> getListaFornec() {
 		conecta();
+		fornecedores.clear();
 		consultaFornec();
 		return fornecedores;
 	}
 	public ArrayList<Cupom> getListaCupom() {
 		conecta();
+		cupons.clear();
 		consultaCupom();
 		return cupons;
 	}
