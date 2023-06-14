@@ -151,6 +151,7 @@ public class Login {
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmSportstockLogin.setVisible(false);
+				frmSportstockLogin.dispose();
 				Cadastro.telaCadastro();
 			}
 		});

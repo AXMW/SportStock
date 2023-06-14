@@ -610,13 +610,10 @@ public class Main {
 	}
 	
 	//Metodo para adicionar cupom
-	private void adicionarCupom() {
-		
-		Cupom c2 = new Cupom();
-		c2 = lerDadosCupom();
-		
+	public void adicionarCupom(Cupom c2) {
+		conecta();
 		try {
-			PreparedStatement strComandoSQL = Conexao.prepareStatement("INSERT INTO Cupom (codCupom, porcentagemCupom, qtdUsosCupom" + " VALUES (?,?,?)");
+			PreparedStatement strComandoSQL = Conexao.prepareStatement("INSERT INTO Cupom (codCupom, porcentagemCupom, qtdUsosCupom)" + " VALUES (?,?,?)");
 			strComandoSQL.setString(1, c2.getCodCupom());
 			strComandoSQL.setFloat(2, c2.getPorcentagemCupom());
 			strComandoSQL.setInt(3, c2.getQtdUsosCupom());
