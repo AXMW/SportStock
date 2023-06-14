@@ -44,6 +44,8 @@ public class TelaGerente {
 		produtos = new Main().getListaProd();
 		vendas = new Main().getListaVenda();
 		
+		
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -88,6 +90,13 @@ public class TelaGerente {
 		frmGerenciar.getContentPane().add(btnFuncionarios);
 		
 		JButton btnEstoque = new JButton("Estoque");
+		btnEstoque.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmGerenciar.setVisible(false);
+				TelaFuncionarioEstoque.telaFuncionarioEstoque();
+				frmGerenciar.dispose();
+			}
+		});
 		btnEstoque.setBackground(new Color(255, 255, 255));
 		btnEstoque.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		btnEstoque.setBounds(408, 32, 103, 36);
