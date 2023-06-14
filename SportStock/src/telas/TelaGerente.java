@@ -84,6 +84,11 @@ public class TelaGerente {
 		frmGerenciar.getContentPane().add(btnVenda);
 		
 		JButton btnFuncionarios = new JButton("Funcionarios");
+		btnFuncionarios.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnFuncionarios.setBackground(new Color(255, 255, 255));
 		btnFuncionarios.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		btnFuncionarios.setBounds(266, 32, 115, 36);
@@ -131,8 +136,7 @@ public class TelaGerente {
 		
 		
 		
-		
-		
+
 		
 		JLabel lblNewLabel = new JLabel("Produtos:");
 		lblNewLabel.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
@@ -192,14 +196,14 @@ public class TelaGerente {
 		precoProdutosVenda.setVerticalAlignment(SwingConstants.TOP);
 		precoProdutosVenda.setHorizontalAlignment(SwingConstants.LEFT);
 		precoProdutosVenda.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
-		precoProdutosVenda.setBounds(418, 207, 127, 242);
+		precoProdutosVenda.setBounds(475, 207, 127, 242);
 		frmGerenciar.getContentPane().add(precoProdutosVenda);
 		
 		JLabel quantidadeProdutosVenda = new JLabel("");
 		quantidadeProdutosVenda.setVerticalAlignment(SwingConstants.TOP);
 		quantidadeProdutosVenda.setHorizontalAlignment(SwingConstants.LEFT);
 		quantidadeProdutosVenda.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
-		quantidadeProdutosVenda.setBounds(565, 207, 127, 242);
+		quantidadeProdutosVenda.setBounds(575, 207, 127, 242);
 		frmGerenciar.getContentPane().add(quantidadeProdutosVenda);
 		
 		JLabel totalProdutosVenda = new JLabel("");

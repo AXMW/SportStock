@@ -107,7 +107,7 @@ public class Cadastro {
 		
 		JLabel lblSelecioneONivel = new JLabel("Selecione a hierarquia do funcionario:  ");
 		lblSelecioneONivel.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
-		lblSelecioneONivel.setBounds(368, 355, 338, 30);
+		lblSelecioneONivel.setBounds(331, 355, 338, 30);
 		frmSportstockCadastro.getContentPane().add(lblSelecioneONivel);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
