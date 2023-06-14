@@ -132,7 +132,6 @@ public class Login {
 						}
 						else {
 							erro.setText("Usuario e/ou senha incorreto(s)");
-							TelaGerenteFuncionarios.telaGerenteFuncionarios();
 						}
 					}
 				} catch (Exception excecao) {

@@ -9,8 +9,6 @@ import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.Toolkit;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
 import java.awt.Color;
 import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
@@ -18,7 +16,6 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JScrollPane;
 
 public class TelaGerente {
 
@@ -94,7 +91,9 @@ public class TelaGerente {
 		JButton btnFuncionarios = new JButton("Funcionarios");
 		btnFuncionarios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				frmGerenciar.setVisible(false);
+				TelaGerenteFuncionarios.telaGerenteFuncionarios();
+				frmGerenciar.dispose();
 			}
 		});
 		btnFuncionarios.setBackground(new Color(255, 255, 255));
@@ -377,6 +376,8 @@ public class TelaGerente {
 						}
 						qtdParcelas.setModel(new DefaultComboBoxModel<String>(vezesS));
 						
+						qtdProdutoAlt.setText(null);
+						codigoProdutoAlt.setText(null);
 						
 					}
 				} else if(opcao == 1) {
@@ -443,6 +444,9 @@ public class TelaGerente {
 							vezesS[i] = (i + 1) + "X R$ " + vezes[i];
 						}
 						qtdParcelas.setModel(new DefaultComboBoxModel<String>(vezesS));
+						
+						qtdProdutoAlt.setText(null);
+						codigoProdutoAlt.setText(null);
 					}
 					
 				} else if(opcao == 2) {
@@ -479,6 +483,9 @@ public class TelaGerente {
 							vezesS[i] = (i + 1) + "X R$ " + vezes[i];
 						}
 						qtdParcelas.setModel(new DefaultComboBoxModel<String>(vezesS));
+						
+						qtdProdutoAlt.setText(null);
+						codigoProdutoAlt.setText(null);
 					}
 					
 					
@@ -506,6 +513,9 @@ public class TelaGerente {
 							vezesS[i] = (i + 1) + "X R$ " + vezes[i];
 						}
 						qtdParcelas.setModel(new DefaultComboBoxModel<String>(vezesS));
+						
+						qtdProdutoAlt.setText(null);
+						codigoProdutoAlt.setText(null);
 					}
 					
 				}
