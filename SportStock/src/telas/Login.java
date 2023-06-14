@@ -131,7 +131,7 @@ public class Login {
 							}
 						}
 						else {
-							erro.setText("Usuario e/ou senha incorreto(s)");;
+							erro.setText("Usuario e/ou senha incorreto(s)");
 						}
 					}
 				} catch (Exception excecao) {
@@ -150,6 +150,7 @@ public class Login {
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmSportstockLogin.setVisible(false);
+				frmSportstockLogin.dispose();
 				Cadastro.telaCadastro();
 			}
 		});

@@ -44,9 +44,10 @@ public class Main {
 		try {
 			Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
 			
-			File arquivo = new File("../SportStockBD.accdb");
+			File arquivo = new File("./../SportStockBD.accdb");
 			if(!arquivo.exists()) {
 				JOptionPane.showMessageDialog(null, "Arquivo não existe");
+				System.exit(1);
 			}
 			String database = "jdbc:ucanaccess://" + arquivo.getAbsolutePath().trim();
 			Conexao = DriverManager.getConnection(database);
@@ -610,13 +611,10 @@ public class Main {
 	}
 	
 	//Metodo para adicionar cupom
-	private void adicionarCupom() {
-		
-		Cupom c2 = new Cupom();
-		c2 = lerDadosCupom();
-		
+	public void adicionarCupom(Cupom c2) {
+		conecta();
 		try {
-			PreparedStatement strComandoSQL = Conexao.prepareStatement("INSERT INTO Cupom (codCupom, porcentagemCupom, qtdUsosCupom" + " VALUES (?,?,?)");
+			PreparedStatement strComandoSQL = Conexao.prepareStatement("INSERT INTO Cupom (codCupom, porcentagemCupom, qtdUsosCupom)" + " VALUES (?,?,?)");
 			strComandoSQL.setString(1, c2.getCodCupom());
 			strComandoSQL.setFloat(2, c2.getPorcentagemCupom());
 			strComandoSQL.setInt(3, c2.getQtdUsosCupom());
@@ -1042,31 +1040,37 @@ public class Main {
 	
 	public ArrayList<Funcionario> getListaFun() {
 		conecta();
+		funcionarios.clear();
 		consultaFun();
 		return funcionarios;
 	}
 	public ArrayList<Cliente> getListaCli() {
 		conecta();
+		clientes.clear();
 		consultaCli();
 		return clientes;
 	}
 	public ArrayList<Produto> getListaProd() {
 		conecta();
+		produtos.clear();
 		consultaProd();
 		return produtos;
 	}
 	public ArrayList<Venda> getListaVenda() {
 		conecta();
+		vendas.clear();
 		consultaProd();
 		return vendas;
 	}
 	public ArrayList<Fornecedor> getListaFornec() {
 		conecta();
+		fornecedores.clear();
 		consultaFornec();
 		return fornecedores;
 	}
 	public ArrayList<Cupom> getListaCupom() {
 		conecta();
+		cupons.clear();
 		consultaCupom();
 		return cupons;
 	}
