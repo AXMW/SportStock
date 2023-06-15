@@ -21,7 +21,7 @@ import javax.swing.JTable;
 import javax.swing.JList;
 import javax.swing.AbstractListModel;
 
-public class TelaFuncionarioEstoque {
+public class TelaGerenteEstoque {
 
 	private JFrame frmFuncionarioEstoque;
 	
@@ -36,17 +36,22 @@ public class TelaFuncionarioEstoque {
     private String quantidade = "<html><body>";
     private String tipo = "<html><body>";
     private String descricao = "<html><body>";
+    private JTextField alterarNome;
+    private JTextField alterarTipo;
+    private JTextField alterarDescricao;
+    private JTextField alterarQuantidade;
+    private JTextField alterarPreco;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void telaFuncionarioEstoque() {
+	public static void telaGerenteEstoque() {
 		produtos = new Main().getListaProd();
 		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaFuncionarioEstoque window = new TelaFuncionarioEstoque();
+					TelaGerenteEstoque window = new TelaGerenteEstoque();
 					window.frmFuncionarioEstoque.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -58,7 +63,7 @@ public class TelaFuncionarioEstoque {
 	/**
 	 * Create the application.
 	 */
-	public TelaFuncionarioEstoque() {
+	public TelaGerenteEstoque() {
 		initialize();
 	}
 
@@ -68,13 +73,54 @@ public class TelaFuncionarioEstoque {
 	private void initialize() {
 		frmFuncionarioEstoque = new JFrame();
 		frmFuncionarioEstoque.getContentPane().setBackground(new Color(255, 255, 255));
-		frmFuncionarioEstoque.setIconImage(Toolkit.getDefaultToolkit().getImage(TelaFuncionarioEstoque.class.getResource("/img/SportStockLogo.jpg")));
+		frmFuncionarioEstoque.setIconImage(Toolkit.getDefaultToolkit().getImage(TelaGerenteEstoque.class.getResource("/img/SportStockLogo.jpg")));
 		frmFuncionarioEstoque.setTitle("Gerenciar");
 		frmFuncionarioEstoque.setBounds(100, 100, 1060, 585);
 		frmFuncionarioEstoque.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmFuncionarioEstoque.getContentPane().setLayout(null);
 		
+        JButton btnAlterar = new JButton("Alterar");
+        btnAlterar.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
+        btnAlterar.setBackground(Color.WHITE);
+        btnAlterar.setBounds(894, 107, 103, 36);
+        frmFuncionarioEstoque.getContentPane().add(btnAlterar);
 		
+		alterarNome = new JTextField();
+	    alterarNome.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
+	    alterarNome.setColumns(10);
+	    alterarNome.setBounds(122, 183, 154, 36);
+	    frmFuncionarioEstoque.getContentPane().add(alterarNome);
+	        
+	    alterarTipo = new JTextField();
+	    alterarTipo.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
+	    alterarTipo.setColumns(10);
+	    alterarTipo.setBounds(279, 183, 154, 36);
+	    frmFuncionarioEstoque.getContentPane().add(alterarTipo);
+	        
+	    alterarDescricao = new JTextField();
+	    alterarDescricao.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
+	    alterarDescricao.setColumns(10);
+	    alterarDescricao.setBounds(436, 183, 264, 84);
+	    frmFuncionarioEstoque.getContentPane().add(alterarDescricao);
+	        
+	    alterarQuantidade = new JTextField();
+	    alterarQuantidade.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
+	    alterarQuantidade.setColumns(10);
+	    alterarQuantidade.setBounds(703, 183, 154, 36);
+	    frmFuncionarioEstoque.getContentPane().add(alterarQuantidade);
+	        
+	    alterarPreco = new JTextField();
+	    alterarPreco.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
+	    alterarPreco.setColumns(10);
+	    alterarPreco.setBounds(859, 183, 154, 36);
+	    frmFuncionarioEstoque.getContentPane().add(alterarPreco);
+	    
+	    alterarNome.setVisible(!bloqueio);
+	    alterarTipo.setVisible(!bloqueio);
+	    alterarDescricao.setVisible(!bloqueio);
+	    alterarQuantidade.setVisible(!bloqueio);
+	    alterarPreco.setVisible(!bloqueio);
+	    btnAlterar.setVisible(!bloqueio);
 		
 		JComboBox Opcoes = new JComboBox();
 		Opcoes.setBackground(new Color(255, 255, 255));
@@ -111,18 +157,6 @@ public class TelaFuncionarioEstoque {
 		tipoNomeFuncionario.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		tipoNomeFuncionario.setBounds(854, 11, 121, 57);
 		frmFuncionarioEstoque.getContentPane().add(tipoNomeFuncionario);
-		
-		JButton btnAlterarProduto = new JButton("Alterar produto");
-		btnAlterarProduto.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//int codigoProdVenda = Integer.parseInt(JOptionPane.showInputDialog("Insira o codigo do produto"));
-				
-			}
-		});
-		btnAlterarProduto.setBackground(new Color(255, 255, 255));
-		btnAlterarProduto.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 18));
-		btnAlterarProduto.setBounds(463, 58, 184, 36);
-		frmFuncionarioEstoque.getContentPane().add(btnAlterarProduto);
 		
 		JButton btnExcluirProduto = new JButton("Excluir produto");
 		btnExcluirProduto.addActionListener(new ActionListener() {
@@ -285,6 +319,19 @@ public class TelaFuncionarioEstoque {
 						
 				}
 				
+				produtosEstoque.setVisible(!bloqueio);
+				tipoProdutosEstoque.setVisible(!bloqueio);
+				descricaoProdutosEstoque.setVisible(!bloqueio);
+				quantidadeProdutosEstoque.setVisible(!bloqueio);
+				precoProdutosEstoque.setVisible(!bloqueio);
+				
+				alterarNome.setVisible(bloqueio);
+				alterarTipo.setVisible(bloqueio);
+				alterarDescricao.setVisible(bloqueio);
+				alterarQuantidade.setVisible(bloqueio);
+				alterarPreco.setVisible(bloqueio);
+			    btnAlterar.setVisible(bloqueio);
+				
 				String buscaProduto = "<html><body>";
 		        String buscaCodigos = "<html><body>";
 		        String buscaPrecos = "<html><body>";
@@ -371,6 +418,43 @@ public class TelaFuncionarioEstoque {
         quantidadeProdutosEstoque.setText(quantidade);
         tipoProdutosEstoque.setText(tipo);
         descricaoProdutosEstoque.setText(descricao);
+		
+		JButton btnAlterarProduto = new JButton("Alterar produto");
+		btnAlterarProduto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (buscaProdutos.size() != 0) {
+					
+					produtosEstoque.setVisible(bloqueio);
+					tipoProdutosEstoque.setVisible(bloqueio);
+					descricaoProdutosEstoque.setVisible(bloqueio);
+					quantidadeProdutosEstoque.setVisible(bloqueio);
+					precoProdutosEstoque.setVisible(bloqueio);
+					
+					 alterarNome.setVisible(!bloqueio);
+					 alterarTipo.setVisible(!bloqueio);
+					 alterarDescricao.setVisible(!bloqueio);
+					 alterarQuantidade.setVisible(!bloqueio);
+					 alterarPreco.setVisible(!bloqueio);
+					 btnAlterar.setVisible(!bloqueio);
+					
+					for (int i = 0; i < buscaProdutos.size(); i++) {
+						
+						alterarNome.setText(buscaProdutos.get(i).getNomeProd());
+						alterarTipo.setText(buscaProdutos.get(i).getTipoProd());
+						alterarDescricao.setText(buscaProdutos.get(i).getDescricaoProd());
+						alterarQuantidade.setText(Integer.toString(buscaProdutos.get(i).getQtdProd()));
+						alterarPreco.setText(Float.toString(buscaProdutos.get(i).getPrecoProd()));
+						
+						
+					}
+				}
+				
+			}
+		});
+		btnAlterarProduto.setBackground(new Color(255, 255, 255));
+		btnAlterarProduto.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 18));
+		btnAlterarProduto.setBounds(463, 58, 184, 36);
+		frmFuncionarioEstoque.getContentPane().add(btnAlterarProduto);
         
         JButton btnResetar = new JButton("Resetar");
         btnResetar.addActionListener(new ActionListener() {
@@ -417,6 +501,19 @@ public class TelaFuncionarioEstoque {
         	    quantidadeProdutosEstoque.setText(quantidade);
         	    tipoProdutosEstoque.setText(tipo);
         	    descricaoProdutosEstoque.setText(descricao);
+        	    
+        	    produtosEstoque.setVisible(bloqueio);
+				tipoProdutosEstoque.setVisible(bloqueio);
+				descricaoProdutosEstoque.setVisible(bloqueio);
+				quantidadeProdutosEstoque.setVisible(bloqueio);
+				precoProdutosEstoque.setVisible(bloqueio);
+				
+				alterarNome.setVisible(!bloqueio);
+				alterarTipo.setVisible(!bloqueio);
+				alterarDescricao.setVisible(!bloqueio);
+				alterarQuantidade.setVisible(!bloqueio);
+				alterarPreco.setVisible(!bloqueio);
+			    btnAlterar.setVisible(!bloqueio);
         		
         	    buscaProdutos.clear();
         	
@@ -424,8 +521,12 @@ public class TelaFuncionarioEstoque {
         });
         btnResetar.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
         btnResetar.setBackground(Color.WHITE);
-        btnResetar.setBounds(805, 105, 103, 36);
+        btnResetar.setBounds(781, 107, 103, 36);
         frmFuncionarioEstoque.getContentPane().add(btnResetar);
+        
+
+        
+       
         
         
 	}

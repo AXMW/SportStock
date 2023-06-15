@@ -638,12 +638,8 @@ public class Main {
 	}
 
 	//Metodo para excluir produtos
-	private void excluirProd() {
-		for(int i = 0; i < produtos.size(); ++i) {
-			String str = "ID: " + produtos.get(i).getIdProd() + "\nNome: " + produtos.get(i).getNomeProd() + "\nTipo: " + produtos.get(i).getTipoProd() + "\nPreco: " + produtos.get(i).getPrecoProd() + "\nDescricao: " + produtos.get(i).getDescricaoProd() + "\nQuantidade disponivel: " + produtos.get(i).getQtdProd();
-			JOptionPane.showMessageDialog(null, str);
-		}
-		int n = Integer.parseInt(JOptionPane.showInputDialog("Insira o ID do produto que deseja excluir"));
+	public void excluirProd(int n) {
+		conecta();
 		int j = 0;
 		for(int i = 0; i < produtos.size(); ++i) {
 			if(produtos.get(i).getIdProd() == n) {
@@ -659,7 +655,6 @@ public class Main {
 				int intRegistro = strComandoSQL.executeUpdate();
 				if(intRegistro != 0) {
 					JOptionPane.showMessageDialog(null, "Exclusão realizada com sucesso");
-					produtos.remove(j);
 				}
 			}
 			catch (Exception Excecao) {
@@ -1156,7 +1151,6 @@ public class Main {
 		}
 
 		//Verificador 2
-        valida = 0;
 		cpf = Long.parseLong(cpfStr.substring(0, 10));
 		for(int i = 2; cpf != 0; i++) {
 			valida += (cpf % 10)*i;

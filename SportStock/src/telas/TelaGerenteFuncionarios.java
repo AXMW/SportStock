@@ -155,6 +155,10 @@ public class TelaGerenteFuncionarios {
 		frmGerenciarFun.getContentPane().add(btnAlterarFun);
 		
 		JButton btnExcluirFun = new JButton("Excluir Usuário");
+		btnExcluirFun.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnExcluirFun.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		btnExcluirFun.setBackground(Color.WHITE);
 		btnExcluirFun.setBounds(614, 92, 189, 36);

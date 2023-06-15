@@ -107,7 +107,7 @@ public class TelaGerente {
 		btnEstoque.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmGerenciar.setVisible(false);
-				TelaFuncionarioEstoque.telaFuncionarioEstoque();
+				TelaGerenteEstoque.telaGerenteEstoque();
 				frmGerenciar.dispose();
 			}
 		});
