@@ -91,7 +91,7 @@ public class Cadastro {
 		JComboBox<String> hierarquia = new JComboBox<String>();
 		hierarquia.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
 		hierarquia.setBackground(new Color(255, 255, 255));
-		hierarquia.setModel(new DefaultComboBoxModel<String>(new String[] {"Vendedor", "Gerente"}));
+		hierarquia.setModel(new DefaultComboBoxModel(new String[] {"Vendedor", "Gerente"}));
 		hierarquia.setBounds(368, 396, 141, 38);
 		frmSportstockCadastro.getContentPane().add(hierarquia);
 		

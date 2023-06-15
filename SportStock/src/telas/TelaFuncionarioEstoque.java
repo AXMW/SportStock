@@ -18,6 +18,8 @@ import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
+import javax.swing.JList;
+import javax.swing.AbstractListModel;
 
 public class TelaFuncionarioEstoque {
 
@@ -29,9 +31,18 @@ public class TelaFuncionarioEstoque {
 	private static ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
 	private static ArrayList<Produto> produtos = new ArrayList<Produto>();
 	private static ArrayList<Venda> vendas = new ArrayList<Venda>();
+	private static ArrayList<Produto> buscaProdutos = new ArrayList<Produto>();
 	private JTextField codigoProdutoAlt;
 	private JTextField descricaoProdutoAlt;
 	private JTextField cupomProdutoAlt;
+	private JTextField escolherProdutoAlt;
+	
+	private String produto = "<html><body>";
+    private String codigos = "<html><body>";
+    private String precos = "<html><body>";
+    private String quantidade = "<html><body>";
+    private String tipo = "<html><body>";
+    private String descricao = "<html><body>";
 
 	/**
 	 * Launch the application.
@@ -75,7 +86,18 @@ public class TelaFuncionarioEstoque {
 		frmFuncionarioEstoque.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmFuncionarioEstoque.getContentPane().setLayout(null);
 		
-		System.out.println(vendas);
+		JComboBox Opcoes = new JComboBox();
+		Opcoes.setBackground(new Color(255, 255, 255));
+		Opcoes.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
+		Opcoes.setModel(new DefaultComboBoxModel(new String[] {"Código: ", "Nome: ", "Tipo: ", "Descrição: ", "Quantidade: ", "Preço: "}));
+		Opcoes.setBounds(163, 499, 155, 36);
+		frmFuncionarioEstoque.getContentPane().add(Opcoes);
+		
+		escolherProdutoAlt = new JTextField();
+		escolherProdutoAlt.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
+		escolherProdutoAlt.setColumns(10);
+		escolherProdutoAlt.setBounds(342, 499, 141, 36);
+		frmFuncionarioEstoque.getContentPane().add(escolherProdutoAlt);
 		
 		JButton btnVenda = new JButton("Vendas");
 		btnVenda.setBackground(new Color(255, 255, 255));
@@ -184,24 +206,24 @@ public class TelaFuncionarioEstoque {
 		
 		codigoProdutoAlt = new JTextField();
 		codigoProdutoAlt.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
-		codigoProdutoAlt.setBounds(95, 105, 141, 36);
+		codigoProdutoAlt.setBounds(70, 105, 113, 36);
 		frmFuncionarioEstoque.getContentPane().add(codigoProdutoAlt);
 		codigoProdutoAlt.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("Código: ");
 		lblNewLabel_2.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
-		lblNewLabel_2.setBounds(36, 105, 69, 36);
+		lblNewLabel_2.setBounds(10, 105, 69, 36);
 		frmFuncionarioEstoque.getContentPane().add(lblNewLabel_2);
 		
 		descricaoProdutoAlt = new JTextField();
 		descricaoProdutoAlt.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
-		descricaoProdutoAlt.setBounds(331, 105, 141, 36);
+		descricaoProdutoAlt.setBounds(268, 105, 141, 36);
 		frmFuncionarioEstoque.getContentPane().add(descricaoProdutoAlt);
 		descricaoProdutoAlt.setColumns(10);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("Descrição: ");
 		lblNewLabel_2_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
-		lblNewLabel_2_1.setBounds(256, 105, 85, 36);
+		lblNewLabel_2_1.setBounds(193, 105, 85, 36);
 		frmFuncionarioEstoque.getContentPane().add(lblNewLabel_2_1);
 		
 		JLabel Erro = new JLabel("aaaaaaaaaaaaaaa");
@@ -210,31 +232,121 @@ public class TelaFuncionarioEstoque {
 		Erro.setBounds(795, 58, 188, 36);
 		frmFuncionarioEstoque.getContentPane().add(Erro);
 		
+		JLabel descricaoProdutosEstoque = new JLabel("");
+		descricaoProdutosEstoque.setVerticalAlignment(SwingConstants.TOP);
+		descricaoProdutosEstoque.setHorizontalAlignment(SwingConstants.CENTER);
+		descricaoProdutosEstoque.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
+		descricaoProdutosEstoque.setBounds(397, 186, 310, 242);
+		frmFuncionarioEstoque.getContentPane().add(descricaoProdutosEstoque);
+		
 		JButton AdicionarProd = new JButton("Buscar");
 		AdicionarProd.setBackground(new Color(255, 255, 255));
 		AdicionarProd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try {
-					int qtd = Integer.parseInt(descricaoProdutoAlt.getText());
-					int codigo = Integer.parseInt(codigoProdutoAlt.getText());
-					int index = -1;
-					if(qtd < 1) {
-						Erro.setText("Quantidade com valor negativo");
-					}
-					for(int i = 0; i < produtos.size(); ++i) {
-						if(produtos.get(i).getIdProd() == codigo) {
-							index = i;
-							break;
-						}
-					}
-					if(index == -1) {
-						Erro.setText("Produto não encontrado");
-					} else {
+				
+				buscaProdutos.clear();
+				
+				switch ((String)Opcoes.getSelectedItem()) {
+					case "Código: ":
+						String codigo = escolherProdutoAlt.getText().toLowerCase();
 						
-					}
-				} catch (Exception exce) {
-					Erro.setText("Insira apenas numeros");
+						for (int i = 0; i < produtos.size(); i++) {
+							if (Integer.toString(produtos.get(i).getIdProd()).toLowerCase().contains(codigo)) {
+								buscaProdutos.add(produtos.get(i));
+							}
+						}
+						break;
+						
+					case "Nome: ":
+						String nome = escolherProdutoAlt.getText().toLowerCase();
+						
+						for (int i = 0; i < produtos.size(); i++) {
+							if (produtos.get(i).getNomeProd().toLowerCase().contains(nome)) {
+								buscaProdutos.add(produtos.get(i));
+							}
+						}
+						break;
+						
+					case "Tipo: ":
+						String tipo = escolherProdutoAlt.getText().toLowerCase();
+						
+						for (int i = 0; i < produtos.size(); i++) {
+							if (produtos.get(i).getTipoProd().toLowerCase().contains(tipo)) {
+								buscaProdutos.add(produtos.get(i));
+							}
+						}
+						break;
+						
+					case "Descrição: ":
+						String descricao = escolherProdutoAlt.getText().toLowerCase();
+						
+						for (int i = 0; i < produtos.size(); i++) {
+							if (produtos.get(i).getDescricaoProd().toLowerCase().contains(descricao)) {
+								buscaProdutos.add(produtos.get(i));
+							}
+						}
+						break;
+						
+					case "Quantidade: ":
+						String quantidade = escolherProdutoAlt.getText().toLowerCase();
+						
+						for (int i = 0; i < produtos.size(); i++) {
+							if (Integer.toString(produtos.get(i).getQtdProd()).toLowerCase().contains(quantidade)) {
+								buscaProdutos.add(produtos.get(i));
+							}
+						}
+						break;
+						
+					case "Preço: ":
+						String preco = escolherProdutoAlt.getText().toLowerCase();
+						
+						for (int i = 0; i < produtos.size(); i++) {
+							if (Float.toString(produtos.get(i).getPrecoProd()).toLowerCase().contains(preco)) {
+								buscaProdutos.add(produtos.get(i));
+							}
+						}
+						break;
+						
 				}
+				
+				String buscaProduto = "<html><body>";
+		        String buscaCodigos = "<html><body>";
+		        String buscaPrecos = "<html><body>";
+		        String buscaQuantidade = "<html><body>";
+		        String buscaTipo = "<html><body>";
+		        String buscaDescricao = "<html><body>";
+		        for(int i = 0; i < buscaProdutos.size(); ++i) {
+		            buscaProduto += buscaProdutos.get(i).getNomeProd() + "<br>";
+		            buscaCodigos += buscaProdutos.get(i).getIdProd() + "<br>";
+		            buscaPrecos += "R$ " + buscaProdutos.get(i).getPrecoProd() + "<br>";
+		            buscaQuantidade += buscaProdutos.get(i).getQtdProd() + "<br>";
+		            buscaTipo += buscaProdutos.get(i).getTipoProd() + "<br>";
+		            buscaDescricao += buscaProdutos.get(i).getDescricaoProd() + "<br>";
+		            int espaco = buscaProdutos.get(i).getDescricaoProd().length();
+		            while (espaco > 31) {
+		            	buscaProduto += "<br>";
+		            	buscaCodigos += "<br>";
+		            	buscaPrecos += "<br>";
+		            	buscaQuantidade += "<br>";
+		            	buscaTipo += "<br>";
+		            	espaco -= 31;
+		            }
+		        }
+		        buscaProduto += "</body></html>";
+		        buscaCodigos += "</body></html>";
+		       buscaPrecos += "</body></html>";
+		        buscaQuantidade += "</body></html>";
+		        buscaTipo += "</body></html>";
+		        buscaDescricao += "</body></html>";
+		        produtosEstoque.setText(buscaProduto);
+		        codigosProdutosEstoque.setText(buscaCodigos);
+		        precoProdutosEstoque.setText(buscaPrecos);
+		        quantidadeProdutosEstoque.setText(buscaQuantidade);
+		        tipoProdutosEstoque.setText(buscaTipo);
+		        descricaoProdutosEstoque.setText(buscaDescricao);
+				
+	
+				
 			}
 		});
 		AdicionarProd.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
@@ -244,44 +356,30 @@ public class TelaFuncionarioEstoque {
 		cupomProdutoAlt = new JTextField();
 		cupomProdutoAlt.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		cupomProdutoAlt.setColumns(10);
-		cupomProdutoAlt.setBounds(640, 105, 141, 36);
+		cupomProdutoAlt.setBounds(561, 105, 141, 36);
 		frmFuncionarioEstoque.getContentPane().add(cupomProdutoAlt);
 		
 		JLabel lblNewLabel_2_1_1 = new JLabel("Cupom de Desconto: ");
 		lblNewLabel_2_1_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
-		lblNewLabel_2_1_1.setBounds(492, 105, 155, 36);
+		lblNewLabel_2_1_1.setBounds(419, 105, 155, 36);
 		frmFuncionarioEstoque.getContentPane().add(lblNewLabel_2_1_1);
 		
-		JLabel descricaoProdutosEstoque = new JLabel("");
-		descricaoProdutosEstoque.setVerticalAlignment(SwingConstants.TOP);
-		descricaoProdutosEstoque.setHorizontalAlignment(SwingConstants.CENTER);
-		descricaoProdutosEstoque.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
-		descricaoProdutosEstoque.setBounds(397, 186, 310, 242);
-		frmFuncionarioEstoque.getContentPane().add(descricaoProdutosEstoque);
 		
 		JLabel lblPreo_1 = new JLabel("Descrição: ");
 		lblPreo_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
 		lblPreo_1.setBounds(502, 152, 96, 23);
 		frmFuncionarioEstoque.getContentPane().add(lblPreo_1);
 		
-		
-		String produto = "<html><body>";
-        String codigos = "<html><body>";
-        String precos = "<html><body>";
-        String quantidade = "<html><body>";
-        String tipo = "<html><body>";
-        String descricao = "<html><body>";
+
         for(int i = 0; i < produtos.size(); ++i) {
-            int indexProd = produtos.get(i).getIdProd();
-            produto += produtos.get(indexProd).getNomeProd() + "<br>";
-            codigos += produtos.get(indexProd).getIdProd() + "<br>";
-            precos += "R$ " + produtos.get(indexProd).getPrecoProd() + "<br>";
+            produto += produtos.get(i).getNomeProd() + "<br>";
+            codigos += produtos.get(i).getIdProd() + "<br>";
+            precos += "R$ " + produtos.get(i).getPrecoProd() + "<br>";
             quantidade += produtos.get(i).getQtdProd() + "<br>";
             tipo += produtos.get(i).getTipoProd() + "<br>";
             descricao += produtos.get(i).getDescricaoProd() + "<br>";
             int espaco = produtos.get(i).getDescricaoProd().length();
             while (espaco > 31) {
-            	//for(int j == espaco / 31)
             	produto += "<br>";
             	codigos += "<br>";
             	precos += "<br>";
@@ -302,5 +400,27 @@ public class TelaFuncionarioEstoque {
         quantidadeProdutosEstoque.setText(quantidade);
         tipoProdutosEstoque.setText(tipo);
         descricaoProdutosEstoque.setText(descricao);
+        
+        JButton btnResetar = new JButton("Resetar");
+        btnResetar.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+        		produtosEstoque.setText(produto);
+        	    codigosProdutosEstoque.setText(codigos);
+        	    precoProdutosEstoque.setText(precos);
+        	    quantidadeProdutosEstoque.setText(quantidade);
+        	    tipoProdutosEstoque.setText(tipo);
+        	    descricaoProdutosEstoque.setText(descricao);
+        		
+        	    buscaProdutos.clear();
+        	
+        	}
+        });
+        btnResetar.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
+        btnResetar.setBackground(Color.WHITE);
+        btnResetar.setBounds(805, 105, 103, 36);
+        frmFuncionarioEstoque.getContentPane().add(btnResetar);
+        
+        
 	}
 }
