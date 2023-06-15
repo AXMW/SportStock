@@ -3,7 +3,6 @@ package telas;
 import java.awt.EventQueue;
 import recursos.*;
 import main.Main;
-import telas.*;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -26,7 +25,8 @@ public class Login {
 	private JTextField IDFun;
 	private JPasswordField senhaFun;
 	private static ArrayList<Funcionario> funcio = new ArrayList<Funcionario>();
-	private static String[] funId = new String[2];
+	//sim e isso msm q vc leu, a variavel esta P U B L I C A, eu sei q n e seguro mas quem se importa cm isso?
+	public static int funId = 0;
 
 	
 	public static void telaLogin() {
@@ -120,8 +120,8 @@ public class Login {
 					}
 					if(funcio.size() != 0) {
 						if(funcio.get(index).getIdFun() == idF && funcio.get(index).getSenhaFun().equals(senha)) {
-							funId[0] = "menu";
-							funId[1] = id;
+							
+							funId = idF;
 							//HAHAHAHAAH ESSA THREAD N ME PERTENCE
 							//Thread.currentThread().notify();
 							frmSportstockLogin.setVisible(false);

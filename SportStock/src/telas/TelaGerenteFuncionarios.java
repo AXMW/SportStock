@@ -21,6 +21,8 @@ public class TelaGerenteFuncionarios {
 	private String nomes = "<html><body>";
 	private String hierarquia = "<html><body>";
 	private String senhas = "<html><body>";
+	private int opcao = 0;
+	private int idfun = -1;
 
 	private static ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
 	private JFrame frmGerenciarFun;
@@ -88,18 +90,39 @@ public class TelaGerenteFuncionarios {
 		frmGerenciarFun.getContentPane().add(btnFuncionarios);
 		
 		JButton btnEstoque = new JButton("Estoque");
+		btnEstoque.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmGerenciarFun.setVisible(false);
+				TelaFuncionarioEstoque.telaFuncionarioEstoque();
+				frmGerenciarFun.dispose();
+			}
+		});
 		btnEstoque.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		btnEstoque.setBackground(Color.WHITE);
 		btnEstoque.setBounds(408, 32, 103, 36);
 		frmGerenciarFun.getContentPane().add(btnEstoque);
 		
 		JButton btnClientes = new JButton("Clientes");
+		btnClientes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmGerenciarFun.setVisible(false);
+				TelaGerenteClientes.telaGerenteClientes();
+				frmGerenciarFun.dispose();
+			}
+		});
 		btnClientes.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		btnClientes.setBackground(Color.WHITE);
 		btnClientes.setBounds(546, 32, 103, 36);
 		frmGerenciarFun.getContentPane().add(btnClientes);
 		
 		JButton btnFornecedores = new JButton("Fornecedores");
+		btnFornecedores.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmGerenciarFun.setVisible(false);
+				TelaGerenteFornecedores.telaGerenteFornecedores();
+				frmGerenciarFun.dispose();
+			}
+		});
 		btnFornecedores.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		btnFornecedores.setBackground(Color.WHITE);
 		btnFornecedores.setBounds(682, 32, 121, 36);
@@ -119,7 +142,7 @@ public class TelaGerenteFuncionarios {
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Hierarquia: ");
 		lblNewLabel_1_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
-		lblNewLabel_1_1.setBounds(700, 145, 77, 17);
+		lblNewLabel_1_1.setBounds(624, 145, 77, 17);
 		frmGerenciarFun.getContentPane().add(lblNewLabel_1_1);
 		
 		codigoFun = new JTextField();
@@ -129,40 +152,9 @@ public class TelaGerenteFuncionarios {
 		codigoFun.setColumns(10);
 		
 		nomeFun = new JTextField();
-		nomeFun.setBounds(241, 143, 179, 20);
+		nomeFun.setBounds(241, 143, 151, 20);
 		frmGerenciarFun.getContentPane().add(nomeFun);
 		nomeFun.setColumns(10);
-		
-		JButton btnAlterarFun = new JButton("Alterar Usuário");
-		btnAlterarFun.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				int index = -1;
-				codigoFun.setEnabled(true);
-				if(codigoFun.getText() != null) {
-					int codigo = Integer.parseInt(codigoFun.getText());
-					for(int i = 0; i < funcionarios.size(); ++i) {
-						if(codigo == funcionarios.get(i).getIdFun()) {
-							index = i;
-							break;
-						}
-					}
-				}
-			}
-		});
-		btnAlterarFun.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
-		btnAlterarFun.setBackground(Color.WHITE);
-		btnAlterarFun.setBounds(327, 92, 189, 36);
-		frmGerenciarFun.getContentPane().add(btnAlterarFun);
-		
-		JButton btnExcluirFun = new JButton("Excluir Usuário");
-		btnExcluirFun.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnExcluirFun.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
-		btnExcluirFun.setBackground(Color.WHITE);
-		btnExcluirFun.setBounds(614, 92, 189, 36);
-		frmGerenciarFun.getContentPane().add(btnExcluirFun);
 		
 		JLabel lblNewLabel_2 = new JLabel("Código: ");
 		lblNewLabel_2.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
@@ -208,18 +200,18 @@ public class TelaGerenteFuncionarios {
 		
 		JLabel lblNewLabel_1_2 = new JLabel("Senha:");
 		lblNewLabel_1_2.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
-		lblNewLabel_1_2.setBounds(430, 146, 51, 17);
+		lblNewLabel_1_2.setBounds(402, 145, 51, 17);
 		frmGerenciarFun.getContentPane().add(lblNewLabel_1_2);
 		
 		senhaFun = new JTextField();
 		senhaFun.setColumns(10);
-		senhaFun.setBounds(488, 143, 202, 20);
+		senhaFun.setBounds(463, 143, 151, 20);
 		frmGerenciarFun.getContentPane().add(senhaFun);
 		
 		JComboBox<String> hierarquiaFun = new JComboBox<String>();
 		hierarquiaFun.setBackground(new Color(255, 255, 255));
 		hierarquiaFun.setModel(new DefaultComboBoxModel<String>(new String[] {"Vendedor", "Gerente"}));
-		hierarquiaFun.setBounds(787, 142, 103, 22);
+		hierarquiaFun.setBounds(711, 142, 103, 22);
 		frmGerenciarFun.getContentPane().add(hierarquiaFun);
 		
 		JLabel nomeIncorreto = new JLabel("");
@@ -232,46 +224,70 @@ public class TelaGerenteFuncionarios {
 		senhaIncorreta.setBounds(813, 117, 189, 14);
 		frmGerenciarFun.getContentPane().add(senhaIncorreta);
 		
-		JButton btnCadastrarFun = new JButton("Cadastrar Usuário");
-		btnCadastrarFun.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				codigoFun.setEnabled(false);
-				lblNewLabel.setText("Código: ");
-				lblNewLabel.setVisible(true);
-				lblNewLabel_1.setText("Nome: ");
-				lblNewLabel_1.setVisible(true);
-				lblNewLabel_1_2.setText("Senha: ");
-				lblNewLabel_1_2.setVisible(true);
-			}
-		});
-		btnCadastrarFun.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
-		btnCadastrarFun.setBackground(Color.WHITE);
-		btnCadastrarFun.setBounds(35, 92, 189, 36);
-		frmGerenciarFun.getContentPane().add(btnCadastrarFun);
+		
 		
 		
 		JButton btnPesquisar = new JButton("Cadastrar");
 		btnPesquisar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String nome = nomeFun.getText();
-				String senha = senhaFun.getText();
-				String hierarquias = (String)hierarquiaFun.getSelectedItem();
-				if(validarNome(nome) && validarSenha(senha)) {
-					Funcionario f1 = new Funcionario();
-					f1.setNomeFun(nome);
-					f1.setSenhaFun(senha);
-					f1.setHierarquiaFun(hierarquias);
-					new Main().adicionarFun(f1);
+				if(opcao == 0) {
+					String nome = nomeFun.getText().trim();
+					String senha = senhaFun.getText().trim();
+					String hierarquias = (String)hierarquiaFun.getSelectedItem();
+					if(validarNome(nome) && validarSenha(senha)) {
+						Funcionario f1 = new Funcionario();
+						f1.setNomeFun(nome);
+						f1.setSenhaFun(senha);
+						f1.setHierarquiaFun(hierarquias);
+						new Main().adicionarFun(f1);
+						funcionarios = new Main().getListaFun();
+					}
+					else {
+						if(!validarNome(nome)) {
+							nomeIncorreto.setText("O nome não pode ter números ou caracteres especiais e tem que ter pelo menos 3 letras");
+						}
+						if(!validarSenha(senha)) {
+							senhaIncorreta.setText("A senha deve ter no minimo 7 caracteres, pelo menos 1 letra maiuscula, pelo menos 1 letra minuscula e pelo menos 1 numero");
+						}
+					}
+				} else if(opcao == 1) {
+					if(nomeFun.getText().trim().equals("") && senhaFun.getText().trim().equals("")) {
+						nomeIncorreto.setText("Campos Vazios");
+					} else {
+						String nome = nomeFun.getText().trim();
+						String senha = senhaFun.getText().trim();
+						String hierarquias = (String)hierarquiaFun.getSelectedItem();
+						int id = -1;
+						try {
+							id = Integer.parseInt(codigoFun.getText().trim());
+						} catch(Exception exce) {
+							id = idfun;
+						}
+						
+						if(validarNome(nome) && validarSenha(senha)) {
+							Funcionario f1 = new Funcionario();
+							f1.setNomeFun(nome);
+							f1.setSenhaFun(senha);
+							f1.setHierarquiaFun(hierarquias);
+							f1.setIdFun(id);
+							new Main().editarFun(f1);
+							funcionarios = new Main().getListaFun();
+						}
+						else {
+							if(!validarNome(nome)) {
+								nomeIncorreto.setText("O nome não pode ter números ou caracteres especiais e tem que ter pelo menos 3 letras");
+							}
+							if(!validarSenha(senha)) {
+								senhaIncorreta.setText("A senha deve ter no minimo 7 caracteres, pelo menos 1 letra maiuscula, pelo menos 1 letra minuscula e pelo menos 1 numero");
+							}
+						}
+					}
 					
+				} else if(opcao == 2) {
+					new Main().excluirFun(idfun);
+					funcionarios = new Main().getListaFun();
 				}
-				else {
-					if(!validarNome(nome)) {
-						nomeIncorreto.setText("O nome não pode ter números ou caracteres especiais e tem que ter pelo menos 3 letras");
-					}
-					if(!validarSenha(senha)) {
-						senhaIncorreta.setText("A senha deve ter no minimo 7 caracteres, pelo menos 1 letra maiuscula, pelo menos 1 letra minuscula e pelo menos 1 numero");
-					}
-				}
+				
 				listaFun();
 				codigosFun.setText(codigos);
 				nomesFun.setText(nomes);
@@ -279,12 +295,116 @@ public class TelaGerenteFuncionarios {
 				senhasFun.setText(senhas);
 				nomeFun.setText(null);
 				senhaFun.setText(null);
+				idfun = -1;
 			}
 		});
+		
+		JButton btnBusca = new JButton("Buscar");
+		btnBusca.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				nomeIncorreto.setText(null);
+				int index = -1;
+				if(!codigoFun.getText().trim().equals("")) {
+					int codigo = Integer.parseInt(codigoFun.getText().trim());
+					for(int i = 0; i < funcionarios.size(); ++i) {
+						if(codigo == funcionarios.get(i).getIdFun()) {
+							index = i;
+							break;
+						}
+					}
+				} else if(!nomeFun.getText().trim().equals("")) {
+					String nome = nomeFun.getText().trim();
+					for(int i = 0; i < funcionarios.size(); ++i) {
+						if(nome.equals(funcionarios.get(i).getNomeFun())) {
+							index = i;
+							break;
+						}
+					}
+				}
+				if(index != -1) {
+					idfun = funcionarios.get(index).getIdFun();
+					codigoFun.setText(funcionarios.get(index).getIdFun() + "");
+					nomeFun.setText(funcionarios.get(index).getNomeFun().trim());
+					senhaFun.setText(funcionarios.get(index).getSenhaFun().trim());
+					if(funcionarios.get(index).getHierarquiaFun().equals("Gerente")) {
+						hierarquiaFun.setSelectedIndex(1);
+					} else {
+						hierarquiaFun.setSelectedIndex(0);
+					}
+					
+				} else {
+					nomeIncorreto.setText("Sem resultados");
+				}
+				
+			}
+		});
+		btnBusca.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
+		btnBusca.setBackground(Color.WHITE);
+		btnBusca.setBounds(823, 142, 77, 26);
+		frmGerenciarFun.getContentPane().add(btnBusca);
+		
 		btnPesquisar.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		btnPesquisar.setBackground(Color.WHITE);
-		btnPesquisar.setBounds(900, 141, 121, 26);
+		btnPesquisar.setBounds(909, 141, 112, 26);
 		frmGerenciarFun.getContentPane().add(btnPesquisar);
+		
+		JButton btnCadastrarFun = new JButton("Cadastrar Usuário");
+		btnCadastrarFun.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				nomeIncorreto.setText(null);
+				senhaIncorreta.setText(null);
+				codigoFun.setEnabled(false);
+				opcao = 0;
+				btnPesquisar.setText("Cadastrar");
+				btnBusca.setVisible(false);
+				codigoFun.setVisible(false);
+				lblNewLabel.setVisible(false);
+			}
+		});
+		btnCadastrarFun.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
+		btnCadastrarFun.setBackground(Color.WHITE);
+		btnCadastrarFun.setBounds(35, 92, 189, 36);
+		frmGerenciarFun.getContentPane().add(btnCadastrarFun);
+		
+		JButton btnAlterarFun = new JButton("Atualizar Usuário");
+		btnAlterarFun.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				btnPesquisar.setText("Atualizar");
+				codigoFun.setEnabled(true);
+				opcao = 1;
+				nomeIncorreto.setText(null);
+				senhaIncorreta.setText(null);
+				btnBusca.setVisible(true);
+				codigoFun.setVisible(true);
+				lblNewLabel.setVisible(true);
+			}
+		});
+		btnAlterarFun.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
+		btnAlterarFun.setBackground(Color.WHITE);
+		btnAlterarFun.setBounds(327, 92, 189, 36);
+		frmGerenciarFun.getContentPane().add(btnAlterarFun);
+		
+		JButton btnExcluirFun = new JButton("Excluir Usuário");
+		btnExcluirFun.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				btnPesquisar.setText("Excluir");
+				codigoFun.setEnabled(true);
+				opcao = 2;
+				nomeIncorreto.setText(null);
+				senhaIncorreta.setText(null);
+				btnBusca.setVisible(true);
+				codigoFun.setVisible(true);
+				lblNewLabel.setVisible(true);
+			}
+		});
+		btnExcluirFun.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
+		btnExcluirFun.setBackground(Color.WHITE);
+		btnExcluirFun.setBounds(614, 92, 189, 36);
+		frmGerenciarFun.getContentPane().add(btnExcluirFun);
+		
+		btnBusca.setVisible(false);
+		codigoFun.setVisible(false);
+		lblNewLabel.setVisible(false);
 		
 	}
 	
@@ -332,11 +452,11 @@ public class TelaGerenteFuncionarios {
 		nomes = "<html><body>";
 		hierarquia = "<html><body>";
 		senhas = "<html><body>";
-		for(int i = 0; i < funcionarios.size(); ++i) {
-			codigos = codigos + funcionarios.get(i).getIdFun() + "<br>";
-			nomes = nomes + funcionarios.get(i).getNomeFun() + "<br>";
-			hierarquia = hierarquia + funcionarios.get(i).getHierarquiaFun() + "<br>";
-			senhas = senhas + funcionarios.get(i).getSenhaFun() + "<br>";
+		for(Funcionario i : funcionarios) {
+			codigos += i.getIdFun() + "<br>";
+			nomes += i.getNomeFun() + "<br>";
+			hierarquia += i.getHierarquiaFun() + "<br>";
+			senhas += i.getSenhaFun() + "<br>";
 		}
 		
 		codigos = codigos + "</body></html>";

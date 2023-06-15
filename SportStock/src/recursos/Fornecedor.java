@@ -1,6 +1,7 @@
 package recursos;
 
 public class Fornecedor {
+	private int idFornec;
 	private String nomeFornec;
 	private long telefoneFornec;
 	private String emailFornec;
@@ -10,6 +11,13 @@ public class Fornecedor {
 		
 	}
 	
+	
+	public int getIdFornec() {
+		return idFornec;
+	}
+	public void setIdFornec(int idFornec) {
+		this.idFornec = idFornec;
+	}
 	public String getNomeFornec() {
 		return nomeFornec;
 	}
@@ -19,7 +27,7 @@ public class Fornecedor {
 	public long getTelefoneFornec() {
 		return telefoneFornec;
 	}
-	public void setTelefoneFornec(Long telefoneFornec) {
+	public void setTelefoneFornec(long telefoneFornec) {
 		this.telefoneFornec = telefoneFornec;
 	}
 	public String getEmailFornec() {

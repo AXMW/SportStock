@@ -74,6 +74,7 @@ public class TelaFuncionarioEstoque {
 		frmFuncionarioEstoque.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmFuncionarioEstoque.getContentPane().setLayout(null);
 		
+
 		
 		
 		JComboBox Opcoes = new JComboBox();
@@ -89,6 +90,7 @@ public class TelaFuncionarioEstoque {
 		escolherProdutoAlt.setBounds(303, 107, 321, 36);
 		frmFuncionarioEstoque.getContentPane().add(escolherProdutoAlt);
 		
+
 		JButton btnVenda = new JButton("Vendas");
 		btnVenda.setBackground(new Color(255, 255, 255));
 		btnVenda.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
