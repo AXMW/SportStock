@@ -25,6 +25,7 @@ public class Login {
 	private JTextField IDFun;
 	private JPasswordField senhaFun;
 	private static ArrayList<Funcionario> funcio = new ArrayList<Funcionario>();
+	//sim e isso msm q vc leu, a variavel esta P U B L I C A, eu sei q n e seguro mas quem se importa cm isso?
 	public static int funId = 0;
 
 	

@@ -116,6 +116,13 @@ public class TelaGerenteFuncionarios {
 		frmGerenciarFun.getContentPane().add(btnClientes);
 		
 		JButton btnFornecedores = new JButton("Fornecedores");
+		btnFornecedores.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmGerenciarFun.setVisible(false);
+				TelaGerenteFornecedores.telaGerenteFornecedores();
+				frmGerenciarFun.dispose();
+			}
+		});
 		btnFornecedores.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		btnFornecedores.setBackground(Color.WHITE);
 		btnFornecedores.setBounds(682, 32, 121, 36);
@@ -237,7 +244,7 @@ public class TelaGerenteFuncionarios {
 						f1.setSenhaFun(senha);
 						f1.setHierarquiaFun(hierarquias);
 						new Main().adicionarFun(f1);
-						
+						funcionarios = new Main().getListaFun();
 					}
 					else {
 						if(!validarNome(nome)) {
@@ -248,7 +255,7 @@ public class TelaGerenteFuncionarios {
 						}
 					}
 				} else if(opcao == 1) {
-					if(nomeFun.getText().equals("") && senhaFun.getText().equals("")) {
+					if(nomeFun.getText().trim().equals("") && senhaFun.getText().trim().equals("")) {
 						nomeIncorreto.setText("Campos Vazios");
 					} else {
 						String nome = nomeFun.getText().trim();
@@ -256,7 +263,7 @@ public class TelaGerenteFuncionarios {
 						String hierarquias = (String)hierarquiaFun.getSelectedItem();
 						int id = -1;
 						try {
-							id = Integer.parseInt(codigoFun.getText());
+							id = Integer.parseInt(codigoFun.getText().trim());
 						} catch(Exception exce) {
 							id = idfun;
 						}
@@ -301,16 +308,16 @@ public class TelaGerenteFuncionarios {
 			public void actionPerformed(ActionEvent e) {
 				nomeIncorreto.setText(null);
 				int index = -1;
-				if(!codigoFun.getText().equals("")) {
-					int codigo = Integer.parseInt(codigoFun.getText());
+				if(!codigoFun.getText().trim().equals("")) {
+					int codigo = Integer.parseInt(codigoFun.getText().trim());
 					for(int i = 0; i < funcionarios.size(); ++i) {
 						if(codigo == funcionarios.get(i).getIdFun()) {
 							index = i;
 							break;
 						}
 					}
-				} else if(!nomeFun.getText().equals("")) {
-					String nome = nomeFun.getText();
+				} else if(!nomeFun.getText().trim().equals("")) {
+					String nome = nomeFun.getText().trim();
 					for(int i = 0; i < funcionarios.size(); ++i) {
 						if(nome.equals(funcionarios.get(i).getNomeFun())) {
 							index = i;

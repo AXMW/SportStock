@@ -4,7 +4,6 @@ public class Cupom {
 	private int idCupom;
 	private String codCupom;
 	private float porcentagemCupom;
-	private int qtdUsosCupom;
 	
 	public Cupom() {
 		
@@ -32,14 +31,6 @@ public class Cupom {
 	
 	public void setPorcentagemCupom(float porcentagemCupom) {
 		this.porcentagemCupom = porcentagemCupom;
-	}
-	
-	public int getQtdUsosCupom() {
-		return qtdUsosCupom;
-	}
-	
-	public void setQtdUsosCupom(int qtdUsosCupom) {
-		this.qtdUsosCupom = qtdUsosCupom;
 	}
 	
 }

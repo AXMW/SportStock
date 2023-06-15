@@ -121,6 +121,13 @@ public class TelaGerenteClientes {
 		frmGerenciarCliente.getContentPane().add(btnClientes);
 		
 		JButton btnFornecedores = new JButton("Fornecedores");
+		btnFornecedores.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmGerenciarCliente.setVisible(false);
+				TelaGerenteFornecedores.telaGerenteFornecedores();
+				frmGerenciarCliente.dispose();
+			}
+		});
 		btnFornecedores.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		btnFornecedores.setBackground(Color.WHITE);
 		btnFornecedores.setBounds(682, 32, 121, 36);
@@ -219,59 +226,62 @@ public class TelaGerenteClientes {
 		senhaIncorreta.setBounds(813, 117, 189, 14);
 		frmGerenciarCliente.getContentPane().add(senhaIncorreta);
 		
-		
-		
-		
 		JButton btnPesquisar = new JButton("Cadastrar");
 		btnPesquisar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//mais um dia e mais uma vez eu esqueci que dava pra usar o switch aqui kkkkkkkkkkkkkkkkkkkkkk #euDesistoDisso
 				if(opcao == 0) {
-					String nome = nomeCli.getText().trim();
-					String email = emailCli.getText();
-					long CPF = 0;
-					long telefones = 0;
-					try {
-						telefones = Long.parseLong(telefoneCli.getText().trim());
-						
-						CPF = Long.parseLong(cpfCli.getText());
-					} catch(Exception exce) {
-						nomeIncorreto.setText("Valores invalidos");
-					}
-					
-					if(validarNome(nome) && validarCPF(CPF) && validarEmail(email) && validarTelefone(telefones)) {
-						Cliente c1 = new Cliente();
-						c1.setCpfCli(CPF);
-						c1.setEmailCli(email);
-						c1.setNomeCli(nome);
-						c1.setTelefoneCli(telefones);
-						new Main().adicionarCli(c1);
-						
-					}
-					else {
-						if(!validarNome(nome)) {
-							nomeIncorreto.setText("O nome não pode ter números ou caracteres especiais e tem que ter pelo menos 3 letras");
-						}
-						if(!validarCPF(CPF)) {
-							senhaIncorreta.setText("Digite um CPF Válido.");
-						}
-						if(!validarEmail(email)) {
-							nomeIncorreto.setText("Digite um email válido.");
-						}
-						if(!validarTelefone(telefones)) {
-							senhaIncorreta.setText("Digite um telefone Válido.");
-						}
-					}
-				} else if(opcao == 1) {
-					if(nomeCli.getText().equals("") || telefoneCli.getText().equals("") || cpfCli.getText().equals("") || emailCli.getText().equals("")) {
+					if(nomeCli.getText().trim().equals("") || telefoneCli.getText().trim().equals("") || cpfCli.getText().trim().equals("") || emailCli.getText().trim().equals("")) {
 						nomeIncorreto.setText("Campos Vazios");
 					} else {
 						String nome = nomeCli.getText().trim();
-						String email = emailCli.getText();
+						String email = emailCli.getText().trim();
 						long CPF = 0;
 						long telefones = 0;
 						try {
 							telefones = Long.parseLong(telefoneCli.getText().trim());
-							CPF = Long.parseLong(cpfCli.getText());
+							
+							CPF = Long.parseLong(cpfCli.getText().trim());
+						} catch(Exception exce) {
+							nomeIncorreto.setText("Valores invalidos");
+						}
+						
+						if(validarNome(nome) && validarCPF(CPF) && validarEmail(email) && validarTelefone(telefones)) {
+							Cliente c1 = new Cliente();
+							c1.setCpfCli(CPF);
+							c1.setEmailCli(email);
+							c1.setNomeCli(nome);
+							c1.setTelefoneCli(telefones);
+							new Main().adicionarCli(c1);
+							
+						}
+						else {
+							if(!validarNome(nome)) {
+								nomeIncorreto.setText("O nome não pode ter números ou caracteres especiais e tem que ter pelo menos 3 letras");
+							}
+							if(!validarCPF(CPF)) {
+								senhaIncorreta.setText("Digite um CPF Válido.");
+							}
+							if(!validarEmail(email)) {
+								nomeIncorreto.setText("Digite um email válido.");
+							}
+							if(!validarTelefone(telefones)) {
+								senhaIncorreta.setText("Digite um telefone Válido.");
+							}
+						}
+					}
+					
+				} else if(opcao == 1) {
+					if(nomeCli.getText().trim().equals("") || telefoneCli.getText().trim().equals("") || cpfCli.getText().trim().equals("") || emailCli.getText().trim().equals("")) {
+						nomeIncorreto.setText("Campos Vazios");
+					} else {
+						String nome = nomeCli.getText().trim();
+						String email = emailCli.getText().trim();
+						long CPF = 0;
+						long telefones = 0;
+						try {
+							telefones = Long.parseLong(telefoneCli.getText().trim());
+							CPF = Long.parseLong(cpfCli.getText().trim());
 						} catch(Exception exce) {
 							nomeIncorreto.setText("Valores invalidos");
 						}
@@ -334,7 +344,7 @@ public class TelaGerenteClientes {
 						}
 					}
 				} else if(!nomeCli.getText().trim().equals("")) {
-					String nome = nomeCli.getText();
+					String nome = nomeCli.getText().trim();
 					for(int i = 0; i < clientes.size(); ++i) {
 						if(nome.equals(clientes.get(i).getNomeCli())) {
 							index = i;
@@ -356,7 +366,7 @@ public class TelaGerenteClientes {
 					}
 					
 				} else if(!emailCli.getText().trim().equals("")) {
-					String emailCliente = emailCli.getText();
+					String emailCliente = emailCli.getText().trim();
 					for(int i = 0; i < clientes.size(); ++i) {
 						if(emailCliente.equals(clientes.get(i).getEmailCli())) {
 							index = i;
@@ -370,7 +380,7 @@ public class TelaGerenteClientes {
 					cpfCli.setText(clientes.get(index).getCpfCli() + "");
 					nomeCli.setText(clientes.get(index).getNomeCli().trim());
 					telefoneCli.setText(clientes.get(index).getTelefoneCli() + "");
-					emailCli.setText(clientes.get(index).getEmailCli());
+					emailCli.setText(clientes.get(index).getEmailCli().trim());
 					
 				} else {
 					nomeIncorreto.setText("Sem resultados");
