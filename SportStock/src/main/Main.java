@@ -332,8 +332,8 @@ public class Main {
 			while(rsRegistro.next()) {
 				Cliente c1 = new Cliente();
 				c1.setNomeCli(rsRegistro.getString("nomeCli"));
-				c1.setCpfCli(rsRegistro.getLong("cpfCli"));
-				c1.setTelefoneCli(rsRegistro.getLong("telefoneCli"));
+				c1.setCpfCli(Long.parseLong(rsRegistro.getString("cpfCli")));
+				c1.setTelefoneCli(Long.parseLong(rsRegistro.getString("telefoneCli")));
 				c1.setEmailCli(rsRegistro.getString("emailCli"));
 				clientes.add(c1);
 			}
@@ -566,17 +566,17 @@ public class Main {
 	}
 	
 	//Metodo para adicionar clientes
-	private void adicionarCli() {
-
-		Cliente c2 = new Cliente();
-		c2 = lerDadosCli();
-
+	public void adicionarCli(Cliente c2) {
+		conecta();
 		try {
-			PreparedStatement strComandoSQL = Conexao.prepareStatement("INSERT INTO Cliente (cpfCli, nomeCli, telefoneCli, emailCli)" + " VALUES (?,?,?,?)");
-			strComandoSQL.setLong(1, c2.getCpfCli());
+			String cpf = c2.getCpfCli() + "";
+			String telefone = c2.getTelefoneCli() + "";
+			PreparedStatement strComandoSQL = Conexao.prepareStatement("INSERT INTO Cliente (cpfCli, nomeCli, telefoneCli, emailCli, idFun)" + " VALUES (?,?,?,?,?)");
+			strComandoSQL.setString(1, cpf);
 			strComandoSQL.setString(2, c2.getNomeCli());
-			strComandoSQL.setLong(3, c2.getTelefoneCli());
+			strComandoSQL.setString(3, telefone);
 			strComandoSQL.setString(4, c2.getEmailCli());
+			strComandoSQL.setInt(5, Login.funId);
 			int intRegistro = strComandoSQL.executeUpdate();
 			if(intRegistro != 0) {
 				JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
@@ -669,12 +669,8 @@ public class Main {
 	}
 	
 	//Metodo para excluir funcionario
-	private void excluirFun() {
-		for(int i = 0; i < funcionarios.size(); ++i) {
-			String str = "ID: " + funcionarios.get(i).getIdFun() +"\nNome: " + funcionarios.get(i).getNomeFun() + "\nSenha: " + funcionarios.get(i).getSenhaFun() + "\nHierarquia: " + funcionarios.get(i).getHierarquiaFun();
-			JOptionPane.showMessageDialog(null, str);
-		}
-		int n = Integer.parseInt(JOptionPane.showInputDialog("Insira o ID do funcionario que deseja excluir"));
+	public void excluirFun(int n) {
+		conecta();
 		int j = 0;
 		for(int i = 0; i < funcionarios.size(); ++i) {
 			if(funcionarios.get(i).getIdFun() == n) {
@@ -690,7 +686,6 @@ public class Main {
 				int intRegistro = strComandoSQL.executeUpdate();
 				if(intRegistro != 0) {
 					JOptionPane.showMessageDialog(null, "Exclusão realizada com sucesso");
-					funcionarios.remove(j);
 				}
 			}
 			catch (Exception Excecao) {
@@ -700,11 +695,9 @@ public class Main {
 	}
 	
 	//Metodo para excluir clientes
-	private void excluirCli() {
-		for(int i = 0; i < clientes.size(); ++i) {
-			JOptionPane.showMessageDialog(null, "CPF: " + clientes.get(i).getCpfCli() + "\nNome: " + clientes.get(i).getNomeCli() + "\nTelefone: " + clientes.get(i).getTelefoneCli() + "\nEmail: " +  clientes.get(i).getEmailCli());
-		}
-		int n = Integer.parseInt(JOptionPane.showInputDialog("Insira o CPF do cliente que deseja excluir"));
+	public void excluirCli(long n) {
+		conecta();
+		
 		int j = 0;
 		for(int i = 0; i < clientes.size(); ++i) {
 			if (clientes.get(i).getCpfCli() == n) {
@@ -716,7 +709,7 @@ public class Main {
 		if(num == 0) {
 			try {
 				PreparedStatement strComandoSQL = Conexao.prepareStatement("DELETE from Cliente WHERE" + " cpfCli= ?");
-				strComandoSQL.setInt(1, n);
+				strComandoSQL.setLong(1, n);
 				int intRegistro = strComandoSQL.executeUpdate();
 				if(intRegistro != 0) {
 					JOptionPane.showMessageDialog(null, "Exclusão realizada com sucesso");
@@ -830,73 +823,50 @@ public class Main {
 	}
 	
 	//Metodo para editar funcionario
-	private void editarFun() {
-		for(int i = 0; i < funcionarios.size(); ++i) {
-			String str = "ID: " + funcionarios.get(i).getIdFun() +"\nNome: " + funcionarios.get(i).getNomeFun() + "\nSenha: " + funcionarios.get(i).getSenhaFun() + "\nHierarquia: " + funcionarios.get(i).getHierarquiaFun();
-			JOptionPane.showMessageDialog(null, str);
-		}
-		int n = Integer.parseInt(JOptionPane.showInputDialog("Insira o ID do funcionario que deseja editar"));
-		int j = 0;
-		for(int i = 0; i < funcionarios.size(); ++i) {
-			if(funcionarios.get(i).getIdFun() == n) {
-				j = i;
-				break;
-			}
-		}
-		int num = JOptionPane.showConfirmDialog(null, "Confirma a edição?\nID: " + funcionarios.get(j).getIdFun() + "\nNome: " + funcionarios.get(j).getNomeFun() + "\nSenha: " + funcionarios.get(j).getSenhaFun() + "\nHierarquia: " + funcionarios.get(j).getHierarquiaFun(), "Edição", JOptionPane.YES_NO_OPTION);
+	public void editarFun(Funcionario f) {
+		conecta();
+		int num = JOptionPane.showConfirmDialog(null, "Confirma a edição?\nID: " + f.getIdFun() + "\nNome: " + f.getNomeFun() + "\nSenha: " + f.getSenhaFun() + "\nHierarquia: " + f.getHierarquiaFun(), "Edição", JOptionPane.YES_NO_OPTION);
 		if(num == 0) {
-		
-			Funcionario f2 = new Funcionario();
-			f2 = lerDadosFun();
 	
 			try {
 				PreparedStatement strComandoSQL = Conexao.prepareStatement("UPDATE Funcionario SET (nomeFun, senhaFun, hierarquiaFun)" + " = (?,?,?) WHERE idFun= ?");
-				strComandoSQL.setString(1, f2.getNomeFun());
-				strComandoSQL.setString(2, f2.getSenhaFun());
-				strComandoSQL.setString(3, f2.getSenhaFun());
-				strComandoSQL.setInt(4, n);
+				strComandoSQL.setString(1, f.getNomeFun());
+				strComandoSQL.setString(2, f.getSenhaFun());
+				strComandoSQL.setString(3, f.getHierarquiaFun());
+				strComandoSQL.setInt(4, f.getIdFun());
 				int intRegistro = strComandoSQL.executeUpdate();
 				if(intRegistro != 0) {
 					JOptionPane.showMessageDialog(null, "Edição realizada com sucesso");
-					funcionarios.set(j, f2);
 				}
 			}
 			catch (Exception Excecao) {
 				JOptionPane.showMessageDialog(null,"SQLException: " + Excecao.getMessage(),"Erro: Selecao de registro",JOptionPane.INFORMATION_MESSAGE);
 			}
 		}
+		else {
+			JOptionPane.showMessageDialog(null, "Edição cancelada");
+		}
 	}
 	
 	//Metodo para editar cliente
-	private void editarCli() {
-		for(int i = 0; i < clientes.size(); ++i) {
-			JOptionPane.showMessageDialog(null, "CPF: " + clientes.get(i).getCpfCli() + "\nNome: " + clientes.get(i).getNomeCli() + "\nTelefone: " + clientes.get(i).getTelefoneCli() + "\nEmail: " +  clientes.get(i).getEmailCli());
-		}
-		int n = Integer.parseInt(JOptionPane.showInputDialog("Insira o CPF do cliente que deseja editar"));
-		int j = 0;
-		for(int i = 0; i < clientes.size(); ++i) {
-			if (clientes.get(i).getCpfCli() == n) {
-				j = i;
-				break;
-			}
-		}
-		int num = JOptionPane.showConfirmDialog(null, "Confirma a edição?\nCPF: " + clientes.get(j).getCpfCli() + "\nNome: " + clientes.get(j).getNomeCli() + "\nTelefone: " + clientes.get(j).getTelefoneCli() + "\nEmail: " +  clientes.get(j).getEmailCli(), "Edição", JOptionPane.YES_NO_OPTION);
+	public void editarCli(Cliente c) {
+		conecta();
+		
+		int num = JOptionPane.showConfirmDialog(null, "Confirma a edição?\nCPF: " + c.getCpfCli() + "\nNome: " + c.getNomeCli() + "\nTelefone: " + c.getTelefoneCli() + "\nEmail: " +  c.getEmailCli(), "Edição", JOptionPane.YES_NO_OPTION);
 		if(num == 0) {
 
-			Cliente c2 = new Cliente();
-			c2 = lerDadosCli();
-
 			try {
+				String cpf = c.getCpfCli() + "";
+				String telefone = c.getTelefoneCli() + "";
 				PreparedStatement strComandoSQL = Conexao.prepareStatement("UPDATE Cliente SET (cpfCli, nomeCli, telefoneCli, emailCli)" + " = (?,?,?,?) WHERE cpfCli= ?");
-				strComandoSQL.setLong(1, c2.getCpfCli());
-				strComandoSQL.setString(2, c2.getNomeCli());
-				strComandoSQL.setLong(3, c2.getTelefoneCli());
-				strComandoSQL.setString(4, c2.getEmailCli());
-				strComandoSQL.setInt(5, n);
+				strComandoSQL.setString(1, cpf);
+				strComandoSQL.setString(2, c.getNomeCli());
+				strComandoSQL.setString(3, telefone);
+				strComandoSQL.setString(4, c.getEmailCli());
+				strComandoSQL.setString(5, cpf);
 				int intRegistro = strComandoSQL.executeUpdate();
 				if(intRegistro != 0) {
 					JOptionPane.showMessageDialog(null, "Edição realizada com sucesso");
-					clientes.set(j, c2);
 				}
 			}
 			catch (Exception Excecao) {

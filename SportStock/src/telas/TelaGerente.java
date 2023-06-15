@@ -22,7 +22,7 @@ public class TelaGerente {
 	private JFrame frmGerenciar;
 	
 	private static ArrayList<Cupom> cupons = new ArrayList<Cupom>();
-	private static ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
+	//private static ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
 	private static ArrayList<Produto> produtos = new ArrayList<Produto>();
 	private static ArrayList<Venda> vendas = new ArrayList<Venda>();
 	private int opcao = 0;
@@ -42,7 +42,7 @@ public class TelaGerente {
 	 */
 	public static void telaGerente() {
 		cupons = new Main().getListaCupom();
-		funcionarios = new Main().getListaFun();
+		//funcionarios = new Main().getListaFun();
 		produtos = new Main().getListaProd();
 		vendas = new Main().getListaVenda();
 		
@@ -85,6 +85,10 @@ public class TelaGerente {
 		}
 		
 		JButton btnVenda = new JButton("Vendas");
+		btnVenda.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnVenda.setBackground(new Color(255, 255, 255));
 		btnVenda.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		btnVenda.setBounds(123, 32, 103, 36);
@@ -117,6 +121,13 @@ public class TelaGerente {
 		frmGerenciar.getContentPane().add(btnEstoque);
 		
 		JButton btnClientes = new JButton("Clientes");
+		btnClientes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmGerenciar.setVisible(false);
+				TelaGerenteClientes.telaGerenteClientes();
+				frmGerenciar.dispose();
+			}
+		});
 		btnClientes.setBackground(new Color(255, 255, 255));
 		btnClientes.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		btnClientes.setBounds(546, 32, 103, 36);
@@ -213,7 +224,7 @@ public class TelaGerente {
 		precoProdutosVenda.setVerticalAlignment(SwingConstants.TOP);
 		precoProdutosVenda.setHorizontalAlignment(SwingConstants.LEFT);
 		precoProdutosVenda.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
-		precoProdutosVenda.setBounds(475, 207, 127, 242);
+		precoProdutosVenda.setBounds(408, 207, 127, 242);
 		frmGerenciar.getContentPane().add(precoProdutosVenda);
 		
 		JLabel quantidadeProdutosVenda = new JLabel("");

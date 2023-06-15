@@ -75,8 +75,6 @@ public class TelaFuncionarioEstoque {
 		frmFuncionarioEstoque.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmFuncionarioEstoque.getContentPane().setLayout(null);
 		
-		System.out.println(vendas);
-		
 		JButton btnVenda = new JButton("Vendas");
 		btnVenda.setBackground(new Color(255, 255, 255));
 		btnVenda.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
@@ -272,16 +270,14 @@ public class TelaFuncionarioEstoque {
         String tipo = "<html><body>";
         String descricao = "<html><body>";
         for(int i = 0; i < produtos.size(); ++i) {
-            int indexProd = produtos.get(i).getIdProd();
-            produto += produtos.get(indexProd).getNomeProd() + "<br>";
-            codigos += produtos.get(indexProd).getIdProd() + "<br>";
-            precos += "R$ " + produtos.get(indexProd).getPrecoProd() + "<br>";
+            produto += produtos.get(i).getNomeProd() + "<br>";
+            codigos += produtos.get(i).getIdProd() + "<br>";
+            precos += "R$ " + produtos.get(i).getPrecoProd() + "<br>";
             quantidade += produtos.get(i).getQtdProd() + "<br>";
             tipo += produtos.get(i).getTipoProd() + "<br>";
             descricao += produtos.get(i).getDescricaoProd() + "<br>";
             int espaco = produtos.get(i).getDescricaoProd().length();
             while (espaco > 31) {
-            	//for(int j == espaco / 31)
             	produto += "<br>";
             	codigos += "<br>";
             	precos += "<br>";
