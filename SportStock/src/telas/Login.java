@@ -27,6 +27,7 @@ public class Login {
 	private static ArrayList<Funcionario> funcio = new ArrayList<Funcionario>();
 	//sim e isso msm q vc leu, a variavel esta P U B L I C A, eu sei q n e seguro mas quem se importa cm isso?
 	public static int funId = 0;
+	public static String funNome = "";
 
 	
 	public static void telaLogin() {
@@ -122,12 +123,15 @@ public class Login {
 						if(funcio.get(index).getIdFun() == idF && funcio.get(index).getSenhaFun().equals(senha)) {
 							
 							funId = idF;
+							funNome = funcio.get(index).getNomeFun();
 							//HAHAHAHAAH ESSA THREAD N ME PERTENCE
 							//Thread.currentThread().notify();
 							frmSportstockLogin.setVisible(false);
 							frmSportstockLogin.dispose();
 							if(funcio.get(index).getHierarquiaFun().equals("Gerente")) {
 								TelaGerente.telaGerente();
+							} else if (funcio.get(index).getHierarquiaFun().equals("Vendedor")){
+								TelaFuncionarioVenda.telaFuncionarioVenda();
 							}
 						}
 						else {
@@ -169,10 +173,10 @@ public class Login {
 		btnSair.setBounds(681, 434, 191, 51);
 		frmSportstockLogin.getContentPane().add(btnSair);
 		
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(new ImageIcon(Cadastro.class.getResource("/img/SportStockLogo.jpg")).getImage().getScaledInstance(190, 190, Image.SCALE_DEFAULT)));
-		lblNewLabel_1.setBounds(411, 0, 191, 147);
-		frmSportstockLogin.getContentPane().add(lblNewLabel_1);
+		JLabel imagem = new JLabel("");
+		imagem.setIcon(new ImageIcon(new ImageIcon(Cadastro.class.getResource("/img/SportStockLogo.jpg")).getImage().getScaledInstance(190, 190, Image.SCALE_DEFAULT)));
+		imagem.setBounds(411, 0, 191, 147);
+		frmSportstockLogin.getContentPane().add(imagem);
 		
 		
 	}

@@ -6,6 +6,7 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
@@ -15,6 +16,7 @@ import recursos.Funcionario;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 
 public class TelaGerenteFuncionarios {
 	private String codigos = "<html><body>";
@@ -93,7 +95,7 @@ public class TelaGerenteFuncionarios {
 		btnEstoque.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmGerenciarFun.setVisible(false);
-				TelaFuncionarioEstoque.telaFuncionarioEstoque();
+				TelaGerenteEstoque.telaGerenteEstoque();
 				frmGerenciarFun.dispose();
 			}
 		});
@@ -193,10 +195,6 @@ public class TelaGerenteFuncionarios {
 		JLabel senhasFun = new JLabel(senhas);
 		senhasFun.setBounds(752, 214, 219, 321);
 		frmGerenciarFun.getContentPane().add(senhasFun);
-		
-		JLabel iconGerente = new JLabel("");
-		iconGerente.setBounds(885, 11, 136, 67);
-		frmGerenciarFun.getContentPane().add(iconGerente);
 		
 		JLabel lblNewLabel_1_2 = new JLabel("Senha:");
 		lblNewLabel_1_2.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
@@ -401,6 +399,22 @@ public class TelaGerenteFuncionarios {
 		btnExcluirFun.setBackground(Color.WHITE);
 		btnExcluirFun.setBounds(614, 92, 189, 36);
 		frmGerenciarFun.getContentPane().add(btnExcluirFun);
+		
+		JLabel imagem = new JLabel("");
+		imagem.setIcon(new ImageIcon(new ImageIcon(Cadastro.class.getResource("/img/SportStockLogo.jpg")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		imagem.setBounds(0, 0, 121, 82);
+		frmGerenciarFun.getContentPane().add(imagem);
+		
+		JLabel imagem2 = new JLabel("");
+		imagem2.setIcon(new ImageIcon(new ImageIcon(Cadastro.class.getResource("/img/iconGerente.jpg")).getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT)));
+		imagem2.setBounds(958, 11, 121, 82);
+		frmGerenciarFun.getContentPane().add(imagem2);
+		
+		String n = "<html><body>Gerente<br>" + Login.funNome + "</body></html>";
+		JLabel tipoNomeFuncionario = new JLabel(n);
+		tipoNomeFuncionario.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
+		tipoNomeFuncionario.setBounds(854, 11, 121, 57);
+		frmGerenciarFun.getContentPane().add(tipoNomeFuncionario);
 		
 		btnBusca.setVisible(false);
 		codigoFun.setVisible(false);

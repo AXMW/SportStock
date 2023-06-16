@@ -15,10 +15,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-
 import main.Main;
 import recursos.*;
-public class TelaGerenteClientes {
+
+public class TelaFuncionarioCliente {
 	
 	private static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 	
@@ -38,14 +38,14 @@ public class TelaGerenteClientes {
 	/**
 	 * Launch the application.
 	 */
-	public static void telaGerenteClientes() {
+	public static void telaFuncionarioCliente() {
 		
 		clientes = new Main().getListaCli();
 		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaGerenteClientes window = new TelaGerenteClientes();
+					TelaFuncionarioCliente window = new TelaFuncionarioCliente();
 					window.frmGerenciarCliente.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -57,7 +57,7 @@ public class TelaGerenteClientes {
 	/**
 	 * Create the application.
 	 */
-	public TelaGerenteClientes() {
+	public TelaFuncionarioCliente() {
 		initialize();
 	}
 
@@ -77,64 +77,38 @@ public class TelaGerenteClientes {
 		JButton btnVenda = new JButton("Vendas");
 		btnVenda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frmGerenciarCliente.setVisible(false);
-				TelaGerente.telaGerente();
-				frmGerenciarCliente.dispose();
 			}
 		});
+		btnVenda.setBackground(new Color(255, 255, 255));
 		btnVenda.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
-		btnVenda.setBackground(Color.WHITE);
-		btnVenda.setBounds(123, 32, 103, 36);
+		btnVenda.setBounds(95, 11, 141, 36);
 		frmGerenciarCliente.getContentPane().add(btnVenda);
-		
-		JButton btnFuncionarios = new JButton("Funcionarios");
-		btnFuncionarios.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frmGerenciarCliente.setVisible(false);
-				TelaGerenteFuncionarios.telaGerenteFuncionarios();
-				frmGerenciarCliente.dispose();
-			}
-		});
-		btnFuncionarios.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
-		btnFuncionarios.setBackground(Color.WHITE);
-		btnFuncionarios.setBounds(266, 32, 115, 36);
-		frmGerenciarCliente.getContentPane().add(btnFuncionarios);
 		
 		JButton btnEstoque = new JButton("Estoque");
 		btnEstoque.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmGerenciarCliente.setVisible(false);
-				TelaGerenteEstoque.telaGerenteEstoque();
+				TelaFuncionarioEstoque.telaFuncionarioEstoque();
 				frmGerenciarCliente.dispose();
 			}
 		});
+		btnEstoque.setBackground(new Color(255, 255, 255));
 		btnEstoque.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
-		btnEstoque.setBackground(Color.WHITE);
-		btnEstoque.setBounds(408, 32, 103, 36);
+		btnEstoque.setBounds(342, 11, 141, 36);
 		frmGerenciarCliente.getContentPane().add(btnEstoque);
 		
 		JButton btnClientes = new JButton("Clientes");
 		btnClientes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnClientes.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
-		btnClientes.setBackground(Color.WHITE);
-		btnClientes.setBounds(546, 32, 103, 36);
-		frmGerenciarCliente.getContentPane().add(btnClientes);
-		
-		JButton btnFornecedores = new JButton("Fornecedores");
-		btnFornecedores.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
 				frmGerenciarCliente.setVisible(false);
-				TelaGerenteFornecedores.telaGerenteFornecedores();
+				TelaFuncionarioCliente.telaFuncionarioCliente();
 				frmGerenciarCliente.dispose();
 			}
 		});
-		btnFornecedores.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
-		btnFornecedores.setBackground(Color.WHITE);
-		btnFornecedores.setBounds(682, 32, 121, 36);
-		frmGerenciarCliente.getContentPane().add(btnFornecedores);
+		btnClientes.setBackground(new Color(255, 255, 255));
+		btnClientes.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
+		btnClientes.setBounds(619, 11, 141, 36);
+		frmGerenciarCliente.getContentPane().add(btnClientes);
 		
 		
 		
@@ -204,6 +178,8 @@ public class TelaGerenteClientes {
 		JLabel EmailsCli = new JLabel(email);
 		EmailsCli.setBounds(752, 214, 219, 321);
 		frmGerenciarCliente.getContentPane().add(EmailsCli);
+		
+		
 		
 		JLabel lblNewLabel_1_2 = new JLabel("Telefone:");
 		lblNewLabel_1_2.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
@@ -625,3 +601,4 @@ public class TelaGerenteClientes {
 	}
 
 }
+

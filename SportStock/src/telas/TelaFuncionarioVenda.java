@@ -19,12 +19,10 @@ import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class TelaGerente {
+public class TelaFuncionarioVenda {
 
-	private JFrame frmGerenciar;
-	
+	private JFrame frmFuncionarioVenda;
 	private static ArrayList<Cupom> cupons = new ArrayList<Cupom>();
-	//private static ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
 	private static ArrayList<Produto> produtos = new ArrayList<Produto>();
 	private static ArrayList<Venda> vendas = new ArrayList<Venda>();
 	private int opcao = 0;
@@ -40,23 +38,21 @@ public class TelaGerente {
 	private JTextField descontoCupom;
 	private JTextField codigoProdutoAlt;
 	private JTextField qtdProdutoAlt;
+	
 
 	/**
 	 * Launch the application.
 	 */
-	public static void telaGerente() {
+	public static void telaFuncionarioVenda() {
 		cupons = new Main().getListaCupom();
-		//funcionarios = new Main().getListaFun();
 		produtos = new Main().getListaProd();
 		vendas = new Main().getListaVenda();
-		
-		
 		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaGerente window = new TelaGerente();
-					window.frmGerenciar.setVisible(true);
+					TelaFuncionarioVenda window = new TelaFuncionarioVenda();
+					window.frmFuncionarioVenda.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -67,7 +63,7 @@ public class TelaGerente {
 	/**
 	 * Create the application.
 	 */
-	public TelaGerente() {
+	public TelaFuncionarioVenda() {
 		initialize();
 	}
 
@@ -75,13 +71,13 @@ public class TelaGerente {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frmGerenciar = new JFrame();
-		frmGerenciar.getContentPane().setBackground(new Color(255, 255, 255));
-		frmGerenciar.setIconImage(Toolkit.getDefaultToolkit().getImage(TelaGerente.class.getResource("/img/SportStockLogo.jpg")));
-		frmGerenciar.setTitle("Gerenciar");
-		frmGerenciar.setBounds(100, 100, 1060, 585);
-		frmGerenciar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmGerenciar.getContentPane().setLayout(null);
+		frmFuncionarioVenda = new JFrame();
+		frmFuncionarioVenda.getContentPane().setBackground(new Color(255, 255, 255));
+		frmFuncionarioVenda.setIconImage(Toolkit.getDefaultToolkit().getImage(TelaGerente.class.getResource("/img/SportStockLogo.jpg")));
+		frmFuncionarioVenda.setTitle("Gerenciar");
+		frmFuncionarioVenda.setBounds(100, 100, 1060, 585);
+		frmFuncionarioVenda.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmFuncionarioVenda.getContentPane().setLayout(null);
 		
 		for(int i = 0; i < vezes.length; ++i) {
 			vezes[i] = totalDaVenda / (i + 1);
@@ -95,116 +91,91 @@ public class TelaGerente {
 		});
 		btnVenda.setBackground(new Color(255, 255, 255));
 		btnVenda.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
-		btnVenda.setBounds(123, 32, 103, 36);
-		frmGerenciar.getContentPane().add(btnVenda);
-		
-		JButton btnFuncionarios = new JButton("Funcionarios");
-		btnFuncionarios.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frmGerenciar.setVisible(false);
-				TelaGerenteFuncionarios.telaGerenteFuncionarios();
-				frmGerenciar.dispose();
-			}
-		});
-		btnFuncionarios.setBackground(new Color(255, 255, 255));
-		btnFuncionarios.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
-		btnFuncionarios.setBounds(256, 32, 125, 36);
-		frmGerenciar.getContentPane().add(btnFuncionarios);
+		btnVenda.setBounds(95, 11, 141, 36);
+		frmFuncionarioVenda.getContentPane().add(btnVenda);
 		
 		JButton btnEstoque = new JButton("Estoque");
 		btnEstoque.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frmGerenciar.setVisible(false);
-				TelaGerenteEstoque.telaGerenteEstoque();
-				frmGerenciar.dispose();
+				frmFuncionarioVenda.setVisible(false);
+				TelaFuncionarioEstoque.telaFuncionarioEstoque();
+				frmFuncionarioVenda.dispose();
 			}
 		});
 		btnEstoque.setBackground(new Color(255, 255, 255));
 		btnEstoque.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
-		btnEstoque.setBounds(408, 32, 103, 36);
-		frmGerenciar.getContentPane().add(btnEstoque);
+		btnEstoque.setBounds(342, 11, 141, 36);
+		frmFuncionarioVenda.getContentPane().add(btnEstoque);
 		
 		JButton btnClientes = new JButton("Clientes");
 		btnClientes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frmGerenciar.setVisible(false);
-				TelaGerenteClientes.telaGerenteClientes();
-				frmGerenciar.dispose();
+				frmFuncionarioVenda.setVisible(false);
+				TelaFuncionarioCliente.telaFuncionarioCliente();
+				frmFuncionarioVenda.dispose();
 			}
 		});
 		btnClientes.setBackground(new Color(255, 255, 255));
 		btnClientes.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
-		btnClientes.setBounds(546, 32, 103, 36);
-		frmGerenciar.getContentPane().add(btnClientes);
+		btnClientes.setBounds(619, 11, 141, 36);
+		frmFuncionarioVenda.getContentPane().add(btnClientes);
 		
-		JButton btnFornecedores = new JButton("Fornecedores");
-		btnFornecedores.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frmGerenciar.setVisible(false);
-				TelaGerenteFornecedores.telaGerenteFornecedores();
-				frmGerenciar.dispose();
-			}
-		});
-		btnFornecedores.setBackground(new Color(255, 255, 255));
-		btnFornecedores.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
-		btnFornecedores.setBounds(682, 32, 127, 36);
-		frmGerenciar.getContentPane().add(btnFornecedores);
 		
 		JLabel PrimeiroTexto = new JLabel("");
 		PrimeiroTexto.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		PrimeiroTexto.setBounds(36, 126, 184, 36);
-		frmGerenciar.getContentPane().add(PrimeiroTexto);
+		frmFuncionarioVenda.getContentPane().add(PrimeiroTexto);
 		
 		JLabel SegundoTexto = new JLabel("");
 		SegundoTexto.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		SegundoTexto.setBounds(408, 126, 225, 36);
-		frmGerenciar.getContentPane().add(SegundoTexto);
+		frmFuncionarioVenda.getContentPane().add(SegundoTexto);
 		
 		JLabel Erro = new JLabel("");
 		Erro.setBackground(new Color(255, 0, 0));
 		Erro.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 11));
 		Erro.setBounds(846, 126, 188, 36);
-		frmGerenciar.getContentPane().add(Erro);
+		frmFuncionarioVenda.getContentPane().add(Erro);
 		
 		JLabel lblNewLabel = new JLabel("Produtos:");
 		lblNewLabel.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
 		lblNewLabel.setBounds(23, 173, 89, 23);
-		frmGerenciar.getContentPane().add(lblNewLabel);
+		frmFuncionarioVenda.getContentPane().add(lblNewLabel);
 		
 		JLabel lblCdigo = new JLabel("Código:");
 		lblCdigo.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
 		lblCdigo.setBounds(256, 173, 85, 23);
-		frmGerenciar.getContentPane().add(lblCdigo);
+		frmFuncionarioVenda.getContentPane().add(lblCdigo);
 		
 		JLabel lblPreo = new JLabel("Preço:");
 		lblPreo.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
 		lblPreo.setBounds(424, 173, 59, 23);
-		frmGerenciar.getContentPane().add(lblPreo);
+		frmFuncionarioVenda.getContentPane().add(lblPreo);
 		
 		JLabel lblQuantidade = new JLabel("Quantidade:");
 		lblQuantidade.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
 		lblQuantidade.setBounds(565, 173, 115, 23);
-		frmGerenciar.getContentPane().add(lblQuantidade);
+		frmFuncionarioVenda.getContentPane().add(lblQuantidade);
 		
 		JLabel lblTotal = new JLabel("Total:");
 		lblTotal.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
 		lblTotal.setBounds(755, 173, 48, 23);
-		frmGerenciar.getContentPane().add(lblTotal);
+		frmFuncionarioVenda.getContentPane().add(lblTotal);
 		
 		JLabel lblTotalDa = new JLabel("Total da");
 		lblTotalDa.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
 		lblTotalDa.setBounds(927, 227, 85, 23);
-		frmGerenciar.getContentPane().add(lblTotalDa);
+		frmFuncionarioVenda.getContentPane().add(lblTotalDa);
 		
 		JLabel lblCompra = new JLabel("compra");
 		lblCompra.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
 		lblCompra.setBounds(927, 249, 85, 23);
-		frmGerenciar.getContentPane().add(lblCompra);
+		frmFuncionarioVenda.getContentPane().add(lblCompra);
 		
 		JLabel totalVenda = new JLabel("");
 		totalVenda.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
 		totalVenda.setBounds(897, 295, 137, 41);
-		frmGerenciar.getContentPane().add(totalVenda);
+		frmFuncionarioVenda.getContentPane().add(totalVenda);
 		totalVenda.setText("R$ " + totalDaVenda);
 		
 		JLabel produtosVenda = new JLabel("");
@@ -212,69 +183,69 @@ public class TelaGerente {
 		produtosVenda.setHorizontalAlignment(SwingConstants.LEFT);
 		produtosVenda.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
 		produtosVenda.setBounds(20, 207, 206, 242);
-		frmGerenciar.getContentPane().add(produtosVenda);
+		frmFuncionarioVenda.getContentPane().add(produtosVenda);
 		
 		JLabel codigosProdutosVenda = new JLabel("");
 		codigosProdutosVenda.setVerticalAlignment(SwingConstants.TOP);
 		codigosProdutosVenda.setHorizontalAlignment(SwingConstants.LEFT);
 		codigosProdutosVenda.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
 		codigosProdutosVenda.setBounds(256, 207, 141, 242);
-		frmGerenciar.getContentPane().add(codigosProdutosVenda);
+		frmFuncionarioVenda.getContentPane().add(codigosProdutosVenda);
 		
 		JLabel precoProdutosVenda = new JLabel("");
 		precoProdutosVenda.setVerticalAlignment(SwingConstants.TOP);
 		precoProdutosVenda.setHorizontalAlignment(SwingConstants.LEFT);
 		precoProdutosVenda.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
 		precoProdutosVenda.setBounds(408, 207, 127, 242);
-		frmGerenciar.getContentPane().add(precoProdutosVenda);
+		frmFuncionarioVenda.getContentPane().add(precoProdutosVenda);
 		
 		JLabel quantidadeProdutosVenda = new JLabel("");
 		quantidadeProdutosVenda.setVerticalAlignment(SwingConstants.TOP);
 		quantidadeProdutosVenda.setHorizontalAlignment(SwingConstants.LEFT);
 		quantidadeProdutosVenda.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
 		quantidadeProdutosVenda.setBounds(575, 207, 127, 242);
-		frmGerenciar.getContentPane().add(quantidadeProdutosVenda);
+		frmFuncionarioVenda.getContentPane().add(quantidadeProdutosVenda);
 		
 		JLabel totalProdutosVenda = new JLabel("");
 		totalProdutosVenda.setVerticalAlignment(SwingConstants.TOP);
 		totalProdutosVenda.setHorizontalAlignment(SwingConstants.LEFT);
 		totalProdutosVenda.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
 		totalProdutosVenda.setBounds(733, 207, 127, 242);
-		frmGerenciar.getContentPane().add(totalProdutosVenda);
+		frmFuncionarioVenda.getContentPane().add(totalProdutosVenda);
 		
 		JLabel lblNewLabel_1 = new JLabel("Forma de");
 		lblNewLabel_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		lblNewLabel_1.setBounds(36, 479, 69, 23);
-		frmGerenciar.getContentPane().add(lblNewLabel_1);
+		frmFuncionarioVenda.getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("pagamento");
 		lblNewLabel_1_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		lblNewLabel_1_1.setBounds(36, 499, 85, 23);
-		frmGerenciar.getContentPane().add(lblNewLabel_1_1);
+		frmFuncionarioVenda.getContentPane().add(lblNewLabel_1_1);
 		
 		JComboBox<String> formaPgto = new JComboBox<String>();
 		formaPgto.setBackground(new Color(255, 255, 255));
 		formaPgto.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		formaPgto.setModel(new DefaultComboBoxModel<String>(new String[] {"Cartão", "Dinheiro", "Cheque", "Pix"}));
 		formaPgto.setBounds(131, 479, 89, 43);
-		frmGerenciar.getContentPane().add(formaPgto);
+		frmFuncionarioVenda.getContentPane().add(formaPgto);
 		
 		JLabel lblNewLabel_1_2 = new JLabel("Parcelas");
 		lblNewLabel_1_2.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		lblNewLabel_1_2.setBounds(239, 479, 59, 43);
-		frmGerenciar.getContentPane().add(lblNewLabel_1_2);
+		frmFuncionarioVenda.getContentPane().add(lblNewLabel_1_2);
 		
 		JComboBox<String> qtdParcelas = new JComboBox<String>();
 		qtdParcelas.setBackground(new Color(255, 255, 255));
 		qtdParcelas.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
 		qtdParcelas.setModel(new DefaultComboBoxModel<String>(vezesS));
 		qtdParcelas.setBounds(308, 479, 175, 43);
-		frmGerenciar.getContentPane().add(qtdParcelas);
+		frmFuncionarioVenda.getContentPane().add(qtdParcelas);
 		
 		JLabel lblNewLabel_1_2_1 = new JLabel("Juros");
 		lblNewLabel_1_2_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		lblNewLabel_1_2_1.setBounds(493, 479, 42, 43);
-		frmGerenciar.getContentPane().add(lblNewLabel_1_2_1);
+		frmFuncionarioVenda.getContentPane().add(lblNewLabel_1_2_1);
 		
 		txtR = new JTextField();
 		txtR.setForeground(new Color(0, 0, 0));
@@ -283,18 +254,18 @@ public class TelaGerente {
 		txtR.setEnabled(false);
 		txtR.setEditable(false);
 		txtR.setBounds(546, 479, 69, 43);
-		frmGerenciar.getContentPane().add(txtR);
+		frmFuncionarioVenda.getContentPane().add(txtR);
 		txtR.setColumns(10);
 		
 		JLabel lblNewLabel_1_3 = new JLabel("Desconto");
 		lblNewLabel_1_3.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		lblNewLabel_1_3.setBounds(628, 479, 69, 23);
-		frmGerenciar.getContentPane().add(lblNewLabel_1_3);
+		frmFuncionarioVenda.getContentPane().add(lblNewLabel_1_3);
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel("cupom");
 		lblNewLabel_1_1_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		lblNewLabel_1_1_1.setBounds(628, 499, 69, 23);
-		frmGerenciar.getContentPane().add(lblNewLabel_1_1_1);
+		frmFuncionarioVenda.getContentPane().add(lblNewLabel_1_1_1);
 		
 		descontoCupom = new JTextField();
 		descontoCupom.setForeground(new Color(0, 0, 0));
@@ -303,7 +274,7 @@ public class TelaGerente {
 		descontoCupom.setEnabled(false);
 		descontoCupom.setEditable(false);
 		descontoCupom.setBounds(702, 479, 101, 42);
-		frmGerenciar.getContentPane().add(descontoCupom);
+		frmFuncionarioVenda.getContentPane().add(descontoCupom);
 		descontoCupom.setColumns(10);
 		
 		
@@ -311,7 +282,7 @@ public class TelaGerente {
 		codigoProdutoAlt = new JTextField();
 		codigoProdutoAlt.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		codigoProdutoAlt.setBounds(230, 126, 169, 36);
-		frmGerenciar.getContentPane().add(codigoProdutoAlt);
+		frmFuncionarioVenda.getContentPane().add(codigoProdutoAlt);
 		codigoProdutoAlt.setColumns(10);
 		
 		
@@ -320,7 +291,7 @@ public class TelaGerente {
 		qtdProdutoAlt.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		qtdProdutoAlt.setText("1");
 		qtdProdutoAlt.setBounds(628, 126, 94, 36);
-		frmGerenciar.getContentPane().add(qtdProdutoAlt);
+		frmFuncionarioVenda.getContentPane().add(qtdProdutoAlt);
 		qtdProdutoAlt.setColumns(10);
 		
 		//infelizmente esse botão ta cm mt mais linhas do q eu gostaria mas eu n vou arrumar =D
@@ -559,7 +530,7 @@ public class TelaGerente {
 		});
 		AdicionarProd.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		AdicionarProd.setBounds(733, 126, 103, 36);
-		frmGerenciar.getContentPane().add(AdicionarProd);
+		frmFuncionarioVenda.getContentPane().add(AdicionarProd);
 		
 		JButton btnAlterarProduto = new JButton("Adicionar produto");
 		btnAlterarProduto.addActionListener(new ActionListener() {
@@ -589,7 +560,7 @@ public class TelaGerente {
 		btnAlterarProduto.setBackground(new Color(255, 255, 255));
 		btnAlterarProduto.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 18));
 		btnAlterarProduto.setBounds(36, 79, 184, 36);
-		frmGerenciar.getContentPane().add(btnAlterarProduto);
+		frmFuncionarioVenda.getContentPane().add(btnAlterarProduto);
 		
 		JButton btnExcluirProduto = new JButton("Remover produto");
 		btnExcluirProduto.addActionListener(new ActionListener() {
@@ -619,7 +590,7 @@ public class TelaGerente {
 		btnExcluirProduto.setBackground(new Color(255, 255, 255));
 		btnExcluirProduto.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 18));
 		btnExcluirProduto.setBounds(230, 79, 184, 36);
-		frmGerenciar.getContentPane().add(btnExcluirProduto);
+		frmFuncionarioVenda.getContentPane().add(btnExcluirProduto);
 		
 		JButton btnInserirCupom = new JButton("Inserir cupom");
 		btnInserirCupom.addActionListener(new ActionListener() {
@@ -648,37 +619,7 @@ public class TelaGerente {
 		btnInserirCupom.setBackground(new Color(255, 255, 255));
 		btnInserirCupom.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 18));
 		btnInserirCupom.setBounds(424, 79, 184, 36);
-		frmGerenciar.getContentPane().add(btnInserirCupom);
-		
-		JButton btnCriarCupom = new JButton("Criar cupom");
-		btnCriarCupom.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Erro.setText(null);
-				opcao = 3;
-				codigoProdutoAlt.setVisible(false);
-				Erro.setVisible(false);
-				qtdProdutoAlt.setVisible(false);
-				codigoProdutoAlt.setVisible(false);
-				AdicionarProd.setVisible(false);
-				PrimeiroTexto.setText("Insira o codigo do cupom");
-				SegundoTexto.setText("Insira a porcentagem");
-				Erro.setVisible(true);
-				qtdProdutoAlt.setVisible(true);
-				codigoProdutoAlt.setVisible(true);
-				AdicionarProd.setText("Adicionar");
-				AdicionarProd.setVisible(true);
-				float num = 0;
-				for(int i = 0; i < vendas.size(); ++i) {
-					num += vendas.get(i).getPrecoVenda();
-				}
-				descontoDoCupom = "R$" + (num * porcentagemCupom);
-				descontoCupom.setText(descontoDoCupom);
-			}
-		});
-		btnCriarCupom.setBackground(new Color(255, 255, 255));
-		btnCriarCupom.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 18));
-		btnCriarCupom.setBounds(618, 79, 184, 36);
-		frmGerenciar.getContentPane().add(btnCriarCupom);
+		frmFuncionarioVenda.getContentPane().add(btnInserirCupom);
 		
 		
 		JButton FinalizarVenda = new JButton("<html><body>Finalizar<br>&nbsp;&nbsp;venda</body></html>\r\n");
@@ -707,7 +648,7 @@ public class TelaGerente {
 		FinalizarVenda.setBackground(new Color(255, 255, 255));
 		FinalizarVenda.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		FinalizarVenda.setBounds(897, 479, 115, 43);
-		frmGerenciar.getContentPane().add(FinalizarVenda);
+		frmFuncionarioVenda.getContentPane().add(FinalizarVenda);
 		
 		
 		codigoProdutoAlt.setVisible(false);
@@ -719,19 +660,20 @@ public class TelaGerente {
 		JLabel imagem = new JLabel("");
 		imagem.setIcon(new ImageIcon(new ImageIcon(Cadastro.class.getResource("/img/SportStockLogo.jpg")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
 		imagem.setBounds(0, 0, 121, 82);
-		frmGerenciar.getContentPane().add(imagem);
+		frmFuncionarioVenda.getContentPane().add(imagem);
 		
 		JLabel imagem2 = new JLabel("");
 		imagem2.setIcon(new ImageIcon(new ImageIcon(Cadastro.class.getResource("/img/iconGerente.jpg")).getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT)));
 		imagem2.setBounds(958, 11, 121, 82);
-		frmGerenciar.getContentPane().add(imagem2);
+		frmFuncionarioVenda.getContentPane().add(imagem2);
 		
 		String n = "<html><body>Gerente<br>" + Login.funNome + "</body></html>";
 		JLabel tipoNomeFuncionario = new JLabel(n);
 		tipoNomeFuncionario.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		tipoNomeFuncionario.setBounds(854, 11, 121, 57);
-		frmGerenciar.getContentPane().add(tipoNomeFuncionario);
+		frmFuncionarioVenda.getContentPane().add(tipoNomeFuncionario);
 		
 		descontoCupom.setText(descontoDoCupom);
 	}
+
 }
