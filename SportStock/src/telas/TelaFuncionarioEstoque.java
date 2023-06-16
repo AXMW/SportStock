@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JLabel;
 
@@ -14,16 +15,14 @@ import java.awt.Color;
 import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JTable;
-import javax.swing.JList;
-import javax.swing.AbstractListModel;
 
 public class TelaFuncionarioEstoque {
 
-//	private JFrame frmFuncionarioEstoque;
+	private JFrame frmFuncionarioEstoque;
 	
 	private static ArrayList<Produto> produtos = new ArrayList<Produto>();
 	private static ArrayList<Produto> buscaProdutos = new ArrayList<Produto>();
@@ -46,13 +45,13 @@ public class TelaFuncionarioEstoque {
 	/**
 	 * Launch the application.
 	 */
-	public static void telaGerenteEstoque() {
+	public static void telaFuncionarioEstoque() {
 		produtos = new Main().getListaProd();
 		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaFuncionarioEstoquee window = new TelaFuncionarioEstoquee();
+					TelaFuncionarioEstoque window = new TelaFuncionarioEstoque();
 					window.frmFuncionarioEstoque.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -64,7 +63,7 @@ public class TelaFuncionarioEstoque {
 	/**
 	 * Create the application.
 	 */
-	public TelaFuncionarioEstoquee() {
+	public TelaFuncionarioEstoque() {
 		initialize();
 	}
 
@@ -74,7 +73,7 @@ public class TelaFuncionarioEstoque {
 	private void initialize() {
 		frmFuncionarioEstoque = new JFrame();
 		frmFuncionarioEstoque.getContentPane().setBackground(new Color(255, 255, 255));
-		frmFuncionarioEstoque.setIconImage(Toolkit.getDefaultToolkit().getImage(TelaFuncionarioEstoquee.class.getResource("/img/SportStockLogo.jpg")));
+		frmFuncionarioEstoque.setIconImage(Toolkit.getDefaultToolkit().getImage(TelaFuncionarioEstoque.class.getResource("/img/SportStockLogo.jpg")));
 		frmFuncionarioEstoque.setTitle("Gerenciar");
 		frmFuncionarioEstoque.setBounds(100, 100, 1060, 585);
 		frmFuncionarioEstoque.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -117,12 +116,13 @@ public class TelaFuncionarioEstoque {
 	    alterarQuantidade.setVisible(!bloqueio);
 	    alterarPreco.setVisible(!bloqueio);
 	    
-	    JJButton btnVenda = new JButton("Vendas");
+	    JButton btnVenda = new JButton("Vendas");
 		btnVenda.setBackground(new Color(255, 255, 255));
-		public void actionPerformed(ActionEvent e) {
-			frmFuncionarioEstoque.setVisible(false);
-			TelaFuncionarioVenda.telaFuncionarioVenda());
-			frmFuncionarioEstoque.dispose();
+		btnVenda.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmFuncionarioEstoque.setVisible(false);
+				TelaFuncionarioVenda.telaFuncionarioVenda();
+				frmFuncionarioEstoque.dispose();
 			}
 		});
 		btnVenda.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
@@ -131,9 +131,10 @@ public class TelaFuncionarioEstoque {
 		
 		JButton btnEstoque = new JButton("Estoque");
 		btnEstoque.setBackground(new Color(255, 255, 255));
+		btnEstoque.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmFuncionarioEstoque.setVisible(false);
-				TelaFuncionarioEstoquee.telaGerenteEstoque();
+				TelaFuncionarioEstoque.telaFuncionarioEstoque();
 				frmFuncionarioEstoque.dispose();
 			}
 		});
@@ -143,9 +144,10 @@ public class TelaFuncionarioEstoque {
 		
 		JButton btnClientes = new JButton("Clientes");
 		btnClientes.setBackground(new Color(255, 255, 255));
+		btnClientes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmFuncionarioEstoque.setVisible(false);
-				TelaFuncionarioClientes.telaFuncionarioClientes();
+				TelaFuncionarioCliente.telaFuncionarioCliente();
 				frmFuncionarioEstoque.dispose();
 			}
 		});
@@ -159,10 +161,10 @@ public class TelaFuncionarioEstoque {
 		Erro.setBounds(767, 252, 188, 36);
 		frmFuncionarioEstoque.getContentPane().add(Erro);
 	    
-		JComboBox Opcoes = new JComboBox();
+		JComboBox<String> Opcoes = new JComboBox<String>();
 		Opcoes.setBackground(new Color(255, 255, 255));
 		Opcoes.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
-		Opcoes.setModel(new DefaultComboBoxModel(new String[] {"Código: ", "Nome: ", "Tipo: ", "Descrição: ", "Quantidade: ", "Preço: "}));
+		Opcoes.setModel(new DefaultComboBoxModel<String>(new String[] {"Código: ", "Nome: ", "Tipo: ", "Descrição: ", "Quantidade: ", "Preço: "}));
 		Opcoes.setBounds(60, 126, 155, 36);
 		frmFuncionarioEstoque.getContentPane().add(Opcoes);
 		
@@ -171,12 +173,6 @@ public class TelaFuncionarioEstoque {
 		escolherProdutoAlt.setColumns(10);
 		escolherProdutoAlt.setBounds(241, 126, 321, 36);
 		frmFuncionarioEstoque.getContentPane().add(escolherProdutoAlt);
-		
-		JLabel tipoNomeFuncionario = new JLabel("");
-		tipoNomeFuncionario.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
-		tipoNomeFuncionario.setBounds(854, 11, 121, 57);
-		frmFuncionarioEstoque.getContentPane().add(tipoNomeFuncionario);
-		
 		
 		JLabel lblNewLabel = new JLabel("Nome: ");
 		lblNewLabel.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
@@ -567,6 +563,8 @@ public class TelaFuncionarioEstoque {
     			alterarDescricao.setText(null);
     			alterarQuantidade.setText(null);
     			alterarTipo.setText(null);
+    			
+    			
         		
         	    buscaProdutos.clear();
         	
@@ -578,10 +576,25 @@ public class TelaFuncionarioEstoque {
         frmFuncionarioEstoque.getContentPane().add(btnResetar);
         
         
-
+        JLabel imagem = new JLabel("");
+		imagem.setIcon(new ImageIcon(new ImageIcon(Cadastro.class.getResource("/img/SportStockLogo.jpg")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		imagem.setBounds(0, 0, 121, 82);
+		frmFuncionarioEstoque.getContentPane().add(imagem);
+		
+		JLabel imagem2 = new JLabel("");
+		imagem2.setIcon(new ImageIcon(new ImageIcon(Cadastro.class.getResource("/img/iconGerente.jpg")).getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT)));
+		imagem2.setBounds(958, 11, 121, 82);
+		frmFuncionarioEstoque.getContentPane().add(imagem2);
+		
+		String n = "<html><body>Gerente<br>" + Login.funNome + "</body></html>";
+		JLabel tipoNomeFuncionario = new JLabel(n);
+		tipoNomeFuncionario.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
+		tipoNomeFuncionario.setBounds(854, 11, 121, 57);
+		frmFuncionarioEstoque.getContentPane().add(tipoNomeFuncionario);
         
        
         
         
 	}
 }
+

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JLabel;
 
@@ -14,12 +15,10 @@ import java.awt.Color;
 import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JTable;
-import javax.swing.JList;
-import javax.swing.AbstractListModel;
 
 public class TelaGerenteEstoque {
 
@@ -188,10 +187,10 @@ public class TelaGerenteEstoque {
 		Erro.setBounds(767, 252, 188, 36);
 		frmGerenteEstoque.getContentPane().add(Erro);
 	    
-		JComboBox Opcoes = new JComboBox();
+		JComboBox<String> Opcoes = new JComboBox<String>();
 		Opcoes.setBackground(new Color(255, 255, 255));
 		Opcoes.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
-		Opcoes.setModel(new DefaultComboBoxModel(new String[] {"Código: ", "Nome: ", "Tipo: ", "Descrição: ", "Quantidade: ", "Preço: "}));
+		Opcoes.setModel(new DefaultComboBoxModel<String>(new String[] {"Código: ", "Nome: ", "Tipo: ", "Descrição: ", "Quantidade: ", "Preço: "}));
 		Opcoes.setBounds(60, 126, 155, 36);
 		frmGerenteEstoque.getContentPane().add(Opcoes);
 		
@@ -200,12 +199,6 @@ public class TelaGerenteEstoque {
 		escolherProdutoAlt.setColumns(10);
 		escolherProdutoAlt.setBounds(241, 126, 321, 36);
 		frmGerenteEstoque.getContentPane().add(escolherProdutoAlt);
-		
-		JLabel tipoNomeFuncionario = new JLabel("");
-		tipoNomeFuncionario.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
-		tipoNomeFuncionario.setBounds(854, 11, 121, 57);
-		frmGerenteEstoque.getContentPane().add(tipoNomeFuncionario);
-		
 		
 		JLabel lblNewLabel = new JLabel("Nome: ");
 		lblNewLabel.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
@@ -689,7 +682,21 @@ public class TelaGerenteEstoque {
         btnAdicionar.setBounds(925, 126, 103, 36);
         frmGerenteEstoque.getContentPane().add(btnAdicionar);
         
-
+        JLabel imagem = new JLabel("");
+		imagem.setIcon(new ImageIcon(new ImageIcon(Cadastro.class.getResource("/img/SportStockLogo.jpg")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		imagem.setBounds(0, 0, 121, 82);
+		frmGerenteEstoque.getContentPane().add(imagem);
+		
+		JLabel imagem2 = new JLabel("");
+		imagem2.setIcon(new ImageIcon(new ImageIcon(Cadastro.class.getResource("/img/iconGerente.jpg")).getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT)));
+		imagem2.setBounds(958, 11, 121, 82);
+		frmGerenteEstoque.getContentPane().add(imagem2);
+		
+		String n = "<html><body>Gerente<br>" + Login.funNome + "</body></html>";
+		JLabel tipoNomeFuncionario = new JLabel(n);
+		tipoNomeFuncionario.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
+		tipoNomeFuncionario.setBounds(854, 11, 121, 57);
+		frmGerenteEstoque.getContentPane().add(tipoNomeFuncionario);
         
        
         
