@@ -3,6 +3,7 @@ package telas;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,6 +11,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import recursos.*;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -104,7 +107,7 @@ public class TelaGerenteFornecedores {
 		btnEstoque.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmGerenciarFornecedores.setVisible(false);
-				TelaFuncionarioEstoque.telaFuncionarioEstoque();
+				TelaGerenteEstoque.telaGerenteEstoque();
 				frmGerenciarFornecedores.dispose();
 			}
 		});
@@ -196,10 +199,6 @@ public class TelaGerenteFornecedores {
 		JLabel EmailsFornec = new JLabel(email);
 		EmailsFornec.setBounds(752, 214, 219, 321);
 		frmGerenciarFornecedores.getContentPane().add(EmailsFornec);
-		
-		JLabel iconGerente = new JLabel("");
-		iconGerente.setBounds(885, 11, 136, 67);
-		frmGerenciarFornecedores.getContentPane().add(iconGerente);
 		
 		JLabel lblNewLabel_1_2 = new JLabel("Telefone:");
 		lblNewLabel_1_2.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
@@ -531,6 +530,22 @@ public class TelaGerenteFornecedores {
 		btnContatarFornec.setBackground(Color.WHITE);
 		btnContatarFornec.setBounds(632, 92, 189, 36);
 		frmGerenciarFornecedores.getContentPane().add(btnContatarFornec);
+		
+		JLabel imagem = new JLabel("");
+		imagem.setIcon(new ImageIcon(new ImageIcon(Cadastro.class.getResource("/img/SportStockLogo.jpg")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		imagem.setBounds(0, 0, 121, 82);
+		frmGerenciarFornecedores.getContentPane().add(imagem);
+		
+		JLabel imagem2 = new JLabel("");
+		imagem2.setIcon(new ImageIcon(new ImageIcon(Cadastro.class.getResource("/img/iconGerente.jpg")).getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT)));
+		imagem2.setBounds(958, 11, 121, 82);
+		frmGerenciarFornecedores.getContentPane().add(imagem2);
+		
+		String n = "<html><body>Gerente<br>" + Login.funNome + "</body></html>";
+		JLabel tipoNomeFuncionario = new JLabel(n);
+		tipoNomeFuncionario.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
+		tipoNomeFuncionario.setBounds(854, 11, 121, 57);
+		frmGerenciarFornecedores.getContentPane().add(tipoNomeFuncionario);
 		
 		btnBusca.setVisible(false);
 		idFor.setVisible(false);
