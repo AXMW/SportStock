@@ -456,18 +456,17 @@ public class Main {
 	}
 	
 	//Metodo para adicionar novos produtos
-	private void adicionarProd() {
+	public void adicionarProd(Produto p) {
 		
-		Produto p2 = new Produto();
+		conecta();
 		
-
 		try {
 			PreparedStatement strComandoSQL = Conexao.prepareStatement("INSERT INTO Produto (nomeProd, tipoProd, descricaoProd, qtdProd, precoProd)" + " VALUES (?,?,?,?,?)");
-			strComandoSQL.setString(1, p2.getNomeProd());
-			strComandoSQL.setString(2, p2.getTipoProd());
-			strComandoSQL.setString(3, p2.getDescricaoProd());
-			strComandoSQL.setInt(4, p2.getQtdProd());
-			strComandoSQL.setFloat(5, p2.getPrecoProd());
+			strComandoSQL.setString(1, p.getNomeProd());
+			strComandoSQL.setString(2, p.getTipoProd());
+			strComandoSQL.setString(3, p.getDescricaoProd());
+			strComandoSQL.setInt(4, p.getQtdProd());
+			strComandoSQL.setFloat(5, p.getPrecoProd());
 			int intRegistro = strComandoSQL.executeUpdate();
 			if(intRegistro != 0) {
 				rsRegistro = Conexao.createStatement().executeQuery("SELECT idProd FROM Produto");
@@ -477,9 +476,7 @@ public class Main {
 						codigo = rsRegistro.getInt("idProd");
 					}
 				}
-				p2.setIdProd(codigo);
 				JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
-				produtos.add(p2);
 			}
 		}
 		catch (Exception Excecao) {
@@ -724,37 +721,22 @@ public class Main {
 	}*/
 
 	//Metodo para editar produtos
-	private void editarProd() {
-		for(int i = 0; i < produtos.size(); ++i) {
-			String str = "ID: " + produtos.get(i).getIdProd() + "\nNome: " + produtos.get(i).getNomeProd() + "\nTipo: " + produtos.get(i).getTipoProd() + "\nPreco: " + produtos.get(i).getPrecoProd() + "\nDescricao: " + produtos.get(i).getDescricaoProd() + "\nQuantidade disponivel: " + produtos.get(i).getQtdProd();
-			JOptionPane.showMessageDialog(null, str);
-		}
-		int n = Integer.parseInt(JOptionPane.showInputDialog("Insira o ID do produto que deseja editar"));
-		int j = 0;
-		for(int i = 0; i < produtos.size(); ++i) {
-			if(produtos.get(i).getIdProd() == n) {
-				j = i;
-				break;
-			}
-		}
-		int num = JOptionPane.showConfirmDialog(null, "Confirma a edição?\nID: " + produtos.get(j).getIdProd() + "\nNome: " + produtos.get(j).getNomeProd() + "\nTipo: " + produtos.get(j).getTipoProd() + "\nPreco: " + produtos.get(j).getPrecoProd() + "\nDescricao: " + produtos.get(j).getDescricaoProd() + "\nQuantidade disponivel: " + produtos.get(j).getQtdProd(), "Edição", JOptionPane.YES_NO_OPTION);
+	public void editarProd(Produto p) {
+		conecta();
+		int num = JOptionPane.showConfirmDialog(null, "Confirma a edição?\nID: " + p.getIdProd() + "\nNome: " + p.getNomeProd() + "\nTipo: " + p.getTipoProd() + "\nPreco: " + p.getPrecoProd() + "\nDescricao: " + p.getDescricaoProd() + "\nQuantidade disponivel: " + p.getQtdProd(), "Edição", JOptionPane.YES_NO_OPTION);
 		if(num == 0) {
-			Produto p2 = new Produto();
-
-			
 
 			try {
 				PreparedStatement strComandoSQL = Conexao.prepareStatement("UPDATE Produto SET (nomeProd, tipoProd, descricaoProd, qtdProd, precoProd)" + " = (?,?,?,?,?) WHERE idProd = ?");
-				strComandoSQL.setString(1, p2.getNomeProd());
-				strComandoSQL.setString(2, p2.getTipoProd());
-				strComandoSQL.setString(3, p2.getDescricaoProd());
-				strComandoSQL.setInt(4, p2.getQtdProd());
-				strComandoSQL.setFloat(5, p2.getPrecoProd());
-				strComandoSQL.setInt(6, n);
+				strComandoSQL.setString(1, p.getNomeProd());
+				strComandoSQL.setString(2, p.getTipoProd());
+				strComandoSQL.setString(3, p.getDescricaoProd());
+				strComandoSQL.setInt(4, p.getQtdProd());
+				strComandoSQL.setFloat(5, p.getPrecoProd());
+				strComandoSQL.setInt(6, p.getIdProd());
 				int intRegistro = strComandoSQL.executeUpdate();
 				if(intRegistro != 0) {
 					JOptionPane.showMessageDialog(null, "Edição realizada com sucesso");
-					produtos.set(j, p2);
 				}
 			}
 			catch (Exception Excecao) {

@@ -166,7 +166,7 @@ public class TelaGerente {
 		JLabel Erro = new JLabel("");
 		Erro.setBackground(new Color(255, 0, 0));
 		Erro.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 11));
-		Erro.setBounds(846, 126, 188, 36);
+		Erro.setBounds(856, 126, 188, 36);
 		frmGerenciar.getContentPane().add(Erro);
 		
 		JLabel lblNewLabel = new JLabel("Produtos:");

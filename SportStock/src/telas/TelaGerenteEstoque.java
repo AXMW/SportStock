@@ -23,7 +23,7 @@ import javax.swing.AbstractListModel;
 
 public class TelaGerenteEstoque {
 
-	private JFrame frmFuncionarioEstoque;
+	private JFrame frmGerenteEstoque;
 	
 	private static ArrayList<Produto> produtos = new ArrayList<Produto>();
 	private static ArrayList<Produto> buscaProdutos = new ArrayList<Produto>();
@@ -41,7 +41,8 @@ public class TelaGerenteEstoque {
     private JTextField alterarDescricao;
     private JTextField alterarQuantidade;
     private JTextField alterarPreco;
-
+    private int contador = 0;
+    
 	/**
 	 * Launch the application.
 	 */
@@ -52,7 +53,7 @@ public class TelaGerenteEstoque {
 			public void run() {
 				try {
 					TelaGerenteEstoque window = new TelaGerenteEstoque();
-					window.frmFuncionarioEstoque.setVisible(true);
+					window.frmGerenteEstoque.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -71,181 +72,209 @@ public class TelaGerenteEstoque {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frmFuncionarioEstoque = new JFrame();
-		frmFuncionarioEstoque.getContentPane().setBackground(new Color(255, 255, 255));
-		frmFuncionarioEstoque.setIconImage(Toolkit.getDefaultToolkit().getImage(TelaGerenteEstoque.class.getResource("/img/SportStockLogo.jpg")));
-		frmFuncionarioEstoque.setTitle("Gerenciar");
-		frmFuncionarioEstoque.setBounds(100, 100, 1060, 585);
-		frmFuncionarioEstoque.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmFuncionarioEstoque.getContentPane().setLayout(null);
+		frmGerenteEstoque = new JFrame();
+		frmGerenteEstoque.getContentPane().setBackground(new Color(255, 255, 255));
+		frmGerenteEstoque.setIconImage(Toolkit.getDefaultToolkit().getImage(TelaGerenteEstoque.class.getResource("/img/SportStockLogo.jpg")));
+		frmGerenteEstoque.setTitle("Gerenciar");
+		frmGerenteEstoque.setBounds(100, 100, 1060, 585);
+		frmGerenteEstoque.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmGerenteEstoque.getContentPane().setLayout(null);
 		
-        JButton btnAlterar = new JButton("Alterar");
-        btnAlterar.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
-        btnAlterar.setBackground(Color.WHITE);
-        btnAlterar.setBounds(894, 107, 103, 36);
-        frmFuncionarioEstoque.getContentPane().add(btnAlterar);
-		
+
 		alterarNome = new JTextField();
 	    alterarNome.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 	    alterarNome.setColumns(10);
-	    alterarNome.setBounds(122, 183, 154, 36);
-	    frmFuncionarioEstoque.getContentPane().add(alterarNome);
+	    alterarNome.setBounds(122, 204, 154, 36);
+	    frmGerenteEstoque.getContentPane().add(alterarNome);
 	        
 	    alterarTipo = new JTextField();
 	    alterarTipo.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 	    alterarTipo.setColumns(10);
-	    alterarTipo.setBounds(279, 183, 154, 36);
-	    frmFuncionarioEstoque.getContentPane().add(alterarTipo);
+	    alterarTipo.setBounds(279, 204, 154, 36);
+	    frmGerenteEstoque.getContentPane().add(alterarTipo);
 	        
 	    alterarDescricao = new JTextField();
 	    alterarDescricao.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 	    alterarDescricao.setColumns(10);
-	    alterarDescricao.setBounds(436, 183, 264, 84);
-	    frmFuncionarioEstoque.getContentPane().add(alterarDescricao);
+	    alterarDescricao.setBounds(436, 204, 264, 36);
+	    frmGerenteEstoque.getContentPane().add(alterarDescricao);
 	        
 	    alterarQuantidade = new JTextField();
 	    alterarQuantidade.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 	    alterarQuantidade.setColumns(10);
-	    alterarQuantidade.setBounds(703, 183, 154, 36);
-	    frmFuncionarioEstoque.getContentPane().add(alterarQuantidade);
+	    alterarQuantidade.setBounds(703, 204, 154, 36);
+	    frmGerenteEstoque.getContentPane().add(alterarQuantidade);
 	        
 	    alterarPreco = new JTextField();
 	    alterarPreco.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 	    alterarPreco.setColumns(10);
-	    alterarPreco.setBounds(859, 183, 154, 36);
-	    frmFuncionarioEstoque.getContentPane().add(alterarPreco);
+	    alterarPreco.setBounds(859, 204, 154, 36);
+	    frmGerenteEstoque.getContentPane().add(alterarPreco);
 	    
 	    alterarNome.setVisible(!bloqueio);
 	    alterarTipo.setVisible(!bloqueio);
 	    alterarDescricao.setVisible(!bloqueio);
 	    alterarQuantidade.setVisible(!bloqueio);
 	    alterarPreco.setVisible(!bloqueio);
-	    btnAlterar.setVisible(!bloqueio);
+	    
+	    JButton btnVenda = new JButton("Vendas");
+		btnVenda.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmGerenteEstoque.setVisible(false);
+				TelaGerente.telaGerente();
+				frmGerenteEstoque.dispose();
+			}
+		});
+		btnVenda.setBackground(new Color(255, 255, 255));
+		btnVenda.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
+		btnVenda.setBounds(123, 32, 103, 36);
+		frmGerenteEstoque.getContentPane().add(btnVenda);
 		
+		JButton btnFuncionarios = new JButton("Funcionarios");
+		btnFuncionarios.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmGerenteEstoque.setVisible(false);
+				TelaGerenteFuncionarios.telaGerenteFuncionarios();
+				frmGerenteEstoque.dispose();
+			}
+		});
+		btnFuncionarios.setBackground(new Color(255, 255, 255));
+		btnFuncionarios.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
+		btnFuncionarios.setBounds(256, 32, 125, 36);
+		frmGerenteEstoque.getContentPane().add(btnFuncionarios);
+		
+		JButton btnEstoque = new JButton("Estoque");
+		btnEstoque.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmGerenteEstoque.setVisible(false);
+				TelaGerenteEstoque.telaGerenteEstoque();
+				frmGerenteEstoque.dispose();
+			}
+		});
+		btnEstoque.setBackground(new Color(255, 255, 255));
+		btnEstoque.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
+		btnEstoque.setBounds(408, 32, 103, 36);
+		frmGerenteEstoque.getContentPane().add(btnEstoque);
+		
+		JButton btnClientes = new JButton("Clientes");
+		btnClientes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmGerenteEstoque.setVisible(false);
+				TelaGerenteClientes.telaGerenteClientes();
+				frmGerenteEstoque.dispose();
+			}
+		});
+		btnClientes.setBackground(new Color(255, 255, 255));
+		btnClientes.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
+		btnClientes.setBounds(546, 32, 103, 36);
+		frmGerenteEstoque.getContentPane().add(btnClientes);
+		
+		JButton btnFornecedores = new JButton("Fornecedores");
+		btnFornecedores.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmGerenteEstoque.setVisible(false);
+				TelaGerenteFornecedores.telaGerenteFornecedores();
+				frmGerenteEstoque.dispose();
+			}
+		});
+		btnFornecedores.setBackground(new Color(255, 255, 255));
+		btnFornecedores.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
+		btnFornecedores.setBounds(682, 32, 127, 36);
+		frmGerenteEstoque.getContentPane().add(btnFornecedores);
+
+	    JLabel Erro = new JLabel("");
+		Erro.setBackground(new Color(255, 0, 0));
+		Erro.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 11));
+		Erro.setBounds(767, 252, 188, 36);
+		frmGerenteEstoque.getContentPane().add(Erro);
+	    
 		JComboBox Opcoes = new JComboBox();
 		Opcoes.setBackground(new Color(255, 255, 255));
 		Opcoes.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
 		Opcoes.setModel(new DefaultComboBoxModel(new String[] {"Código: ", "Nome: ", "Tipo: ", "Descrição: ", "Quantidade: ", "Preço: "}));
-		Opcoes.setBounds(121, 105, 155, 36);
-		frmFuncionarioEstoque.getContentPane().add(Opcoes);
+		Opcoes.setBounds(60, 126, 155, 36);
+		frmGerenteEstoque.getContentPane().add(Opcoes);
 		
 		escolherProdutoAlt = new JTextField();
 		escolherProdutoAlt.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		escolherProdutoAlt.setColumns(10);
-		escolherProdutoAlt.setBounds(303, 107, 321, 36);
-		frmFuncionarioEstoque.getContentPane().add(escolherProdutoAlt);
-		
-		JButton btnVenda = new JButton("Vendas");
-		btnVenda.setBackground(new Color(255, 255, 255));
-		btnVenda.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
-		btnVenda.setBounds(95, 11, 141, 36);
-		frmFuncionarioEstoque.getContentPane().add(btnVenda);
-		
-		JButton btnEstoque = new JButton("Estoque");
-		btnEstoque.setBackground(new Color(255, 255, 255));
-		btnEstoque.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
-		btnEstoque.setBounds(342, 11, 141, 36);
-		frmFuncionarioEstoque.getContentPane().add(btnEstoque);
-		
-		JButton btnClientes = new JButton("Clientes");
-		btnClientes.setBackground(new Color(255, 255, 255));
-		btnClientes.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
-		btnClientes.setBounds(619, 11, 141, 36);
-		frmFuncionarioEstoque.getContentPane().add(btnClientes);
+		escolherProdutoAlt.setBounds(241, 126, 321, 36);
+		frmGerenteEstoque.getContentPane().add(escolherProdutoAlt);
 		
 		JLabel tipoNomeFuncionario = new JLabel("");
 		tipoNomeFuncionario.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		tipoNomeFuncionario.setBounds(854, 11, 121, 57);
-		frmFuncionarioEstoque.getContentPane().add(tipoNomeFuncionario);
+		frmGerenteEstoque.getContentPane().add(tipoNomeFuncionario);
 		
-		JButton btnExcluirProduto = new JButton("Excluir produto");
-		btnExcluirProduto.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-					if (bloqueio == false) {
-						for (int i = 0; i < buscaProdutos.size(); i++) {
-							new Main().excluirProd(buscaProdutos.get(i).getIdProd());
-						}
-					produtos = new Main().getListaProd();
-					}
-				}
-			});
-		btnExcluirProduto.setBackground(new Color(255, 255, 255));
-		btnExcluirProduto.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 18));
-		btnExcluirProduto.setBounds(193, 58, 184, 36);
-		frmFuncionarioEstoque.getContentPane().add(btnExcluirProduto);
 		
 		JLabel lblNewLabel = new JLabel("Nome: ");
 		lblNewLabel.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
-		lblNewLabel.setBounds(163, 152, 113, 23);
-		frmFuncionarioEstoque.getContentPane().add(lblNewLabel);
+		lblNewLabel.setBounds(163, 173, 113, 23);
+		frmGerenteEstoque.getContentPane().add(lblNewLabel);
 		
 		JLabel lblCdigo = new JLabel("Código:");
 		lblCdigo.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
-		lblCdigo.setBounds(10, 152, 85, 23);
-		frmFuncionarioEstoque.getContentPane().add(lblCdigo);
+		lblCdigo.setBounds(10, 173, 85, 23);
+		frmGerenteEstoque.getContentPane().add(lblCdigo);
 		
 		JLabel lblPreo = new JLabel("Preço:");
 		lblPreo.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
-		lblPreo.setBounds(900, 152, 59, 23);
-		frmFuncionarioEstoque.getContentPane().add(lblPreo);
+		lblPreo.setBounds(900, 173, 59, 23);
+		frmGerenteEstoque.getContentPane().add(lblPreo);
 		
 		JLabel lblQuantidade = new JLabel("Quantidade:");
 		lblQuantidade.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
-		lblQuantidade.setBounds(727, 152, 115, 23);
-		frmFuncionarioEstoque.getContentPane().add(lblQuantidade);
+		lblQuantidade.setBounds(727, 173, 115, 23);
+		frmGerenteEstoque.getContentPane().add(lblQuantidade);
 		
 		JLabel lblTotal = new JLabel("Tipo: ");
 		lblTotal.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
-		lblTotal.setBounds(303, 152, 59, 23);
-		frmFuncionarioEstoque.getContentPane().add(lblTotal);
+		lblTotal.setBounds(303, 173, 59, 23);
+		frmGerenteEstoque.getContentPane().add(lblTotal);
 		
 		JLabel produtosEstoque = new JLabel("");
 		produtosEstoque.setHorizontalAlignment(SwingConstants.CENTER);
 		produtosEstoque.setVerticalAlignment(SwingConstants.TOP);
 		produtosEstoque.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
-		produtosEstoque.setBounds(121, 186, 155, 242);
-		frmFuncionarioEstoque.getContentPane().add(produtosEstoque);
+		produtosEstoque.setBounds(121, 207, 155, 242);
+		frmGerenteEstoque.getContentPane().add(produtosEstoque);
 		
 		JLabel codigosProdutosEstoque = new JLabel("");
 		codigosProdutosEstoque.setHorizontalAlignment(SwingConstants.CENTER);
 		codigosProdutosEstoque.setVerticalAlignment(SwingConstants.TOP);
 		codigosProdutosEstoque.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
-		codigosProdutosEstoque.setBounds(10, 186, 101, 242);
-		frmFuncionarioEstoque.getContentPane().add(codigosProdutosEstoque);
+		codigosProdutosEstoque.setBounds(10, 207, 101, 242);
+		frmGerenteEstoque.getContentPane().add(codigosProdutosEstoque);
 		
 		JLabel precoProdutosEstoque = new JLabel("");
 		precoProdutosEstoque.setVerticalAlignment(SwingConstants.TOP);
 		precoProdutosEstoque.setHorizontalAlignment(SwingConstants.CENTER);
 		precoProdutosEstoque.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
-		precoProdutosEstoque.setBounds(872, 186, 127, 242);
-		frmFuncionarioEstoque.getContentPane().add(precoProdutosEstoque);
+		precoProdutosEstoque.setBounds(872, 207, 127, 242);
+		frmGerenteEstoque.getContentPane().add(precoProdutosEstoque);
 		
 		JLabel quantidadeProdutosEstoque = new JLabel("");
 		quantidadeProdutosEstoque.setVerticalAlignment(SwingConstants.TOP);
 		quantidadeProdutosEstoque.setHorizontalAlignment(SwingConstants.CENTER);
 		quantidadeProdutosEstoque.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
-		quantidadeProdutosEstoque.setBounds(736, 186, 101, 242);
-		frmFuncionarioEstoque.getContentPane().add(quantidadeProdutosEstoque);
+		quantidadeProdutosEstoque.setBounds(736, 207, 101, 242);
+		frmGerenteEstoque.getContentPane().add(quantidadeProdutosEstoque);
 		
 		JLabel tipoProdutosEstoque = new JLabel("");
 		tipoProdutosEstoque.setHorizontalAlignment(SwingConstants.CENTER);
 		tipoProdutosEstoque.setVerticalAlignment(SwingConstants.TOP);
 		tipoProdutosEstoque.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
-		tipoProdutosEstoque.setBounds(286, 186, 101, 242);
-		frmFuncionarioEstoque.getContentPane().add(tipoProdutosEstoque);
-		
-		JLabel Erro = new JLabel("aaaaaaaaaaaaaaa");
-		Erro.setBackground(new Color(255, 0, 0));
-		Erro.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 11));
-		Erro.setBounds(795, 58, 188, 36);
-		frmFuncionarioEstoque.getContentPane().add(Erro);
+		tipoProdutosEstoque.setBounds(286, 207, 101, 242);
+		frmGerenteEstoque.getContentPane().add(tipoProdutosEstoque);
 		
 		JLabel descricaoProdutosEstoque = new JLabel("");
 		descricaoProdutosEstoque.setVerticalAlignment(SwingConstants.TOP);
 		descricaoProdutosEstoque.setHorizontalAlignment(SwingConstants.CENTER);
 		descricaoProdutosEstoque.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
-		descricaoProdutosEstoque.setBounds(397, 186, 310, 242);
-		frmFuncionarioEstoque.getContentPane().add(descricaoProdutosEstoque);
+		descricaoProdutosEstoque.setBounds(397, 207, 310, 242);
+		frmGerenteEstoque.getContentPane().add(descricaoProdutosEstoque);
+		
+
 		
 		JButton AdicionarProd = new JButton("Buscar");
 		AdicionarProd.setBackground(new Color(255, 255, 255));
@@ -324,13 +353,15 @@ public class TelaGerenteEstoque {
 				descricaoProdutosEstoque.setVisible(!bloqueio);
 				quantidadeProdutosEstoque.setVisible(!bloqueio);
 				precoProdutosEstoque.setVisible(!bloqueio);
+				codigosProdutosEstoque.setVisible(true);
 				
 				alterarNome.setVisible(bloqueio);
 				alterarTipo.setVisible(bloqueio);
 				alterarDescricao.setVisible(bloqueio);
 				alterarQuantidade.setVisible(bloqueio);
 				alterarPreco.setVisible(bloqueio);
-			    btnAlterar.setVisible(bloqueio);
+				contador = 0;
+				Erro.setText("");
 				
 				String buscaProduto = "<html><body>";
 		        String buscaCodigos = "<html><body>";
@@ -373,14 +404,32 @@ public class TelaGerenteEstoque {
 			}
 		});
 		AdicionarProd.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
-		AdicionarProd.setBounds(668, 107, 103, 36);
-		frmFuncionarioEstoque.getContentPane().add(AdicionarProd);
+		AdicionarProd.setBounds(586, 126, 103, 36);
+		frmGerenteEstoque.getContentPane().add(AdicionarProd);
+		
+		JButton btnExcluirProduto = new JButton("Excluir produto");
+		btnExcluirProduto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+					if (bloqueio == false) {
+						for (int i = 0; i < buscaProdutos.size(); i++) {
+							new Main().excluirProd(buscaProdutos.get(i).getIdProd());
+						}
+					produtos = new Main().getListaProd();
+					
+					AdicionarProd.doClick();
+					}
+				}
+			});
+		btnExcluirProduto.setBackground(new Color(255, 255, 255));
+		btnExcluirProduto.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 18));
+		btnExcluirProduto.setBounds(617, 79, 184, 36);
+		frmGerenteEstoque.getContentPane().add(btnExcluirProduto);
 		
 		
 		JLabel lblPreo_1 = new JLabel("Descrição: ");
 		lblPreo_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 20));
-		lblPreo_1.setBounds(502, 152, 96, 23);
-		frmFuncionarioEstoque.getContentPane().add(lblPreo_1);
+		lblPreo_1.setBounds(502, 173, 96, 23);
+		frmGerenteEstoque.getContentPane().add(lblPreo_1);
 		
 		produto = "<html><body>";
         codigos = "<html><body>";
@@ -422,7 +471,8 @@ public class TelaGerenteEstoque {
 		JButton btnAlterarProduto = new JButton("Alterar produto");
 		btnAlterarProduto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (buscaProdutos.size() != 0) {
+				
+				if (buscaProdutos.size() != 0 && !(contador == buscaProdutos.size())) {
 					
 					produtosEstoque.setVisible(bloqueio);
 					tipoProdutosEstoque.setVisible(bloqueio);
@@ -435,27 +485,67 @@ public class TelaGerenteEstoque {
 					 alterarDescricao.setVisible(!bloqueio);
 					 alterarQuantidade.setVisible(!bloqueio);
 					 alterarPreco.setVisible(!bloqueio);
-					 btnAlterar.setVisible(!bloqueio);
-					
-					for (int i = 0; i < buscaProdutos.size(); i++) {
-						
-						alterarNome.setText(buscaProdutos.get(i).getNomeProd());
-						alterarTipo.setText(buscaProdutos.get(i).getTipoProd());
-						alterarDescricao.setText(buscaProdutos.get(i).getDescricaoProd());
-						alterarQuantidade.setText(Integer.toString(buscaProdutos.get(i).getQtdProd()));
-						alterarPreco.setText(Float.toString(buscaProdutos.get(i).getPrecoProd()));
-						
-						
-					}
+
+					codigosProdutosEstoque.setText(Integer.toString(produtos.get(contador).getIdProd()));		
+					alterarNome.setText(buscaProdutos.get(contador).getNomeProd());
+					alterarTipo.setText(buscaProdutos.get(contador).getTipoProd());
+					alterarDescricao.setText(buscaProdutos.get(contador).getDescricaoProd());
+					alterarQuantidade.setText(Integer.toString(buscaProdutos.get(contador).getQtdProd()));
+					alterarPreco.setText(Float.toString(buscaProdutos.get(contador).getPrecoProd()));
+
 				}
 				
 			}
 		});
 		btnAlterarProduto.setBackground(new Color(255, 255, 255));
 		btnAlterarProduto.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 18));
-		btnAlterarProduto.setBounds(463, 58, 184, 36);
-		frmFuncionarioEstoque.getContentPane().add(btnAlterarProduto);
-        
+		btnAlterarProduto.setBounds(371, 79, 184, 36);
+		frmGerenteEstoque.getContentPane().add(btnAlterarProduto);
+		
+		
+		
+		JButton btnAlterar = new JButton("Alterar");
+        btnAlterar.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		if (!alterarNome.getText().equals("")) {
+        			
+        			Produto p = new Produto();
+        			
+        			try {
+	        			p.setIdProd(buscaProdutos.get(contador).getIdProd());
+	        			p.setNomeProd(alterarNome.getText());
+	        			p.setPrecoProd(Float.parseFloat(alterarPreco.getText()));
+	        			p.setDescricaoProd(alterarDescricao.getText());
+	        			p.setQtdProd(Integer.parseInt(alterarQuantidade.getText()));
+	        			p.setTipoProd(alterarTipo.getText());
+        			} catch (Exception e1) {
+        				Erro.setText("A alteração é permitida somente em produtos existentes");
+        			}
+        			
+        			new Main().editarProd(p);
+        			
+        			produtos = new Main().getListaProd();
+
+        			contador++;
+        			
+        			alterarNome.setText(null);
+        			alterarPreco.setText(null);
+        			alterarDescricao.setText(null);
+        			alterarQuantidade.setText(null);
+        			alterarTipo.setText(null);
+        			
+        			btnAlterarProduto.doClick();
+        			
+        		}
+        		else {
+        		}
+        	}
+        });
+        btnAlterar.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
+        btnAlterar.setBackground(Color.WHITE);
+        btnAlterar.setBounds(812, 126, 103, 36);
+        frmGerenteEstoque.getContentPane().add(btnAlterar);
+		
         JButton btnResetar = new JButton("Resetar");
         btnResetar.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
@@ -463,6 +553,8 @@ public class TelaGerenteEstoque {
         		
         		
         		bloqueio = true;
+        		
+        		contador = 0;
         		
         		produto = "<html><body>";
                 codigos = "<html><body>";
@@ -502,18 +594,26 @@ public class TelaGerenteEstoque {
         	    tipoProdutosEstoque.setText(tipo);
         	    descricaoProdutosEstoque.setText(descricao);
         	    
+        	    codigosProdutosEstoque.setVisible(true);
         	    produtosEstoque.setVisible(bloqueio);
 				tipoProdutosEstoque.setVisible(bloqueio);
 				descricaoProdutosEstoque.setVisible(bloqueio);
 				quantidadeProdutosEstoque.setVisible(bloqueio);
 				precoProdutosEstoque.setVisible(bloqueio);
 				
+				Erro.setText("");
+				
 				alterarNome.setVisible(!bloqueio);
 				alterarTipo.setVisible(!bloqueio);
 				alterarDescricao.setVisible(!bloqueio);
 				alterarQuantidade.setVisible(!bloqueio);
 				alterarPreco.setVisible(!bloqueio);
-			    btnAlterar.setVisible(!bloqueio);
+				
+    			alterarNome.setText(null);
+    			alterarPreco.setText(null);
+    			alterarDescricao.setText(null);
+    			alterarQuantidade.setText(null);
+    			alterarTipo.setText(null);
         		
         	    buscaProdutos.clear();
         	
@@ -521,8 +621,73 @@ public class TelaGerenteEstoque {
         });
         btnResetar.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
         btnResetar.setBackground(Color.WHITE);
-        btnResetar.setBounds(781, 107, 103, 36);
-        frmFuncionarioEstoque.getContentPane().add(btnResetar);
+        btnResetar.setBounds(699, 126, 103, 36);
+        frmGerenteEstoque.getContentPane().add(btnResetar);
+        
+        JButton btnAdicionarProduto = new JButton("Adicionar Produto");
+        btnAdicionarProduto.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+					
+					produtosEstoque.setVisible(false);
+					tipoProdutosEstoque.setVisible(false);
+					descricaoProdutosEstoque.setVisible(false);
+					quantidadeProdutosEstoque.setVisible(false);
+					precoProdutosEstoque.setVisible(false);
+					codigosProdutosEstoque.setVisible(false);
+					
+					alterarNome.setText(null);
+	    			alterarPreco.setText(null);
+	    			alterarDescricao.setText(null);
+	    			alterarQuantidade.setText(null);
+	    			alterarTipo.setText(null);
+					
+					 alterarNome.setVisible(true);
+					 alterarTipo.setVisible(true);
+					 alterarDescricao.setVisible(true);
+					 alterarQuantidade.setVisible(true);
+					 alterarPreco.setVisible(true);
+        		
+        	}
+        });
+        btnAdicionarProduto.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 18));
+        btnAdicionarProduto.setBackground(Color.WHITE);
+        btnAdicionarProduto.setBounds(133, 79, 184, 36);
+        frmGerenteEstoque.getContentPane().add(btnAdicionarProduto);
+        
+        JButton btnAdicionar = new JButton("Adicionar");
+        btnAdicionar.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		if (!(alterarNome.getText().equals("") && alterarPreco.getText().equals("") && alterarQuantidade.getText().equals("") && alterarDescricao.getText().equals("") && alterarTipo.getText().equals(""))) {
+        				Produto p = new Produto();
+        				
+    	    			try {
+    	    				p.setNomeProd(alterarNome.getText());
+        	    			p.setPrecoProd(Float.parseFloat(alterarPreco.getText()));
+        	    			p.setDescricaoProd(alterarDescricao.getText());
+        	    			p.setQtdProd(Integer.parseInt(alterarQuantidade.getText()));
+        	    			p.setTipoProd(alterarTipo.getText());
+        	    			
+        	    			new Main().adicionarProd(p);
+        	    			
+        	    			produtos = new Main().getListaProd();
+        	    			
+    	    			} catch(Exception e1) {
+    	    				Erro.setText("Somente números são permitidos nos campos de Quantidade e Preço");
+    	    			} 
+
+    	    			
+    	    			alterarNome.setText(null);
+    	    			alterarPreco.setText(null);
+    	    			alterarDescricao.setText(null);
+    	    			alterarQuantidade.setText(null);
+    	    			alterarTipo.setText(null);
+        		}
+        	}
+        });
+        btnAdicionar.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
+        btnAdicionar.setBackground(Color.WHITE);
+        btnAdicionar.setBounds(925, 126, 103, 36);
+        frmGerenteEstoque.getContentPane().add(btnAdicionar);
         
 
         
