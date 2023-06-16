@@ -10,6 +10,8 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Color;
 import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
@@ -643,6 +645,7 @@ public class TelaFuncionarioVenda {
 				}
 				descontoDoCupom = "R$" + (num * porcentagemCupom);
 				descontoCupom.setText(descontoDoCupom);
+				JOptionPane.showMessageDialog(null, "Venda realizada com sucesso");
 			}
 		});
 		FinalizarVenda.setBackground(new Color(255, 255, 255));
@@ -667,7 +670,7 @@ public class TelaFuncionarioVenda {
 		imagem2.setBounds(958, 11, 121, 82);
 		frmFuncionarioVenda.getContentPane().add(imagem2);
 		
-		String n = "<html><body>Gerente<br>" + Login.funNome + "</body></html>";
+		String n = "<html><body>Vendedor<br>" + Login.funNome + "</body></html>";
 		JLabel tipoNomeFuncionario = new JLabel(n);
 		tipoNomeFuncionario.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		tipoNomeFuncionario.setBounds(854, 11, 121, 57);

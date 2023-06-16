@@ -10,6 +10,8 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Color;
 import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
@@ -702,6 +704,7 @@ public class TelaGerente {
 				}
 				descontoDoCupom = "R$" + (num * porcentagemCupom);
 				descontoCupom.setText(descontoDoCupom);
+				JOptionPane.showMessageDialog(null, "Venda realizada com sucesso");
 			}
 		});
 		FinalizarVenda.setBackground(new Color(255, 255, 255));

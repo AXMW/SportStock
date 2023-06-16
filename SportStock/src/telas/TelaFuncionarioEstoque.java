@@ -586,7 +586,7 @@ public class TelaFuncionarioEstoque {
 		imagem2.setBounds(958, 11, 121, 82);
 		frmFuncionarioEstoque.getContentPane().add(imagem2);
 		
-		String n = "<html><body>Gerente<br>" + Login.funNome + "</body></html>";
+		String n = "<html><body>Vendedor<br>" + Login.funNome + "</body></html>";
 		JLabel tipoNomeFuncionario = new JLabel(n);
 		tipoNomeFuncionario.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		tipoNomeFuncionario.setBounds(854, 11, 121, 57);

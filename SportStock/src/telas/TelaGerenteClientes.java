@@ -97,7 +97,7 @@ public class TelaGerenteClientes {
 		});
 		btnFuncionarios.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		btnFuncionarios.setBackground(Color.WHITE);
-		btnFuncionarios.setBounds(266, 32, 115, 36);
+		btnFuncionarios.setBounds(256, 32, 125, 36);
 		frmGerenciarCliente.getContentPane().add(btnFuncionarios);
 		
 		JButton btnEstoque = new JButton("Estoque");
@@ -133,7 +133,7 @@ public class TelaGerenteClientes {
 		});
 		btnFornecedores.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
 		btnFornecedores.setBackground(Color.WHITE);
-		btnFornecedores.setBounds(682, 32, 121, 36);
+		btnFornecedores.setBounds(682, 32, 127, 36);
 		frmGerenciarCliente.getContentPane().add(btnFornecedores);
 		
 		
